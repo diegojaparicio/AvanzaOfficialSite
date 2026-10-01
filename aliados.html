@@ -355,6 +355,8 @@ class Component extends DCLogic {
   prefix = ["", "", "$", ""];
 
   componentDidMount() {
+    this.zoomFit = () => { const z = Math.max(1, Math.min(1.6, window.innerWidth / 1440)); document.documentElement.style.zoom = z > 1.01 ? String(z.toFixed(3)) : ""; };
+    this.zoomFit(); window.addEventListener("resize", this.zoomFit);
     this.onMob = () => { const mob = window.innerWidth < 900; if (mob !== this.state.mob) this.setState({ mob, menuOpen: false }); };
     this.onMob(); window.addEventListener('resize', this.onMob); requestAnimationFrame(this.onMob); setTimeout(this.onMob, 300); window.addEventListener('load', this.onMob); if (window.ResizeObserver) { this.mobRO = new ResizeObserver(this.onMob); this.mobRO.observe(document.documentElement); }
     const hdr = document.getElementById("avz-hdr");
