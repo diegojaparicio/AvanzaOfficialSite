@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Avanza — Agencias aliadas</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #F6F5F2; color: #14161A; font-family: Manrope, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  nav::-webkit-scrollbar { display: none; }
+  a { color: #0F3D2C; text-decoration: none; }
+  a:hover { color: #E63E00; }
+  @keyframes avz-ping{0%{transform:scale(1);opacity:.7}100%{transform:scale(3.2);opacity:0}}
+@keyframes nos-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes avz-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes avz-pill { 0%,6% { background:#E9ECE8; } 14%,82% { background:#0F3D2C; } 92%,100% { background:#E9ECE8; } }
+  @keyframes avz-pillchk { 0%,8% { opacity:0; transform:scale(.4); } 16%,82% { opacity:1; transform:scale(1); } 90%,100% { opacity:0; transform:scale(.4); } }
+  @keyframes avz-notif { 0%,8% { opacity:0; transform:translateY(-26px) scale(.96); } 18%,78% { opacity:1; transform:none; } 90%,100% { opacity:0; transform:translateY(-10px); } }
+  @keyframes avz-float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-7px); } }
+  @keyframes avz-row { 0%,6% { opacity:0; transform:translateX(-12px); } 14%,84% { opacity:1; transform:none; } 94%,100% { opacity:0; } }
+  @keyframes avz-gauge { 0%,6% { stroke-dashoffset:251; } 45%,85% { stroke-dashoffset:18; } 100% { stroke-dashoffset:251; } }
+  @keyframes avz-bar { 0%,6% { transform:scaleY(.15); } 40%,85% { transform:scaleY(1); } 100% { transform:scaleY(.15); } }
+  @keyframes avz-cell { 0%,4% { background:#E9ECE8; } 9%,86% { background:#0F3D2C; } 94%,100% { background:#E9ECE8; } }
+  @keyframes avz-badge { 0%,52% { opacity:0; transform:translateY(8px) scale(.9); } 60%,86% { opacity:1; transform:none; } 94%,100% { opacity:0; } }
+  @keyframes avz-q { from { opacity:0; transform:translateX(28px); } to { opacity:1; transform:none; } }
+  @keyframes avz-fillx { from { width:0; } to { width:100%; } }
+  @keyframes avz-pulse { 0%,100% { opacity: 1; } 50% { opacity: .2; } }
+</style>
+</helmet>
+
+<div style="width:100%;overflow-x:hidden">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid #DDDCD6">
+    <div id="avz-hdr" style="max-width:1280px;margin:0 auto;padding:10px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px">
+      <a href="index.html" style="display:block;flex-shrink:0"><img src="assets/avanza-logo.png" alt="Avanza — Forjando nuevos caminos" style="width:132px;height:auto;display:block" /></a>
+      <sc-if value="{{ desktopNav }}" hint-placeholder-val="{{ true }}"><nav style="display:flex;flex-wrap:nowrap;gap:4px 14px;flex:{{ navFlex }};order:{{ navOrder }};min-width:0;overflow-x:auto;scrollbar-width:none;padding:2px 0;font-size:15.5px;font-weight:600;color:#0F3D2C;align-items:center">
+        <a href="index.html#nosotros" style="color:#0F3D2C;white-space:nowrap;flex-shrink:0;padding:8px 10px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:17px;letter-spacing:0;border-bottom:2px solid transparent;transition:color .2s, border-color .2s" style-hover="color:#E63E00;border-bottom-color:#E63E00">Nosotros</a>
+        <a href="index.html#proceso" style="color:#0F3D2C;white-space:nowrap;flex-shrink:0;padding:8px 10px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:17px;letter-spacing:0;border-bottom:2px solid transparent;transition:color .2s, border-color .2s" style-hover="color:#E63E00;border-bottom-color:#E63E00">Proceso</a>
+        <a href="index.html#ventajas" style="color:#0F3D2C;white-space:nowrap;flex-shrink:0;padding:8px 10px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:17px;letter-spacing:0;border-bottom:2px solid transparent;transition:color .2s, border-color .2s" style-hover="color:#E63E00;border-bottom-color:#E63E00">Avanza con ventaja</a>
+                <a href="index.html#faq" style="color:#0F3D2C;white-space:nowrap;flex-shrink:0;padding:8px 10px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:17px;letter-spacing:0;border-bottom:2px solid transparent;transition:color .2s, border-color .2s" style-hover="color:#E63E00;border-bottom-color:#E63E00">Preguntas</a>
+        <a href="index.html#contacto" style="color:#0F3D2C;white-space:nowrap;flex-shrink:0;padding:8px 10px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:17px;letter-spacing:0;border-bottom:2px solid transparent;transition:color .2s, border-color .2s" style-hover="color:#E63E00;border-bottom-color:#E63E00">Contacto</a>
+        <a href="#aliados" style="color:#E63E00;white-space:nowrap;flex-shrink:0;padding:8px 10px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:17px;letter-spacing:0;border-bottom:2px solid transparent;transition:color .2s, border-color .2s" style-hover="color:#C23400;border-bottom-color:#E63E00">Aliados</a>
+      </nav></sc-if>
+      <sc-if value="{{ desktopNav }}" hint-placeholder-val="{{ true }}"><div style="display:flex;gap:8px;align-items:center;margin-left:auto;order:2"><a href="https://wa.me/50325096800" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:16px;padding:10px 18px;border:2px solid #0F3D2C;color:#0F3D2C;white-space:nowrap" style-hover="background:#C9D8CF;color:#0F3D2C"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M4 20l1.3-3.8A8.5 8.5 0 1 1 8 19z"></path><path d="M9 8.5l1.5-.5 1 2.2-1 .9c.5 1.1 1.4 2 2.5 2.5l.9-1 2.2 1-.5 1.5c-3.3.2-6.8-3.3-6.6-6.6z" fill="currentColor" stroke="none"></path></svg>+(503) 2509-6800</a></div></sc-if>
+      <sc-if value="{{ mobNav }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ toggleMenu }}" aria-label="Abrir menú" aria-expanded="{{ menuOpen }}" style="all:unset;cursor:pointer;margin-left:auto;position:relative;width:44px;height:44px;flex-shrink:0;border:1px solid #DDDCD6;box-sizing:border-box"><span style="position:absolute;left:11px;width:22px;height:2px;background:#0F3D2C;top:{{ mb1Top }};transform:{{ mb1T }};opacity:{{ mb1O }};transition:transform .25s, opacity .2s, top .25s"></span><span style="position:absolute;left:11px;width:22px;height:2px;background:#0F3D2C;top:{{ mb2Top }};transform:{{ mb2T }};opacity:{{ mb2O }};transition:transform .25s, opacity .2s, top .25s"></span><span style="position:absolute;left:11px;width:22px;height:2px;background:#0F3D2C;top:{{ mb3Top }};transform:{{ mb3T }};opacity:{{ mb3O }};transition:transform .25s, opacity .2s, top .25s"></span></button></sc-if>
+    </div>
+
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="border-top:1px solid #DDDCD6;background:#FFFFFF;padding:8px 24px 24px;max-height:calc(100vh - 70px);overflow-y:auto;animation:nos-in .25s ease both">
+        <nav style="display:flex;flex-direction:column">
+          <a href="index.html#nosotros" onClick="{{ closeMenu }}" style="display:flex;align-items:center;justify-content:space-between;padding:16px 2px;border-bottom:1px solid #EDECE8;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:22px;color:#0F3D2C">Nosotros<span aria-hidden="true" style="color:#E63E00;font-size:20px">›</span></a>
+          <a href="index.html#proceso" onClick="{{ closeMenu }}" style="display:flex;align-items:center;justify-content:space-between;padding:16px 2px;border-bottom:1px solid #EDECE8;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:22px;color:#0F3D2C">Proceso<span aria-hidden="true" style="color:#E63E00;font-size:20px">›</span></a>
+          <a href="index.html#ventajas" onClick="{{ closeMenu }}" style="display:flex;align-items:center;justify-content:space-between;padding:16px 2px;border-bottom:1px solid #EDECE8;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:22px;color:#0F3D2C">Avanza con ventaja<span aria-hidden="true" style="color:#E63E00;font-size:20px">›</span></a>
+          <a href="index.html#faq" onClick="{{ closeMenu }}" style="display:flex;align-items:center;justify-content:space-between;padding:16px 2px;border-bottom:1px solid #EDECE8;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:22px;color:#0F3D2C">Preguntas<span aria-hidden="true" style="color:#E63E00;font-size:20px">›</span></a>
+          <a href="index.html#contacto" onClick="{{ closeMenu }}" style="display:flex;align-items:center;justify-content:space-between;padding:16px 2px;border-bottom:1px solid #EDECE8;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:22px;color:#0F3D2C">Contacto<span aria-hidden="true" style="color:#E63E00;font-size:20px">›</span></a>
+          <a href="#aliados" onClick="{{ closeMenu }}" style="display:flex;align-items:center;justify-content:space-between;padding:16px 2px;border-bottom:1px solid #EDECE8;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:22px;color:#E63E00">Aliados<span aria-hidden="true" style="color:#E63E00;font-size:20px">›</span></a>
+        </nav>
+        <a href="https://wa.me/50325096800?text=Hola%2C%20quiero%20cotizar%20mi%20moto" target="_blank" rel="noopener" onClick="{{ closeMenu }}" style="margin:20px 0 0;display:flex;align-items:center;justify-content:center;gap:12px;height:52px;background:#0F3D2C;color:#FFFFFF;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:18px"><span aria-hidden="true" style="position:relative;width:8px;height:8px"><span style="position:absolute;inset:0;background:#1FA855"></span><span style="position:absolute;inset:0;background:#1FA855;animation:avz-ping 1.4s ease-out infinite"></span></span>Quiero cotizar mi moto<span aria-hidden="true" style="color:#E63E00;letter-spacing:-.1em">›››</span></a>
+      </div>
+    </sc-if>
+  </header>
+  <section id="aliados" style="margin:0;scroll-margin-top:70px">
+  <div style="background:#0F3D2C;color:#FFFFFF;position:relative;overflow:hidden">
+    <div aria-hidden="true" style="position:absolute;inset:0;background:url(assets/tex-grava.png) repeat 0 0 / 360px;opacity:.35;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,#000,transparent 60%);mask-image:linear-gradient(180deg,#000,transparent 60%)"></div>
+    <div aria-hidden="true" style="position:absolute;right:-160px;top:-140px;width:560px;height:560px;background:url(assets/tex-salpicado.png) no-repeat center / contain;opacity:.09;pointer-events:none"></div>
+    <div style="position:relative;max-width:1280px;margin:0 auto;padding:56px 24px 80px">
+      <div style="display:flex;align-items:center;gap:14px;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.14em;color:#C9D8CF">
+        <span style="white-space:nowrap"><strong style="color:#E63E00;font-weight:700">ALIADOS</strong> · AVANZA</span><span aria-hidden="true" style="flex:1;display:grid;gap:2px;min-width:24px"><span style="height:3px;background:rgba(255,255,255,.85)"></span><span style="height:1px;background:#E63E00"></span></span><span style="white-space:nowrap">PROGRAMA DE AGENCIAS</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:48px;align-items:center;margin:40px 0 0">
+        <div style="min-width:0">
+          <p style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.14em;color:#C9D8CF;margin:0">PARA AGENCIAS Y CONCESIONARIAS</p>
+          <h2 style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:clamp(42px,6.4vw,88px);line-height:.96;letter-spacing:-.02em;margin:18px 0 0;text-wrap:balance">Más sueños cumplidos. <span style="color:#E63E00">Más motos vendidas.</span></h2>
+          <div style="display:grid;max-width:200px;margin:30px 0 0"><div style="height:6px;background:#FFFFFF"></div><div style="height:2px;background:#E63E00;margin-top:4px"></div></div>
+          <p style="font-size:18px;line-height:1.65;color:#DCE6E0;max-width:46ch;margin:28px 0 0;text-wrap:pretty">Súmate a la red de agencias aliadas de Avanza y ofrece financiamiento a clientes que hoy se van sin comprar: respuesta en menos de 24 horas, prima desde 10% y un asesor Avanza en tu piso de venta.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 0">
+            <a href="#al-form" onClick="{{ alOpenForm }}" style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:18px;padding:14px 26px;background:#E63E00;color:#FFFFFF" style-hover="background:#C23400;color:#FFFFFF">Quiero ser aliado →</a>
+            <a href="#al-como" style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:18px;padding:12px 24px;border:2px solid #FFFFFF;color:#FFFFFF" style-hover="background:#FFFFFF;color:#0F3D2C">Cómo funciona</a>
+          </div>
+        </div>
+
+        <div style="min-width:0;background:#FFFFFF;color:#14161A;padding:26px 26px 22px;box-shadow:0 30px 60px rgba(0,0,0,.25)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;color:#58585B">
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:7px;height:7px;border-radius:50%;background:#E63E00;animation:avz-pulse 1.6s infinite"></span>SOLICITUD EN CURSO</span>
+            <span>EJEMPLO</span>
+          </div>
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:18px 0 0;flex-wrap:wrap">
+            <span style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:24px;color:#0F3D2C">Tu cliente · Moto 150 cc</span>
+            <span style="font-family:'Space Mono',monospace;font-size:12px;color:#58585B">{{ alClock }}</span>
+          </div>
+          <div style="height:4px;background:#E9ECE8;margin:18px 0 6px;position:relative;overflow:hidden">
+            <div style="position:absolute;left:0;top:0;bottom:0;width:{{ alFlowPct }};background:#E63E00;transition:width .6s ease"></div>
+          </div>
+          <div style="display:grid;gap:0">
+            <sc-for list="{{ alFlow }}" as="f" hint-placeholder-count="4">
+              <div style="display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid #DDDCD6;opacity:{{ f.op }};transition:opacity .4s">
+                <span style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;background:{{ f.bg }};color:{{ f.fg }};transition:background .4s">{{ f.mark }}</span>
+                <span style="font-size:15px;line-height:1.4;color:#14161A;font-weight:{{ f.fw }}">{{ f.label }}</span>
+                <span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:{{ f.tc }}">{{ f.tag }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <p style="font-size:12.5px;line-height:1.5;color:#58585B;margin:14px 0 0">Flujo ilustrativo. Aprobación sujeta a análisis de crédito.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#14161A url(assets/tex-tacos.png) repeat 0 0 / auto 44px;color:#FFFFFF;overflow:hidden">
+    <div style="display:flex;width:max-content;animation:avz-marquee 38s linear infinite">
+      <sc-for list="{{ alMarquee }}" as="m" hint-placeholder-count="10">
+        <div style="display:flex;align-items:center;gap:14px;padding:16px 26px;white-space:nowrap;font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:17px;color:#FFFFFF">
+          <span style="color:#E63E00;font-size:12px">▲</span>{{ m }}
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <div id="al-beneficios" style="max-width:1280px;margin:0 auto;padding:80px 24px 0;scroll-margin-top:90px;position:relative;isolation:isolate">
+    <div aria-hidden="true" style="position:absolute;z-index:-1;left:calc(50% - 50vw);top:-60px;width:min(760px,60vw);height:580px;background:url(assets/tex-tacos-p3-green.png) repeat 0 0 / 520px auto;opacity:.09;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,#000 60%,transparent 100%),linear-gradient(90deg,#000 30%,transparent 85%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,#000 60%,transparent 100%),linear-gradient(90deg,#000 30%,transparent 85%);mask-composite:intersect"></div>
+    <div style="display:flex;align-items:center;gap:14px;font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;color:#58585B">
+      <span style="white-space:nowrap"><strong style="color:#E63E00;font-weight:700">ALIADOS</strong> · BENEFICIOS</span><span aria-hidden="true" style="flex:1;display:grid;gap:2px;min-width:24px"><span style="height:3px;background:#0F3D2C"></span><span style="height:1px;background:#E63E00"></span></span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:20px 40px;align-items:end;justify-content:space-between;margin:22px 0 0">
+      <h2 data-reveal="1" style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:clamp(32px,4.2vw,52px);line-height:1.04;letter-spacing:-.01em;margin:0;color:#0F3D2C;max-width:20ch;text-wrap:balance">Más ventas en tu piso, sin más carga para tu equipo.</h2>
+      <p data-reveal="1" style="font-size:16.5px;line-height:1.6;color:#3A3B3E;max-width:42ch;margin:0">Cada cliente que no califica en el banco es una venta que se pierde. Con Avanza, esa venta se cierra en tu agencia.</p>
+    </div>
+
+    <div id="al-cifras" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(clamp(calc((100% - 3px) / 4), calc((1000px - 100%) * 999), clamp(calc((100% - 1px) / 2), calc((440px - 100%) * 999), 100%)),1fr));gap:1px;background:#DDDCD6;border:1px solid #DDDCD6;margin:40px 0 0">
+      <sc-for list="{{ alStats }}" as="s" hint-placeholder-count="4">
+        <div style="background:#FFFFFF;padding:26px 24px">
+          <div style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:56px;line-height:1;letter-spacing:-.03em;color:#0F3D2C">{{ s.shown }}<span style="font-size:20px;font-weight:600;color:#E63E00;margin-left:4px">{{ s.unit }}</span></div>
+          <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;color:#58585B;margin-top:12px">{{ s.label }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin:16px 0 0">
+      <sc-for list="{{ alBenefits }}" as="b" hint-placeholder-count="6">
+        <div data-reveal="1" onMouseEnter="{{ b.enter }}" onMouseLeave="{{ b.leave }}" style="background:{{ b.bg }};border:1px solid {{ b.bd }};padding:28px 26px;display:flex;flex-direction:column;gap:14px;cursor:default;transition:background .3s, border-color .3s;min-height:250px">
+          <div style="height:180px;margin:-4px -4px 6px;background:#F6F5F2;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center">{{ b.art }}</div>
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.13em;color:{{ b.nc }}">{{ b.n }}</span>
+            <span style="width:26px;height:2px;background:#E63E00;transition:width .3s;width:{{ b.bar }}"></span>
+          </div>
+          <h3 style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:24px;line-height:1.12;margin:0;color:{{ b.tc }};transition:color .3s">{{ b.title }}</h3>
+          <p style="font-size:15.5px;line-height:1.6;margin:0;color:{{ b.pc }};transition:color .3s;text-wrap:pretty">{{ b.body }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <div id="al-como" style="max-width:1280px;margin:0 auto;padding:96px 24px 0;scroll-margin-top:90px;position:relative;isolation:isolate">
+    <div aria-hidden="true" style="position:absolute;z-index:-1;top:40px;right:calc(50% - 50vw);width:min(760px,60vw);height:560px;background:url(assets/tex-tacos-p3-green.png) repeat 0 0 / 520px auto;opacity:.09;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 100% 100% at 100% 0%,#000 25%,transparent 75%);mask-image:radial-gradient(ellipse 100% 100% at 100% 0%,#000 25%,transparent 75%)"></div>
+    <div style="display:flex;align-items:center;gap:14px;font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;color:#58585B">
+      <span style="white-space:nowrap"><strong style="color:#E63E00;font-weight:700">ALIADOS</strong> · CÓMO FUNCIONA</span><span aria-hidden="true" style="flex:1;display:grid;gap:2px;min-width:24px"><span style="height:3px;background:#0F3D2C"></span><span style="height:1px;background:#E63E00"></span></span>
+    </div>
+    <h2 data-reveal="1" style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:clamp(32px,4.2vw,52px);line-height:1.04;letter-spacing:-.01em;margin:22px 0 0;color:#0F3D2C;max-width:22ch;text-wrap:balance">De la vitrina a la entrega, en cuatro pasos.</h2>
+
+    <div style="margin:40px 0 0;position:relative">
+      <div style="height:2px;background:#DDDCD6;position:relative">
+        <div style="position:absolute;left:0;top:0;bottom:0;width:{{ alStepPct }};background:#E63E00;transition:width .7s ease"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(clamp(calc((100% - 48px) / 4), calc((1000px - 100%) * 999), clamp(calc((100% - 16px) / 2), calc((440px - 100%) * 999), 100%)),1fr));gap:16px;margin:0">
+        <sc-for list="{{ alSteps }}" as="st" hint-placeholder-count="4">
+          <button type="button" onClick="{{ st.go }}" style="text-align:left;background:{{ st.bg }};border:1px solid {{ st.bd }};border-top:0;padding:24px 22px 26px;cursor:pointer;display:flex;flex-direction:column;gap:12px;transition:background .35s;color:inherit;font:inherit">
+            <span style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:44px;line-height:1;letter-spacing:-.03em;color:{{ st.nc }};transition:color .35s">{{ st.n }}</span>
+            <span style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:21px;color:{{ st.tc }}">{{ st.title }}</span>
+            <span style="font-size:15px;line-height:1.6;color:{{ st.pc }}">{{ st.body }}</span>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <div id="al-fundadores" style="margin:96px 0 0;border-bottom:1px solid rgba(255,255,255,.14);background:#0F3D2C;color:#FFFFFF;scroll-margin-top:90px;position:relative;overflow:hidden">
+    <div aria-hidden="true" style="position:absolute;left:0;bottom:0;width:min(760px,60vw);height:460px;background:url(assets/tex-tacos-p3-white.png) repeat 0 0 / 520px auto;opacity:.08;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 100% 100% at 0% 100%,#000 25%,transparent 75%);mask-image:radial-gradient(ellipse 100% 100% at 0% 100%,#000 25%,transparent 75%)"></div>
+    <div style="max-width:1280px;margin:0 auto;padding:72px 24px 80px;position:relative">
+      <div style="display:flex;align-items:center;gap:14px;font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;color:#C9D8CF">
+        <span style="white-space:nowrap"><strong style="color:#E63E00;font-weight:700">ALIADOS</strong> · FUNDADORES</span><span aria-hidden="true" style="flex:1;display:grid;gap:2px;min-width:24px"><span style="height:3px;background:rgba(255,255,255,.85)"></span><span style="height:1px;background:#E63E00"></span></span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:32px 32px;margin:24px 0 0;align-items:center">
+        <div data-reveal="1" style="flex:1 1 300px;min-width:0">
+          <h2 style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:clamp(32px,4.2vw,52px);line-height:1.04;letter-spacing:-.01em;margin:0;text-wrap:balance">Estamos formando nuestra red. <span style="color:#E63E00">Tu agencia puede ser de las primeras.</span></h2>
+          <p style="font-size:17px;line-height:1.65;color:#DCE6E0;margin:22px 0 0;max-width:46ch;text-wrap:pretty">Avanza está abriendo su programa de agencias aliadas en El Salvador. Buscamos una agencia fundadora en cada departamento del país, para crecer juntos desde el primer día.</p>
+          <div style="display:flex;align-items:baseline;gap:14px;margin:30px 0 0;flex-wrap:wrap">
+            <span style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:64px;line-height:1;letter-spacing:-.03em">14</span>
+            <span style="font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.12em;color:#C9D8CF">CUPOS DE ALIADO FUNDADOR<br />UNO POR DEPARTAMENTO</span>
+          </div>
+          <a href="#al-form" onClick="{{ alOpenForm }}" style="display:inline-block;margin:30px 0 0;font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:18px;padding:14px 26px;background:#E63E00;color:#FFFFFF" style-hover="background:#C23400;color:#FFFFFF">Reservar mi cupo →</a>
+        </div>
+        <div data-reveal="1" style="flex:1.7 1 340px;min-width:0">
+          <div style="position:relative;width:100%;aspect-ratio:1000/520;container-type:inline-size;transform:translateY(10%)">
+            <svg viewBox="0 0 1000 520" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;display:block"><path d="M415,158L418,157L422,153L425,158L425,160L427,162L428,164L429,165L454,169L455,181L457,183L459,184L460,185L459,187L459,191L460,192L461,193L461,194L460,196L461,199L465,200L466,201L471,201L476,204L479,203L484,204L486,205L483,208L482,211L478,215L476,216L476,217L474,219L472,226L474,227L474,229L471,233L472,235L475,237L476,237L478,238L479,238L479,239L480,240L480,241L481,241L481,242L484,243L485,241L488,244L489,245L490,246L492,247L492,249L491,251L492,251L493,252L495,252L498,250L499,252L500,253L499,256L496,257L496,258L496,259L497,260L496,262L498,262L499,264L502,263L503,264L504,264L505,264L506,266L506,265L507,267L508,267L509,267L509,269L514,268L517,271L519,274L518,278L518,284L515,289L513,294L516,301L515,302L510,302L507,308L504,309L504,310L502,310L502,310L501,310L501,309L497,312L495,312L494,312L494,312L491,312L492,313L491,317L491,317L490,319L489,319L489,320L488,321L485,318L481,318L480,317L478,317L476,316L476,315L475,315L474,312L471,312L468,312L450,309L457,298L452,283L452,281L450,279L448,277L449,276L448,276L447,272L441,262L441,259L434,259L434,258L432,259L430,258L429,257L429,254L427,253L427,251L425,251L424,249L425,248L424,247L424,245L423,244L422,242L422,242L421,241L420,242L418,241L417,242L417,242L414,244L414,241L412,240L412,237L410,235L409,235L409,235L409,233L411,234L417,231L419,228L421,225L421,223L417,217L415,217L413,215L411,214L411,213L410,211L409,209L407,206L407,204L405,203L406,203L405,202L405,199L404,198L406,197L406,195L408,194L409,193L408,190L412,185L411,183L412,182L411,179L411,176L410,174L409,173L410,172L410,169L410,168L412,168L414,165Z" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.4)" stroke-width="1" stroke-linejoin="round" vector-effect="non-scaling-stroke" style="transition:fill .2s" style-hover="fill:rgba(255,255,255,.14)"></path><path d="M654,295L657,299L662,302L666,299L671,299L677,306L681,310L686,313L691,313L694,310L696,310L698,314L698,319L696,323L697,327L700,330L700,332L699,335L695,338L693,341L693,348L697,357L697,365L700,373L700,376L697,377L695,380L695,384L693,389L690,396L690,400L693,399L695,397L696,399L696,409L694,420L703,426L707,428L707,431L707,435L717,434L720,435L724,432L727,434L728,436L727,439L728,441L727,445L717,455L716,458L719,463L720,469L729,467L731,467L734,466L730,461L729,460L729,457L730,457L730,456L732,454L732,452L731,450L733,448L735,449L735,447L736,448L736,446L737,447L737,446L738,445L739,444L739,445L738,446L739,447L740,447L740,446L742,446L747,450L747,449L747,449L749,449L749,450L751,449L750,448L751,448L752,446L752,448L753,448L753,449L754,449L754,450L757,456L757,458L760,459L761,458L762,457L765,458L767,460L768,460L761,466L760,466L759,466L759,466L756,471L755,475L766,475L768,476L769,477L771,476L774,477L774,477L775,478L777,479L777,482L778,482L786,492L789,494L792,499L793,501L792,501L791,502L790,501L782,501L780,500L780,501L778,500L776,501L775,501L773,501L773,501L769,501L767,502L765,501L764,502L763,502L762,503L761,503L761,504L758,503L758,504L757,503L756,503L755,504L755,503L748,502L746,501L744,502L728,499L714,499L701,500L692,503L689,504L684,503L663,500L647,495L609,486L565,478L555,475L537,469L536,464L538,461L541,459L544,458L550,453L552,451L559,446L562,441L569,437L570,436L570,433L567,428L567,424L571,416L572,410L574,406L579,402L582,393L583,391L586,390L587,388L586,384L588,375L589,368L591,364L591,362L590,359L591,356L594,354L597,355L599,354L599,353L599,349L601,347L602,347L603,346L603,345L603,342L604,341L605,341L608,342L609,342L613,341L615,341L619,340L622,338L626,337L628,334L627,332L628,330L630,327L632,327L633,325L634,321L636,320L639,316L643,314L644,312L644,311L653,307L656,303L658,300Z" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.4)" stroke-width="1" stroke-linejoin="round" vector-effect="non-scaling-stroke" style="transition:fill .2s" style-hover="fill:rgba(255,255,255,.14)"></path><path d="M232,367L235,364L236,363L237,363L241,359L243,357L243,357L245,354L250,349L251,348L253,348L255,346L252,348L253,346L257,341L259,341L260,340L261,338L263,337L263,336L263,337L262,336L262,335L259,335L259,334L261,331L262,330L263,332L264,332L263,332L269,326L272,321L273,319L271,315L270,316L267,314L269,313L269,313L271,313L272,313L272,313L274,312L273,312L274,311L271,309L272,308L271,307L272,303L271,302L271,302L272,301L271,301L270,299L271,298L271,297L272,295L275,296L276,295L278,294L279,294L281,293L282,292L282,291L283,292L283,291L283,290L284,288L285,287L286,285L288,284L289,284L288,282L289,280L289,280L289,279L290,279L292,280L293,279L297,281L302,281L302,273L294,272L295,269L294,269L294,268L294,266L295,262L294,262L295,255L295,255L296,255L296,255L296,255L297,255L298,255L298,254L298,255L299,254L298,252L297,250L296,248L297,246L300,248L299,247L300,247L300,244L299,243L299,242L301,238L300,239L299,238L300,229L299,229L298,224L296,224L298,222L297,221L299,217L299,215L304,210L306,210L307,208L308,209L309,209L312,205L314,204L315,203L318,202L319,202L321,200L321,200L321,194L320,193L320,192L319,189L319,186L324,174L324,172L327,171L328,173L329,173L332,166L334,164L338,165L342,164L343,163L345,160L348,158L352,158L353,159L353,161L353,162L354,166L358,165L360,165L361,163L364,165L364,167L365,168L366,168L366,166L367,166L368,167L366,168L365,169L366,169L365,170L365,170L364,170L363,173L363,172L362,173L362,173L361,174L362,176L360,177L361,179L360,180L359,180L358,182L359,183L358,185L359,186L359,186L360,188L361,190L362,191L362,189L363,189L364,190L366,191L365,192L366,192L366,192L368,192L368,193L370,194L370,196L372,196L368,201L369,201L375,204L379,205L384,205L386,209L385,214L380,213L379,222L378,225L377,234L376,241L374,244L372,251L369,255L369,257L370,258L370,259L370,263L369,267L370,272L369,276L369,275L369,276L367,276L367,278L361,283L368,280L369,281L368,282L368,284L366,287L366,289L365,290L365,292L365,293L364,293L364,294L370,294L372,300L374,301L375,302L375,305L378,304L381,304L381,305L383,312L382,314L381,314L379,314L376,320L377,322L380,322L380,323L384,323L385,325L384,328L383,328L382,329L383,331L382,332L383,334L381,338L381,340L383,342L384,343L385,344L385,344L385,348L385,350L384,352L383,354L381,357L381,358L381,360L381,361L383,363L383,364L384,366L385,366L385,368L387,368L386,370L387,373L387,374L388,374L389,375L390,378L390,380L390,382L395,382L399,383L400,382L401,380L403,380L403,378L403,377L404,378L405,377L407,377L407,377L408,378L407,379L406,380L407,380L407,381L407,382L407,384L408,384L408,384L409,384L409,386L412,386L412,392L409,393L405,400L405,402L404,403L403,402L403,403L374,388L358,381L354,379L348,380L346,382L345,382L337,380L334,380L330,378L323,377L322,377L320,377L318,377L312,376L310,378L283,376L278,377L272,377L266,375L253,372L240,371L237,370Z" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.4)" stroke-width="1" stroke-linejoin="round" vector-effect="non-scaling-stroke" style="transition:fill .2s" style-hover="fill:rgba(255,255,255,.14)"></path><path d="M194,170L194,169L195,170L196,170L196,170L197,170L197,170L197,172L198,176L198,178L201,178L201,179L202,179L204,180L205,180L207,181L208,183L209,185L208,187L207,188L208,192L205,197L205,198L204,201L204,203L202,203L203,203L201,204L201,207L199,209L199,211L197,219L196,219L195,220L194,220L193,221L189,221L174,224L176,226L177,228L180,231L180,234L181,235L182,237L181,238L180,238L179,240L180,240L180,241L179,241L178,245L178,246L175,251L174,257L174,258L174,260L172,270L173,272L172,278L171,278L171,278L169,278L169,279L169,279L167,281L168,283L166,282L166,283L166,286L166,287L166,288L165,289L164,288L163,295L163,296L163,299L162,301L162,303L152,306L148,305L146,303L138,299L133,293L133,292L132,292L131,292L130,293L128,294L126,293L126,295L126,296L122,296L122,298L121,298L121,300L120,300L119,302L112,309L112,310L110,310L109,312L44,282L45,279L47,280L49,281L51,281L51,279L52,279L53,281L52,281L52,282L55,281L56,281L57,282L58,281L57,280L58,279L61,277L61,276L59,276L58,275L58,273L59,272L57,269L56,267L55,266L55,267L53,268L52,266L52,264L53,261L52,260L54,259L53,257L56,257L57,253L56,251L54,250L54,246L57,245L59,242L60,241L59,239L59,237L63,236L65,233L65,230L71,228L70,226L75,225L78,224L80,224L81,222L82,222L82,220L81,215L82,214L84,214L85,214L85,213L84,210L85,210L86,207L87,206L89,206L90,204L91,205L92,204L92,203L95,201L95,200L97,200L98,200L99,199L100,199L103,198L104,198L105,196L107,196L110,194L110,191L113,191L114,190L115,189L116,189L117,188L118,188L119,185L120,186L121,185L122,182L122,180L125,180L125,178L127,179L130,178L131,174L131,171L131,170L132,170L133,168L135,166L141,167L143,167L144,167L146,167L147,167L147,166L147,165L148,163L149,161L152,161L155,161L156,161L156,160L157,160L157,159L159,159L160,160L160,159L161,159L161,159L164,159L164,159L166,161L166,161L168,161L168,162L169,163L170,162L172,165L173,164L174,165L174,167L175,168L177,169L178,170L179,170L179,170L182,169L183,170L185,170L185,171L186,170L187,171L187,170L190,169L191,169L193,171Z" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.4)" stroke-width="1" stroke-linejoin="round" vector-effect="non-scaling-stroke" style="transition:fill .2s" style-hover="fill:rgba(255,255,255,.14)"></path><path d="M294,268L294,269L295,269L294,272L302,273L302,281L297,281L293,279L292,280L290,279L289,279L289,280L289,280L288,282L289,284L288,284L286,285L285,287L284,288L283,290L283,291L283,292L282,291L282,292L281,293L279,294L278,294L276,295L275,296L272,295L271,297L271,298L270,299L271,301L272,301L271,302L271,302L272,303L271,307L272,308L271,309L274,311L273,312L274,312L272,313L272,313L271,313L269,313L269,313L267,314L270,316L271,315L273,319L272,321L269,326L263,332L264,332L263,332L262,330L261,331L259,334L259,335L262,335L262,336L263,337L263,336L263,337L261,338L260,340L259,341L257,341L253,346L252,348L255,346L253,348L251,348L250,349L245,354L243,357L243,357L241,359L237,363L236,363L235,364L232,367L226,365L221,364L220,362L212,361L206,362L199,365L179,364L172,366L166,367L161,364L159,361L156,350L154,345L154,341L154,339L150,336L137,327L120,317L109,312L110,310L112,310L112,309L119,302L120,300L121,300L121,298L122,298L122,296L126,296L126,295L126,293L128,294L130,293L131,292L132,292L133,292L133,293L138,299L146,303L148,305L152,306L162,303L162,301L163,299L163,296L163,295L164,288L165,289L166,288L166,287L166,286L166,283L166,282L168,283L167,281L169,279L169,279L169,278L171,278L171,278L172,278L173,272L172,270L174,260L174,258L174,257L175,251L178,246L178,245L179,241L180,241L180,240L179,240L180,238L181,238L182,237L181,235L180,234L180,231L177,228L176,226L174,224L189,221L193,221L194,220L195,220L196,219L197,219L198,219L199,220L202,221L203,221L210,220L212,222L213,221L215,222L217,224L216,224L220,226L224,232L225,234L227,236L227,237L230,238L230,239L231,242L230,243L229,244L229,245L228,247L226,248L224,251L226,252L229,251L230,251L232,251L233,251L236,254L238,253L239,255L239,255L240,255L243,254L244,254L245,248L256,246L259,246L268,255L272,253L273,254L272,255L275,257L277,257L279,258L279,259L282,258L286,259L287,260L286,261L288,262L287,262L288,264L289,263L291,264L290,264L289,265L291,266L293,268Z" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.4)" stroke-width="1" stroke-linejoin="round" vector-effect="non-scaling-stroke" style="transition:fill .2s" style-hover="fill:rgba(255,255,255,.14)"></path><path d="M504,309L507,308L510,302L515,302L516,301L513,294L515,289L518,284L518,278L519,274L517,271L519,271L520,269L524,267L526,267L528,267L529,267L530,266L531,267L532,268L533,268L535,267L535,268L536,268L536,269L538,268L539,269L540,269L541,268L542,268L543,268L543,268L544,268L544,267L545,267L547,265L549,265L552,262L555,263L556,263L558,263L558,261L559,261L560,259L560,260L562,260L563,261L564,260L568,262L568,262L568,260L569,260L570,261L570,263L571,263L571,264L573,264L573,263L573,263L573,264L575,265L578,263L578,263L579,263L581,263L581,262L583,262L583,264L584,264L585,265L587,264L587,263L588,264L588,265L591,263L593,261L594,263L596,263L596,264L597,265L599,267L603,267L604,267L606,268L608,271L611,271L612,272L614,272L615,271L617,271L616,273L615,274L615,274L617,277L619,278L619,279L619,281L621,281L623,280L626,281L628,279L629,281L635,281L637,280L638,280L640,279L643,279L643,285L644,290L646,290L649,290L652,291L654,295L658,300L656,303L653,307L644,311L644,312L643,314L639,316L636,320L634,321L633,325L632,327L630,327L628,330L627,332L628,334L626,337L622,338L619,340L615,341L613,341L609,342L608,342L605,341L604,341L603,342L603,345L603,346L602,347L601,347L599,349L599,353L599,354L597,355L594,354L591,356L590,359L591,362L591,364L589,368L588,375L586,384L587,388L586,390L583,391L582,393L579,402L574,406L572,410L571,416L567,424L567,428L570,433L570,436L569,437L562,441L559,446L552,451L550,453L544,458L541,459L538,461L536,464L537,469L533,467L529,466L520,462L521,461L525,462L527,464L529,464L528,461L529,461L529,458L529,458L530,458L529,457L529,455L531,454L532,453L532,451L532,450L532,450L535,448L536,446L536,447L537,446L539,446L541,445L541,444L544,442L544,440L539,435L539,433L540,430L544,429L546,427L546,426L546,426L547,423L546,423L548,422L548,420L548,417L548,416L547,415L549,412L547,410L547,408L546,407L546,406L545,405L544,406L544,405L543,405L542,403L540,402L539,397L537,397L534,395L534,390L533,390L532,388L533,386L532,382L531,380L532,376L532,374L532,373L534,371L535,368L536,367L535,365L536,362L533,357L531,354L531,349L528,345L527,337L524,339L511,336L507,336L505,330L507,328L506,323L508,316L505,312Z" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.4)" stroke-width="1" stroke-linejoin="round" vector-effect="non-scaling-stroke" style="transition:fill .2s" style-hover="fill:rgba(255,255,255,.14)"></path><path d="M793,501L792,499L789,494L786,492L778,482L777,482L777,479L775,478L774,477L774,477L771,476L769,477L768,476L766,475L755,475L756,471L759,466L759,466L760,466L761,466L768,460L767,460L765,458L762,457L761,458L760,459L757,458L757,456L754,450L754,449L753,449L753,448L752,448L752,446L751,448L750,448L751,449L749,450L749,449L747,449L747,449L747,450L742,446L740,446L740,447L739,447L738,446L739,445L739,444L738,445L737,446L737,447L736,446L736,448L735,447L735,449L733,448L731,450L732,452L732,454L730,456L730,457L729,457L729,460L730,461L734,466L731,467L729,467L720,469L719,463L716,458L717,455L727,445L728,441L727,439L728,436L727,434L724,432L720,435L717,434L707,435L707,431L707,428L703,426L694,420L696,409L696,399L695,397L693,399L690,400L690,396L693,389L695,384L695,380L697,377L700,376L700,373L697,365L697,357L693,348L693,341L695,338L699,335L700,332L700,330L697,327L696,323L698,319L698,314L696,310L694,310L691,313L686,313L681,310L677,306L671,299L666,299L662,302L657,299L654,295L652,291L649,290L646,290L644,290L643,285L643,279L642,272L644,269L646,267L647,265L649,264L649,262L647,259L647,257L648,256L652,253L654,251L652,246L655,242L654,240L655,237L658,236L659,237L663,239L664,241L665,241L666,238L665,235L667,236L668,236L670,237L671,236L671,235L672,235L674,235L675,237L675,236L676,232L677,232L678,230L679,229L680,229L681,229L683,227L685,229L686,229L689,228L692,228L695,227L699,227L699,229L701,231L704,233L706,233L708,231L708,229L708,224L710,223L712,223L715,224L716,223L717,224L718,224L721,225L721,224L721,222L722,220L723,220L723,220L724,220L725,219L726,219L728,217L730,217L731,216L733,217L734,218L736,217L736,217L737,216L739,216L741,214L743,225L744,229L742,236L748,242L745,247L739,247L736,250L741,256L741,259L742,261L744,264L744,266L745,266L747,270L748,269L750,270L751,270L752,270L752,270L752,271L754,272L755,275L755,281L753,284L750,286L745,287L742,286L742,287L741,287L739,288L739,291L738,296L740,306L741,308L741,308L744,306L745,307L745,308L748,310L749,313L753,317L754,324L764,328L765,330L763,330L763,330L768,330L769,329L771,329L772,328L773,329L774,333L783,330L783,329L785,329L785,330L786,329L787,330L786,331L787,332L787,333L789,335L788,335L789,338L788,340L786,342L787,345L789,345L789,346L791,347L797,352L799,357L802,354L804,353L811,354L824,350L825,348L829,349L828,351L829,355L831,370L829,373L829,373L830,375L822,386L823,402L822,405L831,411L831,412L831,411L830,412L828,415L828,416L827,416L826,418L827,419L826,420L827,421L827,423L822,425L821,426L825,428L827,430L828,433L829,434L828,436L828,438L826,437L826,439L824,443L823,443L826,449L824,470L819,471L810,470L811,477L804,495L804,499L804,499L797,499L797,500L797,499L795,499L794,500L794,501L793,501Z" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.4)" stroke-width="1" stroke-linejoin="round" vector-effect="non-scaling-stroke" style="transition:fill .2s" style-hover="fill:rgba(255,255,255,.14)"></path><path d="M804,499L804,495L811,477L810,470L819,471L824,470L826,449L823,443L824,443L826,439L826,437L828,438L828,436L829,434L828,433L827,430L825,428L821,426L822,425L827,423L827,421L826,420L827,419L826,418L827,416L828,416L828,415L830,412L831,411L831,412L831,411L822,405L823,402L822,386L830,375L829,373L829,373L831,370L829,355L828,351L829,349L833,349L833,348L835,347L836,346L838,347L837,346L837,345L837,345L838,343L838,342L840,344L842,342L844,345L845,345L845,343L846,341L845,339L843,337L852,333L855,323L856,323L857,322L859,322L860,322L859,318L857,316L857,314L860,311L858,310L858,311L858,309L858,309L857,309L858,307L856,306L856,302L858,294L856,290L858,285L858,284L858,283L856,282L855,283L853,283L851,285L850,285L845,285L849,277L853,273L857,265L863,260L864,254L864,249L858,241L861,240L861,239L862,237L862,236L863,235L864,235L864,233L861,232L860,231L862,224L863,224L864,225L866,226L867,227L867,227L868,226L868,224L869,223L869,224L870,224L871,224L870,223L871,221L872,222L873,221L874,221L876,220L879,222L880,221L882,221L882,220L884,221L885,223L887,223L889,221L890,223L891,223L891,223L893,223L896,222L897,219L901,214L911,213L913,213L914,216L914,219L915,219L915,221L913,222L913,224L914,226L918,227L919,230L922,231L923,231L925,232L925,233L926,233L927,234L928,235L929,235L930,236L930,236L933,239L933,242L932,243L933,244L933,246L934,248L937,248L938,248L938,250L940,251L940,251L941,252L944,252L944,253L945,253L945,255L947,258L946,262L946,263L945,265L944,268L943,272L942,273L940,273L938,278L936,279L937,282L939,283L940,284L939,286L938,287L938,289L937,290L938,292L936,294L935,294L933,296L932,300L929,302L930,306L929,308L930,310L929,313L929,314L930,314L930,317L931,319L929,322L930,327L929,329L930,334L925,337L925,338L924,341L923,342L922,342L923,345L919,347L921,349L918,353L918,358L919,360L920,361L919,362L916,364L915,365L916,366L921,367L921,369L923,370L924,370L925,371L927,371L929,367L930,367L931,368L932,371L933,372L936,370L942,372L942,373L941,377L942,380L942,383L944,387L942,390L942,393L942,395L941,396L939,395L936,395L935,395L933,397L932,398L928,397L923,401L922,402L921,403L919,401L917,404L916,407L915,408L913,408L910,409L910,408L905,409L905,410L899,409L898,409L895,411L894,412L894,414L896,417L896,419L894,421L892,422L890,425L889,426L890,428L900,434L907,436L909,439L911,442L914,446L919,447L922,451L922,447L923,444L924,443L928,441L929,441L930,443L933,442L936,443L936,445L931,450L933,449L935,449L936,451L934,453L936,453L938,454L939,456L939,458L937,460L933,460L932,460L931,458L931,455L929,455L925,455L924,455L922,454L922,456L918,458L914,463L910,466L908,469L901,476L898,477L893,478L890,481L886,483L884,486L880,486L877,488L873,494L873,497L874,498L878,500L881,504L881,507L881,508L880,509L873,510L859,506L851,506L847,503L816,501L814,500L812,500L809,500L805,500ZM920,474L921,473L920,472L922,470L927,470L929,473L929,475L931,475L931,477L931,478L930,479L929,478L929,479L928,482L927,483L925,483L922,481L921,479L921,477L921,477ZM939,490L940,489L940,487L939,485L941,483L943,482L943,483L945,482L948,483L949,486L949,487L951,491L951,491L951,492L952,494L951,495L951,496L951,497L952,497L952,498L953,499L953,501L952,501L951,502L949,501L947,503L947,503L948,501L946,500L945,500L943,501L941,502L942,500L941,500L942,499L941,497L939,495L940,494L939,493L940,492L940,491ZM954,500L955,498L956,502Z" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.4)" stroke-width="1" stroke-linejoin="round" vector-effect="non-scaling-stroke" style="transition:fill .2s" style-hover="fill:rgba(255,255,255,.14)"></path><path d="M829,349L825,348L824,350L811,354L804,353L802,354L799,357L797,352L791,347L789,346L789,345L787,345L786,342L788,340L789,338L788,335L789,335L787,333L787,332L786,331L787,330L786,329L785,330L785,329L783,329L783,330L774,333L773,329L772,328L771,329L769,329L768,330L763,330L763,330L765,330L764,328L754,324L753,317L749,313L748,310L745,308L745,307L744,306L741,308L741,308L740,306L738,296L739,291L739,288L741,287L742,287L742,286L745,287L750,286L753,284L755,281L755,275L754,272L752,271L752,270L752,270L751,270L750,270L748,269L747,270L745,266L744,266L744,264L742,261L741,259L741,256L736,250L739,247L745,247L748,242L742,236L744,229L743,225L741,214L739,212L741,211L740,210L740,209L739,208L740,207L741,207L741,206L742,207L751,206L754,207L757,201L753,197L751,194L751,191L751,187L750,187L750,185L752,184L753,183L753,183L754,183L757,184L757,186L760,185L761,184L765,184L766,185L768,186L769,187L771,186L771,187L772,187L773,187L774,189L775,189L776,188L777,188L778,189L778,189L779,189L782,188L783,186L785,187L786,186L787,187L795,184L796,183L798,183L799,183L811,186L811,192L814,198L814,200L815,200L814,201L814,202L815,204L816,205L817,205L821,209L821,210L822,211L822,213L825,216L826,216L826,217L828,220L828,220L829,220L829,222L831,224L832,224L833,225L832,226L833,227L832,227L833,230L833,232L835,232L836,232L836,231L839,230L844,226L846,226L847,225L847,225L850,223L852,224L854,220L854,222L856,223L856,224L858,224L859,223L860,224L862,224L860,231L861,232L864,233L864,235L863,235L862,236L862,237L861,239L861,240L858,241L864,249L864,254L863,260L857,265L853,273L849,277L845,285L850,285L851,285L853,283L855,283L856,282L858,283L858,284L858,285L856,290L858,294L856,302L856,306L858,307L857,309L858,309L858,309L858,311L858,310L860,311L857,314L857,316L859,318L860,322L859,322L857,322L856,323L855,323L852,333L843,337L845,339L846,341L845,343L845,345L844,345L842,342L840,344L838,342L838,343L837,345L837,345L837,346L838,347L836,346L835,347L833,348L833,349Z" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.4)" stroke-width="1" stroke-linejoin="round" vector-effect="non-scaling-stroke" style="transition:fill .2s" style-hover="fill:rgba(255,255,255,.14)"></path><path d="M450,309L468,312L471,312L474,312L475,315L476,315L476,316L478,317L480,317L481,318L485,318L488,321L489,320L489,319L490,319L491,317L491,317L492,313L491,312L494,312L494,312L495,312L497,312L501,309L501,310L502,310L502,310L504,310L504,309L505,312L508,316L506,323L507,328L505,330L507,336L511,336L524,339L527,337L528,345L531,349L531,354L533,357L536,362L535,365L536,367L535,368L534,371L532,373L532,374L532,376L531,380L532,382L533,386L532,388L533,390L534,390L534,395L537,397L539,397L540,402L542,403L543,405L544,405L544,406L545,405L546,406L546,407L547,408L547,410L549,412L547,415L548,416L548,417L548,420L548,422L546,423L547,423L546,426L546,426L546,427L544,429L540,430L539,433L539,435L544,440L544,442L541,444L541,445L539,446L537,446L536,447L536,446L535,448L532,450L532,450L532,451L532,453L531,454L529,455L529,457L530,458L529,458L529,458L529,461L528,461L529,464L527,464L525,462L521,461L520,462L512,458L511,456L509,454L506,455L494,447L485,443L449,428L414,408L403,403L403,402L404,403L405,402L405,400L409,393L412,392L412,386L409,386L409,384L408,384L408,384L407,384L407,382L407,381L407,380L406,380L407,379L408,378L407,377L407,376L408,374L409,371L412,370L412,369L413,369L412,368L412,367L413,366L413,365L415,363L413,361L413,360L415,360L417,358L417,357L417,354L416,353L417,350L417,348L414,345L413,344L413,343L412,343L412,341L410,340L410,338L409,336L409,335L408,332L419,332L423,330L425,331L426,334L429,331L429,327L432,325L435,321Z" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.4)" stroke-width="1" stroke-linejoin="round" vector-effect="non-scaling-stroke" style="transition:fill .2s" style-hover="fill:rgba(255,255,255,.14)"></path><path d="M324,172L324,174L319,186L319,189L320,192L320,193L321,194L321,200L321,200L319,202L318,202L315,203L314,204L312,205L309,209L308,209L307,208L306,210L304,210L299,215L299,217L297,221L298,222L296,224L298,224L299,229L300,229L299,238L300,239L301,238L299,242L299,243L300,244L300,247L299,247L300,248L297,246L296,248L297,250L298,252L299,254L298,255L298,254L298,255L297,255L296,255L296,255L296,255L295,255L295,255L294,262L295,262L294,266L294,268L293,268L291,266L289,265L290,264L291,264L289,263L288,264L287,262L288,262L286,261L287,260L286,259L282,258L279,259L279,258L277,257L275,257L272,255L273,254L272,253L268,255L259,246L256,246L245,248L244,254L243,254L240,255L239,255L239,255L238,253L236,254L233,251L232,251L230,251L229,251L226,252L224,251L226,248L228,247L229,245L229,244L230,243L231,242L230,239L230,238L227,237L227,236L225,234L224,232L220,226L216,224L217,224L215,222L213,221L212,222L210,220L203,221L202,221L199,220L198,219L197,219L199,211L199,209L201,207L201,204L203,203L202,203L204,203L204,201L205,198L205,197L208,192L207,188L208,187L209,185L208,183L207,181L205,180L204,180L202,179L201,179L201,178L198,178L198,176L197,172L197,170L197,170L196,170L196,170L195,170L194,169L194,170L193,168L191,167L191,166L191,165L190,164L191,161L190,160L190,158L191,156L191,155L192,154L192,153L193,153L192,152L193,151L197,137L202,130L217,116L219,112L233,105L246,105L251,105L254,104L256,102L257,103L257,102L259,102L260,101L260,101L261,100L261,100L261,99L262,98L263,98L265,98L267,99L268,99L269,100L269,99L270,99L271,98L272,99L273,95L273,95L274,93L273,92L273,93L272,92L272,91L273,90L272,90L264,80L263,77L262,77L264,75L263,74L264,72L264,70L263,68L262,67L260,67L260,66L261,65L260,65L260,64L259,64L259,63L258,62L255,61L254,62L253,62L252,62L251,61L248,64L247,63L247,55L248,54L249,50L251,49L251,50L254,48L257,48L258,48L257,47L257,46L256,45L256,44L255,44L254,43L252,41L251,38L252,28L254,23L265,23L265,25L268,28L268,30L269,30L269,33L267,34L268,35L270,37L271,36L273,35L274,35L273,33L275,32L275,30L277,30L278,26L279,26L281,27L281,26L282,26L284,22L287,22L287,21L290,20L290,19L291,20L292,18L295,20L301,22L302,22L302,23L303,24L304,25L305,25L306,24L307,24L309,23L309,22L310,21L311,22L311,21L312,20L313,19L313,19L314,17L316,17L317,12L319,12L321,10L322,10L323,12L324,19L326,15L328,17L329,19L334,21L334,22L335,22L342,28L348,33L354,45L374,59L374,61L373,61L373,62L372,63L372,64L373,65L371,68L371,71L369,73L369,74L368,76L368,78L367,78L368,80L367,81L367,83L365,85L366,86L362,88L360,90L357,88L356,88L352,91L350,91L349,90L348,92L347,92L347,92L348,93L349,96L349,99L347,101L347,104L348,106L349,114L346,117L337,118L329,119L327,126L323,128L321,131L318,132L317,134L314,134L313,133L313,133L313,135L315,139L317,146L315,146L314,146L312,148L311,148L313,149L312,150L312,151L310,151L309,153L307,154L306,156L307,160L305,162L307,164L307,165L307,170L307,170L308,171L309,169L310,169L315,173L317,172L320,172L323,173Z" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.4)" stroke-width="1" stroke-linejoin="round" vector-effect="non-scaling-stroke" style="transition:fill .2s" style-hover="fill:rgba(255,255,255,.14)"></path><path d="M486,205L484,204L479,203L476,204L471,201L466,201L465,200L461,199L460,196L461,194L461,193L460,192L459,191L459,187L460,185L459,184L457,183L455,181L454,169L429,165L428,164L427,162L425,160L425,158L422,153L418,157L415,158L414,158L412,160L411,159L412,161L411,162L408,162L407,163L407,165L407,167L405,168L402,167L399,166L400,163L400,161L396,159L395,161L393,161L392,162L390,166L388,166L386,167L384,166L383,164L380,164L378,163L373,163L373,165L368,167L367,166L366,166L366,168L365,168L364,167L364,165L361,163L360,165L358,165L354,166L353,162L353,161L353,159L352,158L348,158L345,160L343,163L342,164L338,165L334,164L332,166L329,173L328,173L327,171L324,172L323,173L320,172L317,172L315,173L310,169L309,169L308,171L307,170L307,170L307,165L307,164L305,162L307,160L306,156L307,154L309,153L310,151L312,151L312,150L313,149L311,148L312,148L314,146L315,146L317,146L315,139L313,135L313,133L313,133L314,134L317,134L318,132L321,131L323,128L327,126L329,119L337,118L346,117L349,114L348,106L347,104L347,101L349,99L349,96L348,93L347,92L347,92L348,92L349,90L350,91L352,91L356,88L357,88L360,90L362,88L366,86L365,85L367,83L367,81L368,80L367,78L368,78L368,76L369,74L369,73L371,71L371,68L373,65L372,64L372,63L373,62L373,61L374,61L374,59L354,45L348,33L342,28L335,22L341,15L343,15L346,17L347,20L348,22L350,24L353,24L356,23L364,29L376,33L380,31L383,33L383,34L385,34L389,34L389,35L388,36L388,40L389,40L391,40L391,41L393,41L394,42L395,42L397,43L397,42L399,43L404,43L426,26L429,27L432,30L434,32L433,33L436,37L436,38L436,38L436,39L437,39L436,41L437,41L436,41L437,42L436,44L437,46L436,48L435,49L437,50L436,51L436,52L437,53L439,52L439,53L441,54L443,55L447,54L453,55L454,58L454,59L455,61L454,62L456,61L456,62L457,62L457,63L459,62L459,65L458,66L458,66L458,67L458,68L457,68L459,70L458,71L459,72L458,73L458,74L457,74L457,75L458,76L457,79L458,80L460,79L461,79L462,79L469,84L470,84L471,86L472,88L473,89L474,89L474,90L475,90L474,92L476,93L476,94L478,97L478,98L476,99L477,101L480,102L481,102L481,103L482,103L484,104L486,104L487,104L487,104L489,105L490,105L493,105L493,104L496,103L496,103L497,103L503,104L503,107L504,108L504,110L506,110L507,109L510,111L511,110L512,112L513,112L514,113L515,114L516,114L517,116L519,117L518,118L519,120L519,124L523,126L523,127L524,129L523,130L524,133L526,133L526,134L528,135L528,136L529,139L530,140L530,143L530,142L531,142L534,141L534,141L535,141L536,141L536,140L538,137L538,137L539,136L539,134L541,133L541,132L541,131L539,130L538,129L542,120L564,133L575,165L576,165L577,166L577,166L579,165L579,167L581,166L581,167L582,167L582,168L583,168L585,171L585,172L584,174L585,175L584,177L584,179L581,179L578,181L576,181L575,182L573,182L569,184L568,184L566,183L564,183L560,184L558,187L553,186L550,192L547,194L544,194L540,194L536,196L533,195L532,196L529,201L528,201L526,200L520,199L519,200L520,202L514,207L511,207L510,207L508,209L501,206L499,206L498,206L497,202L493,203L490,205L489,206Z" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.4)" stroke-width="1" stroke-linejoin="round" vector-effect="non-scaling-stroke" style="transition:fill .2s" style-hover="fill:rgba(255,255,255,.14)"></path><path d="M415,158L414,165L412,168L410,168L410,169L410,172L409,173L410,174L411,176L411,179L412,182L411,183L412,185L408,190L409,193L408,194L406,195L406,197L404,198L405,199L405,202L406,203L405,203L407,204L407,206L409,209L410,211L411,213L411,214L413,215L415,217L417,217L421,223L421,225L419,228L417,231L411,234L409,233L409,235L409,235L410,235L412,237L412,240L414,241L414,244L417,242L417,242L418,241L420,242L421,241L422,242L422,242L423,244L424,245L424,247L425,248L424,249L425,251L427,251L427,253L429,254L429,257L430,258L432,259L434,258L434,259L441,259L441,262L447,272L448,276L449,276L448,277L450,279L452,281L452,283L457,298L450,309L435,321L432,325L429,327L429,331L426,334L425,331L423,330L419,332L408,332L409,335L409,336L410,338L410,340L412,341L412,343L413,343L413,344L414,345L417,348L417,350L416,353L417,354L417,357L417,358L415,360L413,360L413,361L415,363L413,365L413,366L412,367L412,368L413,369L412,369L412,370L409,371L408,374L407,376L407,377L407,377L405,377L404,378L403,377L403,378L403,380L401,380L400,382L399,383L395,382L390,382L390,380L390,378L389,375L388,374L387,374L387,373L386,370L387,368L385,368L385,366L384,366L383,364L383,363L381,361L381,360L381,358L381,357L383,354L384,352L385,350L385,348L385,344L385,344L384,343L383,342L381,340L381,338L383,334L382,332L383,331L382,329L383,328L384,328L385,325L384,323L380,323L380,322L377,322L376,320L379,314L381,314L382,314L383,312L381,305L381,304L378,304L375,305L375,302L374,301L372,300L370,294L364,294L364,293L365,293L365,292L365,290L366,289L366,287L368,284L368,282L369,281L368,280L361,283L367,278L367,276L369,276L369,275L369,276L370,272L369,267L370,263L370,259L370,258L369,257L369,255L372,251L374,244L376,241L377,234L378,225L379,222L380,213L385,214L386,209L384,205L379,205L375,204L369,201L368,201L372,196L370,196L370,194L368,193L368,192L366,192L366,192L365,192L366,191L364,190L363,189L362,189L362,191L361,190L360,188L359,186L359,186L358,185L359,183L358,182L359,180L360,180L361,179L360,177L362,176L361,174L362,173L362,173L363,172L363,173L364,170L365,170L365,170L366,169L365,169L366,168L368,167L373,165L373,163L378,163L380,164L383,164L384,166L386,167L388,166L390,166L392,162L393,161L395,161L396,159L400,161L400,163L399,166L402,167L405,168L407,167L407,165L407,163L408,162L411,162L412,161L411,159L412,160L414,158Z" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.4)" stroke-width="1" stroke-linejoin="round" vector-effect="non-scaling-stroke" style="transition:fill .2s" style-hover="fill:rgba(255,255,255,.14)"></path><path d="M517,271L514,268L509,269L509,267L508,267L507,267L506,265L506,266L505,264L504,264L503,264L502,263L499,264L498,262L496,262L497,260L496,259L496,258L496,257L499,256L500,253L499,252L498,250L495,252L493,252L492,251L491,251L492,249L492,247L490,246L489,245L488,244L485,241L484,243L481,242L481,241L480,241L480,240L479,239L479,238L478,238L476,237L475,237L472,235L471,233L474,229L474,227L472,226L474,219L476,217L476,216L478,215L482,211L483,208L486,205L489,206L490,205L493,203L497,202L498,206L499,206L501,206L508,209L510,207L511,207L514,207L520,202L519,200L520,199L526,200L528,201L529,201L532,196L533,195L536,196L540,194L544,194L547,194L550,192L553,186L558,187L560,184L564,183L566,183L568,184L569,184L573,182L575,182L576,181L578,181L581,179L584,179L586,178L588,179L589,179L591,176L592,174L592,173L596,176L598,175L601,176L603,174L605,174L606,176L609,177L613,181L616,180L618,179L620,180L621,182L624,184L625,187L625,190L627,191L631,189L635,190L635,189L638,189L639,189L642,188L643,190L649,193L652,195L653,196L653,198L653,201L653,202L651,204L650,205L650,207L650,211L650,213L649,214L649,217L651,218L652,223L656,230L656,230L654,232L654,233L654,234L656,236L655,237L654,240L655,242L652,246L654,251L652,253L648,256L647,257L647,259L649,262L649,264L647,265L646,267L644,269L642,272L643,279L640,279L638,280L637,280L635,281L629,281L628,279L626,281L623,280L621,281L619,281L619,279L619,278L617,277L615,274L615,274L616,273L617,271L615,271L614,272L612,272L611,271L608,271L606,268L604,267L603,267L599,267L597,265L596,264L596,263L594,263L593,261L591,263L588,265L588,264L587,263L587,264L585,265L584,264L583,264L583,262L581,262L581,263L579,263L578,263L578,263L575,265L573,264L573,263L573,263L573,264L571,264L571,263L570,263L570,261L569,260L568,260L568,262L568,262L564,260L563,261L562,260L560,260L560,259L559,261L558,261L558,263L556,263L555,263L552,262L549,265L547,265L545,267L544,267L544,268L543,268L543,268L542,268L541,268L540,269L539,269L538,268L536,269L536,268L535,268L535,267L533,268L532,268L531,267L530,266L529,267L528,267L526,267L524,267L520,269L519,271Z" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.4)" stroke-width="1" stroke-linejoin="round" vector-effect="non-scaling-stroke" style="transition:fill .2s" style-hover="fill:rgba(255,255,255,.14)"></path></svg>
+            <sc-for list="{{ alDepts }}" as="d" hint-placeholder-count="14">
+              <button type="button" onClick="{{ d.pick }}" onMouseEnter="{{ d.enter }}" onMouseLeave="{{ d.leave }}" style="all:unset;cursor:pointer;position:absolute;left:{{ d.x }};top:{{ d.y }};transform:translate(-50%,-50%);display:flex;align-items:center;gap:.4em;padding:.25em .45em;white-space:nowrap;font-family:'Space Mono',monospace;font-size:clamp(6px,1.75cqi,9.5px);letter-spacing:.06em;text-transform:uppercase;background:{{ d.bg }};color:{{ d.fg }};transition:background .2s, color .2s">
+                <span aria-hidden="true" style="position:relative;width:.7em;height:.7em;flex-shrink:0"><span style="position:absolute;inset:0;background:{{ d.dot }}"></span><span style="position:absolute;inset:0;background:{{ d.dot }};animation:avz-ping 1.8s ease-out {{ d.delay }} infinite"></span></span>{{ d.name }}
+              </button>
+            </sc-for>
+          </div>
+          <p style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;color:#C9D8CF;margin:calc(14px + 5.2%) 0 0">TOCA TU DEPARTAMENTO PARA POSTULAR</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="al-form" style="margin:0;background:#0F3D2C;color:#FFFFFF;scroll-margin-top:70px;position:relative;overflow:hidden">
+    <div aria-hidden="true" style="position:absolute;inset:0;background:url(assets/tex-grava.png) repeat 0 0 / 360px;opacity:.35;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,#000,transparent 60%);mask-image:linear-gradient(180deg,#000,transparent 60%)"></div>
+    <div aria-hidden="true" style="position:absolute;left:0;right:0;bottom:0;height:420px;background:url(assets/tex-surcos.png) repeat 0 0 / 320px auto;opacity:.05;pointer-events:none;-webkit-mask-image:linear-gradient(0deg,#000,transparent);mask-image:linear-gradient(0deg,#000,transparent)"></div>
+    <div style="position:relative;max-width:1280px;margin:0 auto;padding:72px 24px">
+      <div style="display:flex;align-items:center;gap:14px;font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;color:#C9D8CF">
+        <span style="white-space:nowrap"><strong style="color:#E63E00;font-weight:700">ALIADOS</strong> · QUIERO SER ALIADO</span><span aria-hidden="true" style="flex:1;display:grid;gap:2px;min-width:24px"><span style="height:3px;background:rgba(255,255,255,.85)"></span><span style="height:1px;background:#E63E00"></span></span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:48px;margin:26px 0 0;align-items:start">
+        <div style="min-width:0">
+          <h2 style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:clamp(36px,5.4vw,72px);line-height:.98;letter-spacing:-.02em;margin:0">Hagamos equipo.<br /><span style="color:#E63E00">Tu agencia, con ventaja.</span></h2>
+          <p style="font-size:17px;line-height:1.6;color:#DCE6E0;max-width:42ch;margin:22px 0 0">Déjanos tus datos y un ejecutivo de Avanza te contacta para presentarte el programa.</p>
+          <div style="display:grid;gap:1px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.18);margin:30px 0 0;max-width:420px">
+            <div style="background:#0F3D2C;padding:16px 18px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:#C9D8CF">TELÉFONO</span><span style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:17px">+(503) 2509-6800</span></div>
+            <div style="background:#0F3D2C;padding:16px 18px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:#C9D8CF">CORREO</span><span style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:17px">info@avanza.com</span></div>
+          </div>
+        </div>
+
+        <div style="min-width:0;background:#FFFFFF;color:#14161A;padding:30px 28px">
+          <sc-if value="{{ alSent }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:14px;padding:20px 0">
+              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;color:#E63E00;font-weight:700">▲ SOLICITUD LISTA</span>
+              <h3 style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:30px;line-height:1.1;margin:0;color:#0F3D2C">Gracias, {{ alForm.agencia }}.</h3>
+              <p style="font-size:16px;line-height:1.6;color:#3A3B3E;margin:0">Te contactaremos en menos de 24 horas a {{ alForm.contacto }}.</p>
+              <button type="button" onClick="{{ alReset }}" style="align-self:flex-start;font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:16px;padding:10px 18px;background:#FFFFFF;border:2px solid #0F3D2C;color:#0F3D2C;cursor:pointer">Enviar otra</button>
+            </div>
+          </sc-if>
+          <sc-if value="{{ alShowIntro }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-direction:column;gap:18px;padding:8px 0">
+              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;color:#58585B">SOLICITUD DE ALIANZA · 7 PREGUNTAS · 2 MIN</span>
+              <span style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:clamp(24px,2.4vw,30px);line-height:1.15;color:#0F3D2C;text-wrap:balance">Cuéntanos de tu agencia y te presentamos el programa.</span>
+              <button type="button" onClick="{{ alOpenForm }}" style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:19px;padding:16px 24px;background:#E63E00;color:#FFFFFF;border:0;cursor:pointer;display:flex;justify-content:space-between;gap:12px" style-hover="background:#C23400"><span>Quiero ser aliado</span><span>→</span></button>
+            </div>
+          </sc-if>
+          <sc-if value="{{ alShowForm }}" hint-placeholder-val="{{ false }}">
+            <form onSubmit="{{ alNext }}" style="display:grid;gap:22px;animation:avz-q .45s ease">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;color:#58585B">
+                <span>SOLICITUD DE ALIANZA</span>
+                <span><strong style="color:#E63E00">{{ alQNum }}</strong> / 07</span>
+              </div>
+              <div style="height:3px;background:#E9ECE8;position:relative;margin-top:-10px"><div style="position:absolute;left:0;top:0;bottom:0;width:{{ alQPct }};background:#E63E00;transition:width .45s ease"></div></div>
+              <div style="min-height:200px;display:grid;align-content:start">
+              <sc-if value="{{ alQ0 }}" hint-placeholder-val="{{ true }}">
+                <div style="display:grid;gap:16px;animation:avz-q .45s ease">
+                  <span style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:clamp(22px,2.2vw,28px);line-height:1.15;color:#0F3D2C;text-wrap:balance">¿Cómo se llama tu agencia?</span>
+                  <input type="text" value="{{ alForm.agencia }}" onChange="{{ alOn.agencia }}" placeholder="Ej. Motos del Centro" style="border:0;border-bottom:2px solid #0F3D2C;background:transparent;padding:10px 2px;font-size:19px;color:#14161A;outline:none;width:100%" />
+                </div>
+              </sc-if>
+              <sc-if value="{{ alQ1 }}" hint-placeholder-val="{{ false }}">
+                <div style="display:grid;gap:16px;animation:avz-q .45s ease">
+                  <span style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:clamp(22px,2.2vw,28px);line-height:1.15;color:#0F3D2C;text-wrap:balance">¿Qué tipo de empresa es?</span>
+                  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:8px">
+                  <sc-for list="{{ alOpts }}" as="o" hint-placeholder-count="4">
+                    <button type="button" onClick="{{ o.pick }}" style="text-align:left;padding:14px 16px;cursor:pointer;font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:16.5px;background:{{ o.bg }};color:{{ o.fg }};border:1px solid {{ o.bd }};display:flex;justify-content:space-between;gap:10px;transition:background .2s" style-hover="border-color:#0F3D2C"><span>{{ o.label }}</span><span>{{ o.mark }}</span></button>
+                  </sc-for>
+                </div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ alQ2 }}" hint-placeholder-val="{{ false }}">
+                <div style="display:grid;gap:16px;animation:avz-q .45s ease">
+                  <span style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:clamp(22px,2.2vw,28px);line-height:1.15;color:#0F3D2C;text-wrap:balance">¿Tienen página web?</span><span style="font-size:14px;color:#58585B;margin-top:-6px">Opcional. Si no tienen, continúa.</span>
+                  <input type="text" value="{{ alForm.web }}" onChange="{{ alOn.web }}" placeholder="www.tuagencia.com" style="border:0;border-bottom:2px solid #0F3D2C;background:transparent;padding:10px 2px;font-size:19px;color:#14161A;outline:none;width:100%" />
+                </div>
+              </sc-if>
+              <sc-if value="{{ alQ3 }}" hint-placeholder-val="{{ false }}">
+                <div style="display:grid;gap:16px;animation:avz-q .45s ease">
+                  <span style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:clamp(22px,2.2vw,28px);line-height:1.15;color:#0F3D2C;text-wrap:balance">¿Quién es el contacto principal?</span>
+                  <input type="text" value="{{ alForm.nombre }}" onChange="{{ alOn.nombre }}" placeholder="Nombre y apellido" style="border:0;border-bottom:2px solid #0F3D2C;background:transparent;padding:10px 2px;font-size:19px;color:#14161A;outline:none;width:100%" />
+                  <input type="text" value="{{ alForm.contacto }}" onChange="{{ alOn.contacto }}" placeholder="Teléfono o correo" style="border:0;border-bottom:2px solid #0F3D2C;background:transparent;padding:10px 2px;font-size:19px;color:#14161A;outline:none;width:100%" />
+                </div>
+              </sc-if>
+              <sc-if value="{{ alQ4 }}" hint-placeholder-val="{{ false }}">
+                <div style="display:grid;gap:16px;animation:avz-q .45s ease">
+                  <span style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:clamp(22px,2.2vw,28px);line-height:1.15;color:#0F3D2C;text-wrap:balance">¿Tu agencia o grupo ya cuenta con una financiera de casa?</span>
+                  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:8px">
+                  <sc-for list="{{ alOpts }}" as="o" hint-placeholder-count="4">
+                    <button type="button" onClick="{{ o.pick }}" style="text-align:left;padding:14px 16px;cursor:pointer;font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:16.5px;background:{{ o.bg }};color:{{ o.fg }};border:1px solid {{ o.bd }};display:flex;justify-content:space-between;gap:10px;transition:background .2s" style-hover="border-color:#0F3D2C"><span>{{ o.label }}</span><span>{{ o.mark }}</span></button>
+                  </sc-for>
+                </div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ alQ5 }}" hint-placeholder-val="{{ false }}">
+                <div style="display:grid;gap:16px;animation:avz-q .45s ease">
+                  <span style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:clamp(22px,2.2vw,28px);line-height:1.15;color:#0F3D2C;text-wrap:balance">¿Cuál es su promedio de ventas mensuales?</span>
+                  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:8px">
+                  <sc-for list="{{ alOpts }}" as="o" hint-placeholder-count="4">
+                    <button type="button" onClick="{{ o.pick }}" style="text-align:left;padding:14px 16px;cursor:pointer;font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:16.5px;background:{{ o.bg }};color:{{ o.fg }};border:1px solid {{ o.bd }};display:flex;justify-content:space-between;gap:10px;transition:background .2s" style-hover="border-color:#0F3D2C"><span>{{ o.label }}</span><span>{{ o.mark }}</span></button>
+                  </sc-for>
+                </div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ alQ6 }}" hint-placeholder-val="{{ false }}">
+                <div style="display:grid;gap:16px;animation:avz-q .45s ease">
+                  <span style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:clamp(22px,2.2vw,28px);line-height:1.15;color:#0F3D2C;text-wrap:balance">¿Qué parte de esas ventas es financiada?</span><span style="font-size:14px;color:#58585B;margin-top:-6px">Promedio mensual aproximado.</span>
+                  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:8px">
+                  <sc-for list="{{ alOpts }}" as="o" hint-placeholder-count="4">
+                    <button type="button" onClick="{{ o.pick }}" style="text-align:left;padding:14px 16px;cursor:pointer;font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:16.5px;background:{{ o.bg }};color:{{ o.fg }};border:1px solid {{ o.bd }};display:flex;justify-content:space-between;gap:10px;transition:background .2s" style-hover="border-color:#0F3D2C"><span>{{ o.label }}</span><span>{{ o.mark }}</span></button>
+                  </sc-for>
+                </div>
+                </div>
+              </sc-if>
+              </div>
+              <sc-if value="{{ alHasDept }}" hint-placeholder-val="{{ false }}">
+                <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;color:#0F3D2C;background:#C9D8CF;padding:6px 10px;justify-self:start">▲ CUPO: {{ alForm.departamento }}</span>
+              </sc-if>
+              <div style="display:flex;gap:10px;align-items:stretch">
+                <button type="button" onClick="{{ alBack }}" aria-label="Anterior" style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:20px;padding:0 20px;background:#FFFFFF;border:2px solid #0F3D2C;color:#0F3D2C;cursor:pointer;opacity:{{ alBackOp }}" style-hover="background:#C9D8CF">←</button>
+                <button type="submit" style="flex:1;font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:18px;padding:14px 22px;background:#E63E00;color:#FFFFFF;border:0;cursor:pointer;display:flex;justify-content:space-between;gap:12px;opacity:{{ alNextOp }};transition:opacity .2s" style-hover="background:#C23400"><span>{{ alNextLabel }}</span><span>→</span></button>
+              </div>
+              <p style="font-size:12.5px;line-height:1.5;color:#58585B;margin:0">Tus datos solo se usan para contactarte sobre el programa de agencias aliadas.</p>
+            </form>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <section style="background:#0F3D2C;color:#FFFFFF">
+    <div style="position:relative;border-top:1px solid rgba(255,255,255,.18)">
+      <div style="max-width:1280px;margin:0 auto;padding:22px 24px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.09em;color:#C9D8CF">
+        <img src="assets/avanza-logo.png" alt="Avanza — Forjando nuevos caminos" style="width:180px;height:auto;display:block;filter:brightness(0) invert(1)" />
+        <span>© 2026 AVANZA, EL SALVADOR · TODOS LOS DERECHOS RESERVADOS</span>
+      </div>
+    </div>
+  </section>
+  <div aria-hidden="true" style="height:28px;background:#E63E00 url(assets/tread-strip-white35.png) repeat-x 0 50% / auto 20px"></div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showTicker&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Comportamiento&quot;},&quot;tickerSpeed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:44,&quot;min&quot;:18,&quot;max&quot;:90,&quot;step&quot;:2,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Comportamiento&quot;},&quot;showFloatingCta&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Comportamiento&quot;},&quot;faqStartOpen&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Comportamiento&quot;}}">
+class Component extends DCLogic {
+  state = { counted: false, shown: [0, 0, 0, 0], openFaq: null, adv: 0, visited: [0], hover: null,
+    alFlow: 0, alStep: 0, alShown: [0, 0, 0, 0], alCounted: false, hoverB: -1, hoverD: -1, alSent: false,
+    prStep: 0, prNarrow: false, prPaused: false, prHover: false, alOpen: false, alQ: 0, alForm: { agencia: "", tipo: "", web: "", nombre: "", contacto: "", financiera: "", ventas: "", financiadas: "", departamento: "" } };
+  SV_P = {"Cuscatlán":[455,245],"Usulután":[654,422],"La Libertad":[345,330],"Ahuachapán":[130,237],"Sonsonate":[180,300],"San Vicente":[570,332],"San Miguel":[735,350],"La Unión":[881,367],"Morazán":[799,269],"La Paz":[478,382],"Santa Ana":[278,135],"Chalatenango":[440,126],"San Salvador":[402,282],"Cabañas":[590,215]};
+  AL_DEPTS = ["San Salvador", "La Libertad", "Santa Ana", "San Miguel", "Sonsonate", "Usulután", "La Paz", "Ahuachapán", "Cuscatlán", "Chalatenango", "La Unión", "San Vicente", "Cabañas", "Morazán"];
+  AL_STAT = [[24, "h", "RESPUESTA A TU CLIENTE"], [10, "%", "PRIMA DESDE"], [24, "meses", "PLAZO MÁXIMO"], [14, "", "DEPARTAMENTOS POR CUBRIR"]];
+  targets = [95, 10, 49, 3];
+  suffix = ["%", "+", "", ""];
+  prefix = ["", "", "$", ""];
+
+  componentDidMount() {
+    this.onMob = () => { const mob = window.innerWidth < 900; if (mob !== this.state.mob) this.setState({ mob, menuOpen: false }); };
+    this.onMob(); window.addEventListener('resize', this.onMob); requestAnimationFrame(this.onMob); setTimeout(this.onMob, 300); window.addEventListener('load', this.onMob); if (window.ResizeObserver) { this.mobRO = new ResizeObserver(this.onMob); this.mobRO.observe(document.documentElement); }
+    const hdr = document.getElementById("avz-hdr");
+    if (hdr && window.ResizeObserver) {
+      this.hdrRo = new ResizeObserver(([en]) => { const n = en.contentRect.width < 1110; if (n !== this.state.hdrNarrow) this.setState({ hdrNarrow: n }); });
+      this.hdrRo.observe(hdr);
+    }
+    const prEl = document.getElementById("proceso");
+    if (prEl && window.ResizeObserver) {
+      this.prRo = new ResizeObserver(([en]) => { const n = en.contentRect.width < 720; if (n !== this.state.prNarrow) this.setState({ prNarrow: n }); });
+      this.prRo.observe(prEl);
+    }
+    this.prT = setInterval(() => { if (!this.state.prPaused && !this.state.prHover) this.setState((s) => ({ prStep: (s.prStep + 1) % 4 })); }, 4200);
+    this.alT1 = setInterval(() => this.setState((s) => ({ alFlow: (s.alFlow + 1) % 5 })), 1700);
+    this.alT2 = setInterval(() => { if (!this.alPinned) this.setState((s) => ({ alStep: (s.alStep + 1) % 4 })); }, 2800);
+    this.alIo = new IntersectionObserver((es) => es.forEach((en) => {
+      if (!en.isIntersecting) return;
+      if (en.target.id === "al-cifras") { if (!this.state.alCounted) { this.setState({ alCounted: true }); this.alCount(); } }
+      else { en.target.removeAttribute("data-reveal-pending"); en.target.style.opacity = "1"; en.target.style.transform = "none"; }
+      this.alIo.unobserve(en.target);
+    }), { threshold: 0.2 });
+    const alCheck = () => {
+      const vh = window.innerHeight || 800;
+      document.querySelectorAll("#aliados [data-reveal-pending]").forEach((el) => {
+        if (el.getBoundingClientRect().top < vh * 0.92) { el.removeAttribute("data-reveal-pending"); el.style.opacity = "1"; el.style.transform = "none"; }
+      });
+      const c = document.getElementById("al-cifras");
+      if (c && !this.state.alCounted && c.getBoundingClientRect().top < vh * 0.9) { this.setState({ alCounted: true }); this.alCount(); }
+    };
+    this.alCheck = alCheck;
+    window.addEventListener("scroll", alCheck, true);
+    window.addEventListener("resize", alCheck);
+    const prep = () => requestAnimationFrame(() => {
+      const vh = window.innerHeight || 800;
+      document.querySelectorAll("#aliados [data-reveal]").forEach((el, i) => {
+        if (el.getBoundingClientRect().top < vh) return;
+        el.setAttribute("data-reveal-pending", "1");
+        el.style.opacity = "0"; el.style.transform = "translateY(28px)";
+        el.style.transition = `opacity .7s ease ${(i % 3) * 0.08}s, transform .7s ease ${(i % 3) * 0.08}s, background .3s, border-color .3s`;
+        this.alIo.observe(el);
+      });
+      const c = document.getElementById("al-cifras"); if (c) this.alIo.observe(c);
+      alCheck();
+    });
+    (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(() => setTimeout(prep, 150));
+    this.io = new IntersectionObserver((es) => {
+      es.forEach((e) => { if (e.isIntersecting && !this.state.counted) { this.setState({ counted: true }); this.run(); } });
+    }, { threshold: 0.3 });
+    const el = document.getElementById("numeros");
+    if (el) this.io.observe(el);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onMob); this.mobRO && this.mobRO.disconnect(); if (this.hdrRo) this.hdrRo.disconnect(); if (this.alCheck) { window.removeEventListener("scroll", this.alCheck, true); window.removeEventListener("resize", this.alCheck); } clearInterval(this.prT); if (this.prRo) this.prRo.disconnect(); clearInterval(this.alT1); clearInterval(this.alT2); if (this.alIo) this.alIo.disconnect(); cancelAnimationFrame(this.alRaf); if (this.io) this.io.disconnect(); if (this.raf) cancelAnimationFrame(this.raf); }
+  run() {
+    const t0 = performance.now(), dur = 1100;
+    const tick = (now) => {
+      const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+      this.setState({ shown: this.targets.map((v) => Math.round(v * e)) });
+      if (p < 1) this.raf = requestAnimationFrame(tick);
+    };
+    this.raf = requestAnimationFrame(tick);
+  }
+
+  ADV = [
+    ["acelerador", "ACELERADOR", "Aprobación en menos de 24 horas", "Sabemos que no puedes esperar semanas por una respuesta. Evaluamos tu solicitud de forma ágil y te damos respuesta en menos de un día."],
+    ["pedal", "PEDAL DE CAMBIOS", "Paga a tu ritmo", "Tus cuotas se ajustan a cómo recibes tus ingresos. Si te pagan cada quince días, tu cuota también puede ser quincenal. Así pagar es más fácil y más natural para ti."],
+    ["tanque", "TANQUE", "Tasas que cuidan tu bolsillo", "Para nosotros, una buena tasa no es solo un número atractivo: es la que te permite pagar tu moto sin comprometer el resto de tus gastos. Diseñamos nuestras tasas pensando en tu bienestar financiero, porque cuando a ti te va bien, a nosotros también."],
+    ["trasera", "LLANTA TRASERA", "Prima desde 10% y plazos de hasta 24 meses", "Estrena con una prima accesible y cuotas cómodas, con plazos de hasta 24 meses. Sujeto a análisis de crédito."],
+    ["escape", "ESCAPE", "Adelanta pagos sin castigo", "¿Te sobró un dinero extra? Abona o cancela tu crédito cuando quieras, sin penalidades por pago anticipado."],
+    ["tablero", "TABLERO", "Premiamos tu puntualidad", "Si pagas a tiempo, te lo reconocemos: accede a mejores condiciones en tu próximo financiamiento, ya sea tu siguiente moto o tu primer carro."],
+    ["asiento", "ASIENTO", "Evaluamos tu realidad, no solo tu historial", "Si eres comerciante, repartidor o trabajas por tu cuenta, también puedes estrenar. Conocemos tu esfuerzo y evaluamos tus ingresos de forma justa, aunque no tengas planilla."],
+    ["motor", "MOTOR", "Construye tu historial crediticio", "Cada cuota que pagas a tiempo suma a tu historial. Con AVANZA no solo estrenas moto: también abres la puerta a futuros créditos."],
+    ["faro", "FARO", "Tecnología que te mantiene informado", "Desde tu celular recibes recordatorios de pago, confirmaciones al instante, ofertas exclusivas, la ubicación de tu moto y el estado de tu seguro. Todo en un solo lugar, sin llamadas ni filas."],
+    ["delantera", "LLANTA DELANTERA", "Paga donde te quede cerca", "Paga desde la app, por transferencia o en puntos de pago cercanos a ti. Tú eliges la opción más cómoda."],
+    ["timon", "TIMÓN", "Asesores AVANZA en cada agencia", "Encuentras a nuestro equipo en cada concesionaria aliada, listo para ayudarte a elegir, resolver tus dudas y acompañarte en cada paso. Con AVANZA siempre hablas con una persona real."],
+  ];
+
+  SHORT = ["Aprobación en 24 h", "Cuotas a tu ritmo", "Tasas justas", "Prima desde 10%", "Adelantos sin penalidad", "Premio a puntualidad", "Sin planilla", "Historial crediticio", "Todo en tu celular", "Pagos cerca de ti", "Asesor en agencia"];
+
+  selAdv(i) {
+    const n = this.ADV.length, k = ((i % n) + n) % n;
+    this.setState((s) => ({ adv: k, visited: s.visited.includes(k) ? s.visited : s.visited.concat(k) }));
+  }
+
+  wheel(cx, cy) {
+    const s = [["circle", { cx, cy, r: 88, fill: "solid" }], ["circle", { cx, cy, r: 72 }], ["circle", { cx, cy, r: 30 }], ["circle", { cx, cy, r: 11 }]];
+    for (let a = 0; a < 6; a++) {
+      const t = (a * Math.PI) / 3 + 0.3;
+      s.push(["path", { d: `M${cx + Math.cos(t) * 11} ${cy + Math.sin(t) * 11} L${cx + Math.cos(t + 0.35) * 72} ${cy + Math.sin(t + 0.35) * 72}` }]);
+    }
+    return s;
+  }
+
+  buildMoto() {
+    const e = React.createElement;
+    const BG = "#0C3425", INK = "rgba(255,255,255,.92)", DIM = "rgba(255,255,255,.42)", LAVA = "#E63E00";
+    const GL = "rgba(255,255,255,.55)", TXT = { fontFamily: "'Space Mono', monospace", fontSize: 10.5, letterSpacing: "0.12em" };
+    const act = this.ADV[this.state.adv][0], hov = this.state.hover, visited = this.state.visited;
+    const P = {
+      trasera: { hot: [128, 268], s: this.wheel(200, 340) },
+      delantera: { hot: [712, 268], s: this.wheel(640, 340) },
+      motor: { hot: [410, 298], s: [["path", { d: "M332 252 L470 246 L490 300 L454 352 L354 352 L322 312 Z", fill: "solid" }], ["path", { d: "M362 266 L458 262" }], ["path", { d: "M364 280 L464 276" }], ["path", { d: "M366 294 L470 290" }], ["circle", { cx: 388, cy: 326, r: 14 }]] },
+      escape: { hot: [256, 352], s: [["path", { d: "M468 318 C452 372 410 372 350 364" }], ["path", { d: "M344 346 L226 314 L218 338 L338 378 Z", fill: "solid" }], ["path", { d: "M226 314 L218 338" }]] },
+      pedal: { hot: [438, 398], s: [["circle", { cx: 386, cy: 372, r: 6 }], ["path", { d: "M386 372 L430 384 L434 374" }], ["path", { d: "M380 372 L360 376" }]] },
+      asiento: { hot: [308, 186], s: [["path", { d: "M236 202 C280 188 344 190 400 206 L398 224 C342 224 290 224 244 220 Z", fill: "solid" }]] },
+      tanque: { hot: [476, 196], s: [["path", { d: "M396 214 C412 176 470 160 540 166 L558 188 C542 214 502 234 470 238 L402 238 Z", fill: "solid" }], ["circle", { cx: 498, cy: 174, r: 6 }]] },
+      timon: { hot: [548, 88], s: [["path", { d: "M566 162 L546 134 L516 124" }], ["path", { d: "M548 134 L534 100" }], ["ellipse", { cx: 530, cy: 92, rx: 15, ry: 8, fill: "solid" }]] },
+      acelerador: { hot: [480, 146], s: [["path", { d: "M488 112 L518 118 L515 133 L485 127 Z", fill: "solid" }], ["path", { d: "M500 130 C498 150 512 168 540 176" }]] },
+      tablero: { hot: [602, 110], s: [["path", { d: "M566 132 L598 124 L606 148 L574 156 Z", fill: "solid" }], ["circle", { cx: 586, cy: 140, r: 6 }]] },
+      faro: { hot: [676, 172], s: [["path", { d: "M606 156 C630 150 648 166 648 186 C648 206 630 212 610 204 Z", fill: "solid" }], ["path", { d: "M622 166 C632 174 634 190 626 200" }]] },
+    };
+    const decor = [
+      "M204 346 L360 304 L366 320 L210 360 Z", "M566 170 L470 238 L362 302", "M560 190 L492 300",
+      "M362 302 L248 216", "M404 240 L244 214", "M160 204 L238 200 L246 220 L178 228 Z",
+      "M562 168 L632 336", "M578 164 L648 332", "M588 300 C606 262 672 258 704 288", "M140 262 C160 236 210 228 246 236",
+    ];
+    const shape = (s, i, st) => {
+      const [tag, a] = s, props = Object.assign({}, a, { key: i });
+      props.fill = a.fill === "solid" ? st.fill : "none";
+      props.stroke = st.stroke; props.strokeWidth = st.w; props.strokeLinejoin = "round"; props.strokeLinecap = "round";
+      return e(tag, props);
+    };
+    const kids = [];
+    let minor = ""; for (let k = 10; k < 50; k += 10) minor += `M${k} 0 V50 M0 ${k} H50 `;
+    kids.push(e("defs", { key: "d" },
+      e("pattern", { id: "avz-bp", width: 50, height: 50, patternUnits: "userSpaceOnUse" },
+        e("path", { d: minor, fill: "none", stroke: "rgba(255,255,255,.045)", strokeWidth: 1 }),
+        e("path", { d: "M50 0 L0 0 0 50", fill: "none", stroke: "rgba(255,255,255,.11)", strokeWidth: 1 })),
+      e("marker", { id: "avz-arr", viewBox: "0 0 10 10", refX: 9, refY: 5, markerWidth: 7, markerHeight: 7, orient: "auto-start-reverse" },
+        e("path", { d: "M0 1 L10 5 L0 9", fill: "none", stroke: GL, strokeWidth: 1.4 }))));
+    kids.push(e("rect", { key: "bg", width: 840, height: 500, fill: BG }));
+    kids.push(e("rect", { key: "g", width: 840, height: 500, fill: "url(#avz-bp)" }));
+    kids.push(e("rect", { key: "fr", x: 10, y: 10, width: 820, height: 480, fill: "none", stroke: "rgba(255,255,255,.3)", strokeWidth: 1 }));
+    let ticks = ""; for (let x = 60; x < 830; x += 50) ticks += `M${x} 10 v6 M${x} 490 v-6 `; for (let y = 60; y < 490; y += 50) ticks += `M10 ${y} h6 M830 ${y} h-6 `;
+    kids.push(e("path", { key: "tk", d: ticks, stroke: "rgba(255,255,255,.3)", strokeWidth: 1 }));
+    kids.push(e("text", { key: "lb", x: 26, y: 36, fill: "rgba(255,255,255,.6)", style: TXT }, "VISTA LATERAL · IZQ."));
+    kids.push(e("g", { key: "tb", pointerEvents: "none" },
+      e("rect", { x: 600, y: 10, width: 230, height: 62, fill: BG, stroke: "rgba(255,255,255,.3)", strokeWidth: 1 }),
+      e("path", { d: "M600 38 H830 M740 38 V72", stroke: "rgba(255,255,255,.3)", strokeWidth: 1 }),
+      e("text", { x: 612, y: 29, fill: "#FFFFFF", style: Object.assign({}, TXT, { fontWeight: 700 }) }, "AVANZA · PLANO 01"),
+      e("text", { x: 612, y: 59, fill: "rgba(255,255,255,.6)", style: TXT }, "ESC 1:10 · MM"),
+      e("text", { x: 752, y: 59, fill: "rgba(255,255,255,.6)", style: TXT }, "REV. 2026")));
+    let hatch = ""; for (let x = 84; x < 780; x += 14) hatch += `M${x} 432 l-8 10 `;
+    kids.push(e("path", { key: "gr", d: "M70 430 L780 430", stroke: GL, strokeWidth: 1.2 }));
+    kids.push(e("path", { key: "gh", d: hatch, stroke: "rgba(255,255,255,.22)", strokeWidth: 1 }));
+    const order = ["trasera", "delantera"];
+    const rest = ["motor", "escape", "pedal", "asiento", "tanque", "timon", "acelerador", "tablero", "faro"];
+    const drawPart = (id) => {
+      const i = this.ADV.findIndex((a) => a[0] === id), on = id === act, hv = id === hov;
+      const st = { stroke: on ? LAVA : hv ? "#FFFFFF" : INK, w: on ? 2.8 : hv ? 2.2 : 1.6, fill: BG };
+      return e("g", {
+        key: id, role: "button", tabIndex: 0, "aria-label": this.ADV[i][1] + ": " + this.ADV[i][2],
+        style: { cursor: "pointer", outline: "none", filter: on ? "drop-shadow(0 0 10px rgba(230,62,0,.55))" : "none", transition: "filter .25s" },
+        onClick: () => this.selAdv(i),
+        onKeyDown: (ev) => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); this.selAdv(i); } },
+        onMouseEnter: () => this.setState({ hover: id }), onMouseLeave: () => this.setState({ hover: null }),
+      },
+        P[id].s.map((s, k) => shape(s, "h" + k, { stroke: "transparent", w: 16, fill: "transparent" })).map((el) => React.cloneElement(el, { pointerEvents: "all" })),
+        P[id].s.map((s, k) => shape(s, k, st)));
+    };
+    order.forEach((id) => kids.push(drawPart(id)));
+    [[200, 340], [640, 340]].forEach(([cx, cy], k) => kids.push(e("path", { key: "cl" + k, d: `M${cx - 104} ${cy} H${cx + 104} M${cx} ${cy - 104} V${cy + 100}`, stroke: "rgba(255,255,255,.5)", strokeWidth: 1, strokeDasharray: "14 4 2 4", fill: "none", pointerEvents: "none" })));
+    decor.forEach((d, k) => kids.push(e("path", { key: "dc" + k, d, fill: k === 0 || k === 5 ? BG : "none", stroke: DIM, strokeWidth: 1.4, strokeLinejoin: "round", strokeLinecap: "round", pointerEvents: "none" })));
+    rest.forEach((id) => kids.push(drawPart(id)));
+    const DL = { stroke: GL, strokeWidth: 1, fill: "none" };
+    kids.push(e("g", { key: "dim", pointerEvents: "none" },
+      e("path", Object.assign({ d: "M200 448 V476 M640 448 V476" }, DL)),
+      e("path", Object.assign({ d: "M202 468 H638", markerStart: "url(#avz-arr)", markerEnd: "url(#avz-arr)" }, DL)),
+      e("rect", { x: 362, y: 459, width: 116, height: 18, fill: BG }),
+      e("text", { x: 420, y: 472, textAnchor: "middle", fill: "#FFFFFF", style: TXT }, "EJES 1 340"),
+      e("path", Object.assign({ d: "M548 84 H808 M736 430 H808", strokeDasharray: "3 4" }, DL)),
+      e("path", Object.assign({ d: "M796 86 V428", markerStart: "url(#avz-arr)", markerEnd: "url(#avz-arr)" }, DL)),
+      e("rect", { x: 787, y: 206, width: 18, height: 102, fill: BG }),
+      e("text", { x: 800, y: 257, textAnchor: "middle", fill: "#FFFFFF", transform: "rotate(-90 800 257)", style: TXT }, "ALTO 1 080"),
+      e("path", Object.assign({ d: "M124 384 L92 404 H36" }, DL)),
+      e("text", { x: 36, y: 398, fill: "#FFFFFF", style: TXT }, "Ø 17 IN")));
+    this.ADV.forEach((a, i) => {
+      const id = a[0], [x, y] = P[id].hot, on = id === act, seen = visited.includes(i);
+      const g = [];
+      if (!seen) g.push(e("circle", { key: "p", cx: x, cy: y, r: 13, fill: "none", stroke: LAVA, strokeWidth: 2 },
+        e("animate", { attributeName: "r", values: "13;24", dur: "1.8s", repeatCount: "indefinite" }),
+        e("animate", { attributeName: "opacity", values: "1;0", dur: "1.8s", repeatCount: "indefinite" })));
+      g.push(e("circle", { key: "c", cx: x, cy: y, r: 13, fill: on ? LAVA : seen ? "#C9D8CF" : "#FFFFFF", stroke: BG, strokeWidth: 2 }));
+      g.push(e("text", { key: "t", x, y: y + 4, textAnchor: "middle", fill: on ? "#FFFFFF" : "#0F3D2C", style: { fontFamily: "'Space Mono', monospace", fontSize: 10.5, fontWeight: 700, pointerEvents: "none" } }, String(i + 1).padStart(2, "0")));
+      if (id === hov && !on) g.push(e("text", { key: "l", x, y: y - 22, textAnchor: "middle", fill: "#FFFFFF", stroke: BG, strokeWidth: 5, paintOrder: "stroke", style: { fontFamily: "'Space Mono', monospace", fontSize: 11.5, letterSpacing: "0.1em", pointerEvents: "none" } }, a[1]));
+      kids.push(e("g", { key: "hs" + i, style: { cursor: "pointer" }, onClick: () => this.selAdv(i), onMouseEnter: () => this.setState({ hover: id }), onMouseLeave: () => this.setState({ hover: null }) }, g));
+    });
+    return e("svg", { viewBox: "0 0 840 500", style: { width: "100%", height: "auto", display: "block" }, role: "group", "aria-label": "Moto interactiva: ventajas de Avanza" }, kids);
+  }
+
+  alCount() {
+    const t0 = performance.now();
+    const tick = (now) => {
+      const p = Math.min(1, (now - t0) / 1200), e = 1 - Math.pow(1 - p, 3);
+      this.setState({ alShown: this.AL_STAT.map((s) => Math.round(s[0] * e)) });
+      if (p < 1) this.alRaf = requestAnimationFrame(tick);
+    };
+    this.alRaf = requestAnimationFrame(tick);
+  }
+  alSetField(k, v) { this.setState((s) => ({ alForm: Object.assign({}, s.alForm, { [k]: v }) })); }
+  alGoForm(dept) {
+    this.alSetField("departamento", dept);
+    this.setState({ alOpen: true });
+    const el = document.getElementById("al-form");
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 60, behavior: "smooth" });
+  }
+  alArt(i) {
+    const e = React.createElement, M = "'Space Mono', monospace", C = "'Chakra Petch', sans-serif";
+    const d = (o) => Object.assign({}, o);
+    if (i === 0) {
+      const pill = (k, anim) => e("div", { key: k, style: { width: 78, height: 34, borderRadius: 17, background: "#E9ECE8", display: "flex", alignItems: "center", justifyContent: "center", animation: anim ? `avz-pill 5s ease ${k * 0.35}s infinite` : "none", boxShadow: "0 8px 18px rgba(15,61,44,.10)" } },
+        anim ? e("span", { style: { color: "#FFFFFF", fontSize: 18, fontWeight: 700, opacity: 0, animation: `avz-pillchk 5s ease ${k * 0.35}s infinite` } }, "✓") : null);
+      return e("div", { style: { display: "grid", gap: 12, justifyItems: "center" } },
+        e("div", { style: { display: "flex", gap: 12 } }, [0, 1, 2].map((k) => pill(k, true))),
+        e("div", { style: { display: "flex", gap: 12 } }, [pill(3, true), pill(4, false)]));
+    }
+    if (i === 1) {
+      return e("div", { style: { width: 200, height: 210, marginTop: 50, borderRadius: "26px 26px 0 0", background: "linear-gradient(160deg,#0F3D2C,#14161A 70%)", border: "5px solid #14161A", borderBottom: 0, position: "relative", display: "flex", justifyContent: "center" } },
+        e("div", { style: { position: "absolute", top: 8, width: 56, height: 14, borderRadius: 8, background: "#14161A" } }),
+        e("div", { style: { position: "absolute", top: 34, fontFamily: C, fontWeight: 600, fontSize: 26, color: "rgba(255,255,255,.9)" } }, "9:41"),
+        e("div", { style: { position: "absolute", top: 74, left: -22, right: -22, background: "rgba(255,255,255,.97)", borderRadius: 12, padding: "10px 12px", display: "flex", gap: 10, alignItems: "flex-start", boxShadow: "0 12px 26px rgba(0,0,0,.22)", opacity: 0, animation: "avz-notif 4.5s ease infinite" } },
+          e("span", { style: { width: 28, height: 28, flexShrink: 0, borderRadius: 7, background: "#0F3D2C", color: "#FFFFFF", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: C, fontWeight: 700, fontSize: 14 } }, "A"),
+          e("span", { style: { display: "grid", gap: 2, minWidth: 0 } },
+            e("span", { style: { display: "flex", justifyContent: "space-between", gap: 8, fontFamily: M, fontSize: 9.5, letterSpacing: ".08em", color: "#58585B" } }, e("span", null, "AVANZA"), e("span", null, "AHORA")),
+            e("span", { style: { fontFamily: C, fontWeight: 600, fontSize: 14, color: "#0F3D2C" } }, "Crédito aprobado ✓"),
+            e("span", { style: { fontSize: 11.5, lineHeight: 1.35, color: "#3A3B3E" } }, "Tu cliente ya puede pasar a firmar."))));
+    }
+    if (i === 2) {
+      const av = [["AL", "#C9D8CF", "#0F3D2C"], ["MR", "#0F3D2C", "#FFFFFF"], ["JP", "#E63E00", "#FFFFFF"], ["SC", "#3A3B3E", "#FFFFFF"]];
+      const chip = (name, pos, delay) => e("div", { key: name, style: Object.assign({ position: "absolute", background: "#0F3D2C", color: "#FFFFFF", padding: "8px 14px", display: "flex", alignItems: "center", gap: 8, fontFamily: C, fontWeight: 600, fontSize: 14, boxShadow: "0 10px 22px rgba(15,61,44,.25)", animation: `avz-float 3.2s ease-in-out ${delay}s infinite`, whiteSpace: "nowrap" }, pos) },
+        e("span", { style: { width: 7, height: 7, borderRadius: "50%", background: "#E63E00", animation: "avz-pulse 1.6s infinite" } }), name);
+      return e("div", { style: { position: "absolute", inset: 0 } },
+        e("div", { style: { position: "absolute", left: 22, top: 22, display: "flex" } }, av.map(([t, bg, fg], k) => e("span", { key: t, style: { width: 54, height: 54, borderRadius: "50%", background: bg, color: fg, border: "3px solid #F6F5F2", marginLeft: k ? -14 : 0, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: C, fontWeight: 600, fontSize: 16 } }, t))),
+        e("div", { style: { position: "absolute", right: 18, top: 96, bottom: 12, display: "flex", flexDirection: "column", alignItems: "flex-end", justifyContent: "space-between", gap: 10 } },
+          chip("Ana · Asesora Avanza", { position: "relative" }, 0),
+          chip("En tu piso de venta", { position: "relative", marginRight: 34 }, 1.1)));
+    }
+    if (i === 3) {
+      const rows = ["Cuota 01", "Cuota 02", "Cuota 03"];
+      return e("div", { style: { width: "82%", display: "grid", gap: 8 } },
+        e("span", { style: { fontFamily: M, fontSize: 10, letterSpacing: ".12em", color: "#58585B" } }, "COBRO GESTIONADO POR AVANZA"),
+        rows.map((r, k) => e("div", { key: r, style: { background: "#FFFFFF", border: "1px solid #DDDCD6", padding: "9px 12px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, opacity: 0, animation: `avz-row 5s ease ${k * 0.5}s infinite` } },
+          e("span", { style: { fontFamily: C, fontWeight: 600, fontSize: 14, color: "#14161A" } }, r),
+          e("span", { style: { fontFamily: M, fontSize: 10, letterSpacing: ".08em", color: "#0F3D2C", background: "#C9D8CF", padding: "3px 7px" } }, "✓ RECIBIDA"))));
+    }
+    if (i === 4) {
+      const bars = [0.45, 0.7, 0.55, 0.85, 1];
+      return e("div", { style: { display: "flex", gap: 12, alignItems: "flex-end" } },
+        e("div", { style: { background: "#FFFFFF", border: "1px solid #DDDCD6", padding: "12px 14px", display: "grid", gap: 8 } },
+          e("span", { style: { fontFamily: M, fontSize: 9.5, letterSpacing: ".1em", color: "#58585B" } }, "VENTAS CON CRÉDITO"),
+          e("div", { style: { display: "flex", gap: 5, alignItems: "flex-end", height: 58 } }, bars.map((b, k) => e("span", { key: k, style: { width: 12, height: b * 58, background: k === 4 ? "#E63E00" : "#0F3D2C", transformOrigin: "bottom", animation: `avz-bar 5s ease ${k * 0.12}s infinite` } }))),
+          e("span", { style: { fontFamily: M, fontSize: 9.5, letterSpacing: ".08em", color: "#E63E00" } }, "▲ EN TIEMPO REAL")),
+        e("div", { style: { background: "#0F3D2C", padding: "14px 16px 10px", display: "grid", justifyItems: "center", gap: 2, boxShadow: "0 14px 28px rgba(15,61,44,.25)" } },
+          e("span", { style: { fontFamily: C, fontWeight: 600, fontSize: 13, color: "#FFFFFF" } }, "Solicitud #0231"),
+          e("svg", { width: 150, height: 84, viewBox: "0 0 180 100" },
+            e("path", { d: "M10 92 A80 80 0 0 1 170 92", fill: "none", stroke: "rgba(255,255,255,.18)", strokeWidth: 14 }),
+            e("path", { d: "M10 92 A80 80 0 0 1 170 92", fill: "none", stroke: "#C9D8CF", strokeWidth: 14, strokeDasharray: 251, strokeDashoffset: 251, style: { animation: "avz-gauge 5s ease infinite" } }),
+            e("text", { x: 90, y: 86, textAnchor: "middle", fill: "#FFFFFF", style: { fontFamily: C, fontWeight: 600, fontSize: 18 } }, "Aprobada"))));
+    }
+    const cells = Array.from({ length: 12 }, (_, k) => k);
+    return e("div", { style: { display: "grid", gap: 12, justifyItems: "center", position: "relative" } },
+      e("span", { style: { fontFamily: M, fontSize: 10, letterSpacing: ".12em", color: "#58585B" } }, "CUOTAS PAGADAS A TIEMPO"),
+      e("div", { style: { display: "grid", gridTemplateColumns: "repeat(6, 26px)", gap: 6 } }, cells.map((k) => e("span", { key: k, style: { width: 26, height: 26, background: "#E9ECE8", animation: `avz-cell 6s ease ${k * 0.22}s infinite` } }))),
+      e("span", { style: { background: "#E63E00", color: "#FFFFFF", padding: "7px 12px", fontFamily: C, fontWeight: 600, fontSize: 14, opacity: 0, animation: "avz-badge 6s ease infinite", boxShadow: "0 10px 20px rgba(230,62,0,.25)" } }, "▲ Mejores condiciones"));
+  }
+
+  prVals(steps) {
+    const e = React.createElement, S = this.state, k = S.prStep, M = "'Space Mono', monospace", C = "'Chakra Petch', sans-serif";
+    const N = 26;
+    const go = (i) => this.setState({ prStep: ((i % 4) + 4) % 4 });
+    const prArrows = steps.map((st, i) => {
+      const on = i === k, done = i < k;
+      const nar = S.prNarrow, D = 18;
+      if (nar) {
+        const clipV = i === 0 ? `polygon(0 0, 100% 0, 100% calc(100% - ${D}px), 50% 100%, 0 calc(100% - ${D}px))`
+          : `polygon(0 0, 50% ${D}px, 100% 0, 100% calc(100% - ${D}px), 50% 100%, 0 calc(100% - ${D}px))`;
+        return { n: st.n, title: st.title, meta: st.meta, aria: "Paso " + st.n + ": " + st.title, go: () => go(i), clip: clipV,
+          ml: "0px", mt: i === 0 ? "0px" : "-10px", h: "auto", pad: (i === 0 ? "18px" : "32px") + " 22px 30px 22px",
+          bg: on ? "#0F3D2C" : done ? "#C9D8CF" : "#FFFFFF", fg: on ? "#FFFFFF" : "#0F3D2C",
+          nc: on ? "#E63E00" : done ? "#0F3D2C" : "#C9D8CF", mc: on ? "#C9D8CF" : "#58585B", tf: "none" };
+      }
+      const clip = i === 0 ? `polygon(0 0, calc(100% - ${N}px) 0, 100% 50%, calc(100% - ${N}px) 100%, 0 100%)`
+        : `polygon(0 0, calc(100% - ${N}px) 0, 100% 50%, calc(100% - ${N}px) 100%, 0 100%, ${N}px 50%)`;
+      return { n: st.n, title: st.title, meta: st.meta, aria: "Paso " + st.n + ": " + st.title, go: () => go(i), clip,
+        ml: i === 0 ? "0px" : "-18px", mt: "0px", h: "112px", pad: "0 44px 0 " + (i === 0 ? "26px" : "48px"),
+        bg: on ? "#0F3D2C" : done ? "#C9D8CF" : "#FFFFFF", fg: on ? "#FFFFFF" : "#0F3D2C",
+        nc: on ? "#E63E00" : done ? "#0F3D2C" : "#C9D8CF", mc: on ? "#C9D8CF" : "#58585B", tf: on ? "translateY(-4px)" : "none" };
+    });
+    const paused = S.prPaused || S.prHover;
+    const prTimer = e("div", { key: "t" + k + (paused ? "p" : ""), style: { position: "absolute", left: 0, top: 0, bottom: 0, background: "#E63E00", width: paused ? "100%" : 0, opacity: paused ? 0.25 : 1, animation: paused ? "none" : "avz-fillx 4.2s linear forwards" } });
+    const card = (w, kids, extra) => e("div", { style: Object.assign({ background: "#FFFFFF", color: "#14161A", padding: "12px 14px", width: w, boxShadow: "0 16px 30px rgba(0,0,0,.25)" }, extra || {}) }, kids);
+    const tag = (t, c) => e("span", { style: { fontFamily: M, fontSize: 10, letterSpacing: ".1em", color: c || "#58585B" } }, t);
+    let art;
+    if (k === 0) {
+      art = e("div", { key: "a0", style: { display: "flex", gap: 10, animation: "avz-q .5s ease" } }, ["150 cc", "125 cc", "250 cc"].map((m, i) =>
+        card(116, [e("div", { key: "p", style: { height: 58, background: "repeating-linear-gradient(135deg,#E9ECE8 0 8px,#F1F3F0 8px 16px)", marginBottom: 10 } }), tag("MOTO " + m), e("div", { key: "c", style: { fontFamily: C, fontWeight: 600, fontSize: 15, color: "#0F3D2C", marginTop: 4 } }, i === 0 ? "✓ Elegida" : "Ver")],
+          { outline: i === 0 ? "3px solid #E63E00" : "none", transform: i === 0 ? "translateY(-8px)" : "none", animation: `avz-float 3s ease-in-out ${i * 0.4}s infinite` })));
+    } else if (k === 1) {
+      art = e("div", { key: "a1", style: { display: "grid", gap: 8, width: 250 } }, ["DUI", "Comprobante de ingresos", "Comprobante de residencia"].map((d, i) =>
+        e("div", { key: d, style: { background: "#FFFFFF", padding: "12px 14px", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10, opacity: 0, animation: `avz-q .5s ease ${0.2 + i * 0.45}s forwards` } },
+          e("span", { style: { fontFamily: C, fontWeight: 600, fontSize: 15, color: "#0F3D2C" } }, d),
+          e("span", { style: { fontFamily: M, fontSize: 10, letterSpacing: ".08em", color: "#FFFFFF", background: "#0F3D2C", padding: "3px 7px" } }, "✓ FOTO"))));
+    } else if (k === 2) {
+      art = e("div", { key: "a2", style: { display: "grid", justifyItems: "center", gap: 14 } },
+        e("svg", { width: 190, height: 106, viewBox: "0 0 180 100" },
+          e("path", { d: "M10 92 A80 80 0 0 1 170 92", fill: "none", stroke: "rgba(255,255,255,.18)", strokeWidth: 14 }),
+          e("path", { d: "M10 92 A80 80 0 0 1 170 92", fill: "none", stroke: "#E63E00", strokeWidth: 14, strokeDasharray: 251, strokeDashoffset: 251, style: { animation: "avz-gauge 4.2s ease forwards" } }),
+          e("text", { x: 90, y: 84, textAnchor: "middle", fill: "#FFFFFF", style: { fontFamily: C, fontWeight: 600, fontSize: 20 } }, "Analizando")),
+        card("auto", [e("span", { key: "a", style: { fontFamily: C, fontWeight: 600, fontSize: 16, color: "#0F3D2C" } }, "Crédito aprobado ✓")], { opacity: 0, animation: "avz-q .5s ease 1.9s forwards" }));
+    } else {
+      art = e("div", { key: "a3", style: { display: "grid", justifyItems: "center", gap: 12 } },
+        e("div", { style: { fontFamily: C, fontWeight: 700, fontSize: 64, lineHeight: 1, color: "#FFFFFF", animation: "avz-float 2.6s ease-in-out infinite" } }, "▲"),
+        e("span", { style: { fontFamily: C, fontWeight: 600, fontSize: 26, color: "#FFFFFF", animation: "avz-q .5s ease" } }, "¡Sal rodando!"),
+        tag("MOTO A TU NOMBRE · DÍA 1", "#C9D8CF"));
+    }
+    return {
+      prArrows, prDir: S.prNarrow ? "column" : "row", pr: steps[k], prTimer, prArt: art, prIsLast: k === 3,
+      prNextLabel: k === 3 ? "Volver al inicio" : "Siguiente paso",
+      prPrev: () => go(k - 1), prNext: () => go(k + 1),
+      prToggle: () => this.setState((s) => ({ prPaused: !s.prPaused })),
+      prPlayLabel: S.prPaused ? "▶ REPRODUCIR" : "❚❚ PAUSAR",
+      prHoverOn: () => this.setState({ prHover: true }), prHoverOff: () => this.setState({ prHover: false }),
+    };
+  }
+
+  alFormVals() {
+    const S = this.state, f = S.alForm, q = S.alQ;
+    const KEYS = ["agencia", "tipo", "web", "contacto", "financiera", "ventas", "financiadas"];
+    const OPTS = { 1: ["Dealer marca única", "Dealer multimarca", "Grupo automotriz", "Tienda por departamentos"], 4: ["Sí", "No"],
+      5: ["1 a 10 motos", "11 a 30 motos", "31 a 60 motos", "Más de 60 motos"], 6: ["Menos del 25%", "Del 25% al 50%", "Del 51% al 75%", "Más del 75%"] };
+    const ok = [!!f.agencia.trim(), !!f.tipo, true, !!(f.nombre.trim() && f.contacto.trim()), !!f.financiera, !!f.ventas, !!f.financiadas][q];
+    const focus = () => setTimeout(() => { const el = document.querySelector("#al-form form input"); if (el) el.focus({ preventScroll: true }); }, 60);
+    const send = () => {
+      const body = ["Agencia: " + f.agencia, "Tipo de empresa: " + f.tipo, "Página web: " + (f.web || "—"), "Contacto: " + f.nombre + " · " + f.contacto,
+        "Financiera de casa: " + f.financiera, "Ventas mensuales: " + f.ventas, "Ventas financiadas: " + f.financiadas, "Departamento: " + (f.departamento || "—")].join("\n");
+      window.open("mailto:info@avanza.com?subject=" + encodeURIComponent("Solicitud de agencia aliada — " + f.agencia) + "&body=" + encodeURIComponent(body), "_blank");
+      this.setState({ alSent: true });
+    };
+    const next = () => { if (!ok) return; if (q === 6) return send(); this.setState({ alQ: q + 1 }); focus(); };
+    const on = {};
+    ["agencia", "web", "nombre", "contacto"].forEach((k) => { on[k] = (ev) => this.alSetField(k, ev.target.value); });
+    const key = KEYS[q];
+    const alOpts = (OPTS[q] || []).map((label) => {
+      const sel = f[key] === label;
+      return { label, mark: sel ? "✓" : "", bg: sel ? "#0F3D2C" : "#FFFFFF", fg: sel ? "#FFFFFF" : "#0F3D2C", bd: sel ? "#0F3D2C" : "#DDDCD6",
+        pick: () => { this.alSetField(key, label); if (q < 6) setTimeout(() => this.setState((s) => (s.alQ === q ? { alQ: q + 1 } : null)), 260); } };
+    });
+    const out = { alOpts, alOn: on, alQNum: String(q + 1).padStart(2, "0"), alQPct: Math.round(((q + (ok ? 1 : 0)) / 7) * 100) + "%",
+      alBackOp: q === 0 ? 0.3 : 1, alNextOp: ok ? 1 : 0.45, alNextLabel: q === 6 ? "Enviar solicitud" : q === 2 && !f.web ? "Omitir" : "Siguiente",
+      alHasDept: !!f.departamento,
+      alShowIntro: !S.alOpen && !S.alSent, alShowForm: S.alOpen && !S.alSent,
+      alOpenForm: () => this.setState({ alOpen: true }),
+      alNext: (ev) => { ev.preventDefault(); next(); },
+      alBack: () => { if (q > 0) this.setState({ alQ: q - 1 }); },
+      alReset: () => this.setState({ alSent: false, alOpen: false, alQ: 0, alForm: { agencia: "", tipo: "", web: "", nombre: "", contacto: "", financiera: "", ventas: "", financiadas: "", departamento: "" } }) };
+    for (let k = 0; k < 7; k++) out["alQ" + k] = q === k;
+    return out;
+  }
+
+  alVals() {
+    const S = this.state;
+    const flowSteps = [
+      ["Tu cliente elige su moto en tu agencia", "EN PISO"],
+      ["El asesor Avanza envía la solicitud", "5 MIN"],
+      ["Respuesta al cliente", "< 24 H"],
+      ["Firma, prima y entrega de la moto", "LISTO"],
+    ];
+    const flow = flowSteps.map(([label, tag], i) => {
+      const done = i < S.alFlow, cur = i === S.alFlow;
+      return { label, tag, mark: done ? "✓" : String(i + 1).padStart(2, "0"),
+        bg: done ? "#0F3D2C" : cur ? "#E63E00" : "#E9ECE8", fg: done || cur ? "#FFFFFF" : "#58585B",
+        op: done || cur ? 1 : 0.5, fw: cur ? 700 : 500, tc: cur ? "#E63E00" : "#58585B" };
+    });
+    const mins = 9 * 60 + 12 + S.alFlow * 47;
+    const clock = String(Math.floor(mins / 60)).padStart(2, "0") + ":" + String(mins % 60).padStart(2, "0");
+
+    const B = [
+      ["Cierra ventas que hoy se pierden", "Comerciantes, repartidores y trabajadores por cuenta propia también pueden comprar. Evaluamos ingresos reales, aunque el cliente no tenga planilla."],
+      ["Respuesta en menos de 24 horas", "Tu cliente no se va a pensarlo. La solicitud sale desde tu agencia y la respuesta llega en menos de un día."],
+      ["Un asesor Avanza en tu piso", "Nuestro equipo acompaña a tus vendedores: explica el crédito, recibe documentos y resuelve dudas del cliente en tu agencia."],
+      ["Tú te enfocas en vender", "Nosotros asumimos el riesgo, tú disfrutas tus ventas. Avanza se encarga del análisis, los documentos del crédito y el cobro. Tu equipo no tiene que perseguir pagos."],
+      ["Tecnología de punta", "Recibimos, analizamos y aprobamos solicitudes 100% digitales, para que tus clientes estrenen su moto antes y sin fricción. Nuestra tecnología trabaja para tu agencia: te ayuda a vender más, a más personas."],
+      ["Clientes que regresan", "Premiamos la puntualidad con mejores condiciones en el siguiente financiamiento. Cuando tu cliente quiera su próxima moto, vuelve a tu agencia."],
+    ];
+    const benefits = B.map(([title, body], i) => {
+      const on = S.hoverB === i;
+      return { n: String(i + 1).padStart(2, "0"), title, body,
+        bg: "#FFFFFF", bd: on ? "#0F3D2C" : "#DDDCD6", tc: "#0F3D2C", pc: "#3A3B3E", nc: on ? "#E63E00" : "#58585B", bar: on ? "56px" : "26px", art: this.alArt(i),
+        enter: () => this.setState({ hoverB: i }), leave: () => this.setState({ hoverB: -1 }) };
+    });
+
+    const ST = [
+      ["Postula", "Llena la solicitud y un ejecutivo de Avanza te contacta para conocer tu agencia."],
+      ["Firmamos la alianza", "Acordamos condiciones, capacitamos a tu equipo de ventas y te entregamos material para tu punto de venta."],
+      ["Vende con crédito", "Cada cliente interesado aplica desde tu agencia, con el apoyo de un asesor Avanza."],
+      ["Entrega y repite", "Aprobado el crédito, el cliente firma, paga su prima y sale rodando en su moto nueva."],
+    ];
+    const steps = ST.map(([title, body], i) => {
+      const on = i === S.alStep, done = i < S.alStep;
+      return { n: String(i + 1).padStart(2, "0"), title, body,
+        bg: on ? "#FFFFFF" : "transparent", bd: on ? "#DDDCD6" : "transparent",
+        nc: on ? "#E63E00" : done ? "#0F3D2C" : "#C9D8CF", tc: on || done ? "#0F3D2C" : "#58585B", pc: on ? "#3A3B3E" : "#58585B",
+        go: () => { this.alPinned = true; this.setState({ alStep: i }); } };
+    });
+
+    const depts = this.AL_DEPTS.map((name, i) => {
+      const on = S.hoverD === i, sel = S.alForm.departamento === name;
+      const pt = this.SV_P[name] || [500, 260];
+      return { name, x: (pt[0] / 1000 * 100).toFixed(2) + "%", y: (pt[1] / 520 * 100).toFixed(2) + "%", delay: (i * 0.13).toFixed(2) + "s",
+        dot: sel || on ? "#FFFFFF" : "#E63E00",
+        bg: sel ? "#E63E00" : on ? "#FFFFFF" : "transparent", fg: on && !sel ? "#0F3D2C" : "#FFFFFF",
+        pick: () => this.alGoForm(name), enter: () => this.setState({ hoverD: i }), leave: () => this.setState({ hoverD: -1 }) };
+    });
+
+    const F = [["agencia", "Nombre de la agencia", "text", "Ej. Motos del Centro"], ["contacto", "Tu nombre", "text", "Nombre y apellido"],
+      ["telefono", "Teléfono / WhatsApp", "tel", "7000-0000"], ["correo", "Correo", "email", "tu@agencia.com"]];
+    const fields = F.map(([key, label, type, ph]) => ({ key, label, type, ph, value: S.alForm[key], onChange: (ev) => this.alSetField(key, ev.target.value) }));
+
+    const marquee = ["Aprobación en menos de 24 h", "Prima desde 10%", "Plazos de hasta 24 meses", "Proceso 100% digital", "Asesor Avanza en tu agencia", "Clientes sin planilla", "Cobro a cargo de Avanza", "Cupos fundadores abiertos"];
+
+        return {
+      alClock: clock, alFlow: flow, alFlowPct: Math.min(100, S.alFlow * 25) + "%",
+      alMarquee: marquee.concat(marquee),
+      alStats: this.AL_STAT.map((s, i) => ({ shown: S.alShown[i], unit: s[1], label: s[2] })),
+      alBenefits: benefits, alSteps: steps, alStepPct: ((S.alStep + 1) * 25) + "%", alDepts: depts, alFields: fields,
+      alDeptNames: this.AL_DEPTS, alForm: S.alForm, alSent: S.alSent, alNotSent: !S.alSent,
+      alOnDept: (ev) => this.alSetField("departamento", ev.target.value),
+      alSubmit: (ev) => {
+        ev.preventDefault();
+        const f = S.alForm;
+        const body = `Agencia: ${f.agencia}\nContacto: ${f.contacto}\nTeléfono: ${f.telefono}\nCorreo: ${f.correo}\nDepartamento: ${f.departamento}`;
+        window.open(`mailto:info@avanza.com?subject=${encodeURIComponent("Solicitud de agencia aliada — " + f.agencia)}&body=${encodeURIComponent(body)}`, "_blank");
+        this.setState({ alSent: true });
+      },
+      alReset: () => this.setState({ alSent: false, alForm: { agencia: "", contacto: "", telefono: "", correo: "", departamento: "" } }),
+    };
+  }
+
+  renderVals() {
+    const STEPS = [
+        { n: "01", title: "Elige tu moto", body: "Ve a cualquiera de nuestras agencias aliadas y elige la moto que quieres.", meta: "~15 MIN" },
+        { n: "02", title: "Envía 3 documentos", body: "DUI, comprobante de ingresos y residencia. Por foto, desde tu celular.", meta: "~5 MIN" },
+        { n: "03", title: "Aprobación", body: "Respuesta el mismo día en el 95% de los casos. Sin trámites eternos.", meta: "HOY MISMO" },
+        { n: "04", title: "Sal rodando", body: "Firmas, das tu prima y te llevas la moto a tu nombre.", meta: "EL MISMO DÍA" },
+      ];
+    const labels = ["Aprobación mismo día", "Años financiando motos", "Cuota quincenal desde", "Documentos. Nada más."];
+    const idx = ["01 · VELOCIDAD", "02 · EXPERIENCIA", "03 · PRECIO", "04 · SIMPLICIDAD"];
+    const notes = [
+      "En 95 de cada 100 casos, una persona real te responde hoy.",
+      "Una década de crédito de motos — equipo y capital local.",
+      "El 15 y el último del mes, junto a tu quincena.",
+      "DUI, comprobante de ingresos y residencia. Tres.",
+    ];
+    const stats = this.targets.map((v, i) => ({
+      idx: idx[i], label: labels[i], note: notes[i],
+      shown: this.prefix[i] + this.state.shown[i] + this.suffix[i],
+    }));
+
+    const ticker = [
+      { tag: "APROBADA", bike: "Honda 150", place: "San Salvador", when: "hace 4 min" },
+      { tag: "APROBADA", bike: "Yamaha 125", place: "Soyapango", when: "hace 12 min" },
+      { tag: "ENTREGADA", bike: "Suzuki 250", place: "Santa Ana", when: "hace 38 min" },
+      { tag: "APROBADA", bike: "CFMOTO 250", place: "Antiguo Cuscatlán", when: "hace 1 h" },
+      { tag: "ENTREGADA", bike: "Bajaj Pulsar", place: "San Miguel", when: "hace 2 h" },
+      { tag: "APROBADA", bike: "Italika 150", place: "La Libertad", when: "hace 3 h" },
+    ];
+
+    const faqData = [
+      ["¿Qué documentos necesito?", "Tres: DUI vigente, comprobante de ingresos de los últimos dos meses y un recibo que compruebe tu residencia. Los puedes mandar por foto desde tu celular."],
+      ["¿Cuánto tarda la aprobación?", "En el 95% de los casos te damos respuesta el mismo día. Si mandas tus documentos antes del mediodía, normalmente contestamos en la tarde."],
+      ["¿Necesito historial de crédito?", "No es obligatorio. Evaluamos tu capacidad de pago actual, no solo tu récord. Muchos de nuestros clientes financian su primera moto con nosotros."],
+      ["¿Cuánto es el abono inicial?", "Desde el 10% del valor de la moto. Entre más abones al inicio, más baja queda tu cuota quincenal."],
+      ["¿La moto queda a mi nombre?", "Sí, desde el primer día. La moto se registra a tu nombre al momento de la entrega, con el gravamen correspondiente hasta terminar de pagar."],
+      ["¿Puedo pagar antes de tiempo?", "Sí, y sin penalidad. Si adelantas cuotas o liquidas el saldo, pagas solo los intereses corridos hasta esa fecha."],
+    ];
+    const open0 = this.state.openFaq === null ? ((this.props.faqStartOpen ?? true) ? 0 : -1) : this.state.openFaq;
+    const faqs = faqData.map(([q, a], i) => ({
+      n: String(i + 1).padStart(2, "0"), q, a,
+      open: open0 === i,
+      sign: open0 === i ? "−" : "+",
+      toggle: () => this.setState(() => ({ openFaq: open0 === i ? -1 : i })),
+    }));
+
+    return {
+      navFlex: this.state.hdrNarrow ? "1 1 100%" : "1 1 0", navOrder: this.state.hdrNarrow ? 3 : 1,
+      desktopNav: !this.state.mob, mobNav: !!this.state.mob, menuOpen: !!(this.state.mob && this.state.menuOpen),
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })), closeMenu: () => this.setState({ menuOpen: false }),
+      mb1Top: this.state.menuOpen ? "21px" : "14px", mb1T: this.state.menuOpen ? "rotate(45deg)" : "none", mb1O: 1,
+      mb2Top: "21px", mb2T: "none", mb2O: this.state.menuOpen ? 0 : 1,
+      mb3Top: this.state.menuOpen ? "21px" : "28px", mb3T: this.state.menuOpen ? "rotate(-45deg)" : "none", mb3O: 1,
+      ...this.alVals(),
+      ...this.alFormVals(),
+      stats,
+      faqs,
+      showTicker: this.props.showTicker ?? true,
+      showFloatingCta: this.props.showFloatingCta ?? true,
+      tickerAnim: "avz-marquee " + (this.props.tickerSpeed ?? 44) + "s linear infinite",
+      tickerLoop: ticker.concat(ticker),
+      motoSvg: this.buildMoto(),
+      adv: { n: String(this.state.adv + 1).padStart(2, "0"), part: this.ADV[this.state.adv][1], title: this.ADV[this.state.adv][2], body: this.ADV[this.state.adv][3] },
+      nextName: this.ADV[(this.state.adv + 1) % this.ADV.length][2],
+      visitedCount: this.state.visited.length,
+      prevAdv: () => this.selAdv(this.state.adv - 1),
+      nextAdv: () => this.selAdv(this.state.adv + 1),
+      onVentajaKey: (ev) => { if (ev.key === "ArrowRight") { ev.preventDefault(); this.selAdv(this.state.adv + 1); } if (ev.key === "ArrowLeft") { ev.preventDefault(); this.selAdv(this.state.adv - 1); } },
+      segs: this.ADV.map((a, i) => ({ label: a[1], go: () => this.selAdv(i), bg: i === this.state.adv ? "#E63E00" : this.state.visited.includes(i) ? "#0F3D2C" : "#DDDCD6" })),
+      chips: this.ADV.map((a, i) => {
+        const on = i === this.state.adv, seen = this.state.visited.includes(i);
+        return { n: String(i + 1).padStart(2, "0"), part: this.SHORT[i], go: () => this.selAdv(i), bg: on ? "#E63E00" : "transparent", fg: on ? "#FFFFFF" : seen ? "#FFFFFF" : "#C9D8CF", bd: on ? "#E63E00" : seen ? "rgba(255,255,255,.5)" : "rgba(255,255,255,.2)" };
+      }),
+      testimonials: [
+        { initial: "JM", name: "José Menéndez", meta: "SAN SALVADOR · HONDA 150", quote: "Mandé los papeles un miércoles a las 9 y a las 3 de la tarde ya tenía la aprobación. El viernes salí con la moto." },
+        { initial: "KV", name: "Karla Vásquez", meta: "SANTA ANA · YAMAHA 125", quote: "Es mi primer crédito y nadie más me quiso dar. Aquí me explicaron todo y la cuota me calza con la quincena." },
+        { initial: "RA", name: "Rodrigo Alfaro", meta: "SAN MIGUEL · SUZUKI 250", quote: "Trabajo repartiendo y la moto se paga sola. Ya liquidé antes de tiempo y no me cobraron nada extra." },
+      ],
+      contacts: [
+        { k: "WHATSAPP / TEL.", v: "+(503) 2509-6800" },
+        { k: "CORREO", v: "info@avanza.com" },
+        { k: "HORARIO", v: "Lun–Sáb · 8:00–18:00" },
+        { k: "COBERTURA", v: "Todo El Salvador" },
+      ],
+      steps: STEPS,
+      ...this.prVals(STEPS),
+      brands: ["Honda", "Yamaha", "Suzuki", "Bajaj", "Italika", "CFMOTO", "Keeway", "TVS", "SYM", "Vespa"],
+    };
+  }
+}
+
+</script>
+</body>
+</html>
