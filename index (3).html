@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Avanza — Financiamiento de motos en El Salvador</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #F6F5F2; color: #14161A; font-family: Manrope, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  nav::-webkit-scrollbar { display: none; }
+  a { color: #0F3D2C; text-decoration: none; }
+  a:hover { color: #E63E00; }
+  @keyframes avz-rec{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes nos-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes avz-shake{0%,78%,100%{transform:translateX(0) rotate(0)}81%{transform:translateX(-3px) rotate(-2deg)}84%{transform:translateX(3px) rotate(2deg)}87%{transform:translateX(-2px) rotate(-1deg)}90%{transform:translateX(2px) rotate(1deg)}93%{transform:translateX(0) rotate(0)}}
+@keyframes avz-wa-halo{0%{transform:scale(.85);opacity:.35}100%{transform:scale(1.25);opacity:0}}
+@keyframes avz-ping{0%{transform:scale(1);opacity:.7}100%{transform:scale(3.2);opacity:0}}
+@keyframes avz-chev{0%,100%{opacity:.15}40%{opacity:1}}
+@keyframes avz-live-pulse{0%{box-shadow:0 0 0 0 rgba(230,62,0,.55)}70%{box-shadow:0 0 0 12px rgba(230,62,0,0)}100%{box-shadow:0 0 0 0 rgba(230,62,0,0)}}
+@keyframes avz-live-dot{0%{opacity:1}50%{opacity:.15}}
+@keyframes avz-wheel{to{transform:rotate(360deg)}}
+@keyframes avz-rideout{0%{transform:translateX(0);opacity:0}12%{opacity:1}75%{transform:translateX(200px);opacity:1}100%{transform:translateX(240px);opacity:0}}
+@keyframes avz-tread-in{from{opacity:0}to{opacity:1}}
+@keyframes avz-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes avz-pill { 0%,6% { background:#E9ECE8; } 14%,82% { background:#0F3D2C; } 92%,100% { background:#E9ECE8; } }
+  @keyframes avz-pillchk { 0%,8% { opacity:0; transform:scale(.4); } 16%,82% { opacity:1; transform:scale(1); } 90%,100% { opacity:0; transform:scale(.4); } }
+  @keyframes avz-notif { 0%,8% { opacity:0; transform:translateY(-26px) scale(.96); } 18%,78% { opacity:1; transform:none; } 90%,100% { opacity:0; transform:translateY(-10px); } }
+  @keyframes avz-float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-7px); } }
+  @keyframes avz-row { 0%,6% { opacity:0; transform:translateX(-12px); } 14%,84% { opacity:1; transform:none; } 94%,100% { opacity:0; } }
+  @keyframes avz-gauge { 0%,6% { stroke-dashoffset:251; } 45%,85% { stroke-dashoffset:18; } 100% { stroke-dashoffset:251; } }
+  @keyframes avz-bar { 0%,6% { transform:scaleY(.15); } 40%,85% { transform:scaleY(1); } 100% { transform:scaleY(.15); } }
+  @keyframes avz-cell { 0%,4% { background:#E9ECE8; } 9%,86% { background:#0F3D2C; } 94%,100% { background:#E9ECE8; } }
+  @keyframes avz-badge { 0%,52% { opacity:0; transform:translateY(8px) scale(.9); } 60%,86% { opacity:1; transform:none; } 94%,100% { opacity:0; } }
+  @keyframes avz-q { from { opacity:0; transform:translateX(28px); } to { opacity:1; transform:none; } }
+  @keyframes avz-fillx { from { width:0; } to { width:100%; } }
+  @keyframes avz-wipe { 0% { background-position:100% 0; } 12%,88% { background-position:50% 0; } 100% { background-position:0% 0; } }
+  @keyframes avz-streak { 0% { left:-8%; opacity:1; } 12% { left:104%; opacity:1; } 13%,85% { opacity:0; left:104%; } 86% { left:-8%; opacity:1; } 100% { left:104%; opacity:1; } }
+  @keyframes avz-road { to { stroke-dashoffset:-30; } }
+  @keyframes avz-pulse { 0%,100% { opacity: 1; } 50% { opacity: .2; } }
+  @keyframes avz-rot5 { 0% { clip-path: inset(0 100% 0 0); } 2.5% { clip-path: inset(0 0 0 0); } 18% { clip-path: inset(0 0 0 0); } 20.5% { clip-path: inset(0 0 0 100%); } 100% { clip-path: inset(0 0 0 100%); } }
+  @keyframes avz-seg5-off { 0%, 19.9% { opacity: 0; } 20%, 100% { opacity: 1; } }
+  @keyframes avz-seg5 { 0%, 19.9% { opacity: 1; } 20%, 100% { opacity: 0; } }
+  @keyframes avz-box6g { 0%, 3.4%, 6.8%, 10.2%, 13.6% { color: #0F3D2C; background-color: #0F3D2C; } 1.7%, 5.1%, 8.5%, 11.9% { color: rgba(15,61,44,.5); background-color: rgba(15,61,44,.5); } 16.6%, 100% { color: #A3A3A6; background-color: #DDDCD6; } }
+  @keyframes avz-box6 { 0%, 3.4%, 6.8%, 10.2%, 13.6% { color: #E63E00; background-color: #E63E00; } 1.7%, 5.1%, 8.5%, 11.9% { color: rgba(230,62,0,.5); background-color: rgba(230,62,0,.5); } 16.6%, 100% { color: #A3A3A6; background-color: #DDDCD6; } }
+</style>
+</helmet>
+
+<div style="width:100%;overflow-x:hidden">
+  <sc-if value="{{ showFloatingCta }}" hint-placeholder-val="{{ true }}">
+  <a href="https://wa.me/50325096800" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp, atención 24h" style="position:fixed;right:22px;bottom:22px;z-index:99;width:64px;height:64px;display:block;color:#FFFFFF" style-hover="transform:scale(1.06)">
+    <span aria-hidden="true" style="position:absolute;inset:-12px;border-radius:50%;background:#25D366;opacity:.22;animation:avz-wa-halo 2s ease-out infinite"></span>
+    <span style="position:absolute;inset:0;border-radius:50%;background:#25D366;box-shadow:0 10px 24px rgba(20,22,26,.25);display:flex;align-items:center;justify-content:center">
+      <svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true" style="display:block"><path fill="#FFFFFF" d="M16 3.2C8.9 3.2 3.2 8.9 3.2 16c0 2.3.6 4.5 1.7 6.4L3.1 28.9l6.7-1.8c1.9 1 4 1.6 6.2 1.6 7.1 0 12.8-5.7 12.8-12.8S23.1 3.2 16 3.2zm0 23.3c-2 0-3.9-.5-5.6-1.5l-.4-.2-4 1 1.1-3.9-.3-.4c-1.1-1.7-1.6-3.6-1.6-5.6 0-5.8 4.7-10.5 10.5-10.5S26.5 10.2 26.5 16 21.8 26.5 16 26.5zm5.8-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.7-.4z"></path></svg>
+    </span>
+    <span style="position:absolute;top:-8px;right:-14px;background:#E63E00;color:#FFFFFF;font-family:'Space Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.04em;line-height:1;padding:5px 7px;border-radius:999px;border:2px solid #FFFFFF">24h</span>
+  </a>
+  </sc-if>
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid #DDDCD6">
+    <div id="avz-hdr" style="max-width:1280px;margin:0 auto;padding:10px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px">
+      <a href="#" style="display:block;flex-shrink:0"><img src="assets/avanza-logo.png" alt="Avanza — Forjando nuevos caminos" style="width:132px;height:auto;display:block" /></a>
+      <sc-if value="{{ desktopNav }}" hint-placeholder-val="{{ true }}"><nav style="display:flex;flex-wrap:nowrap;gap:4px 14px;flex:{{ navFlex }};order:{{ navOrder }};min-width:0;overflow-x:auto;scrollbar-width:none;padding:2px 0;font-size:15.5px;font-weight:600;color:#0F3D2C;align-items:center">
+        <a href="#nosotros" style="color:#0F3D2C;white-space:nowrap;flex-shrink:0;padding:8px 10px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:17px;letter-spacing:0;border-bottom:2px solid transparent;transition:color .2s, border-color .2s" style-hover="color:#E63E00;border-bottom-color:#E63E00">Nosotros</a>
+        <a href="#proceso" style="color:#0F3D2C;white-space:nowrap;flex-shrink:0;padding:8px 10px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:17px;letter-spacing:0;border-bottom:2px solid transparent;transition:color .2s, border-color .2s" style-hover="color:#E63E00;border-bottom-color:#E63E00">Proceso</a>
+        <a href="#ventajas" style="color:#0F3D2C;white-space:nowrap;flex-shrink:0;padding:8px 10px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:17px;letter-spacing:0;border-bottom:2px solid transparent;transition:color .2s, border-color .2s" style-hover="color:#E63E00;border-bottom-color:#E63E00">Avanza con ventaja</a>
+                <a href="#faq" style="color:#0F3D2C;white-space:nowrap;flex-shrink:0;padding:8px 10px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:17px;letter-spacing:0;border-bottom:2px solid transparent;transition:color .2s, border-color .2s" style-hover="color:#E63E00;border-bottom-color:#E63E00">Preguntas</a>
+        <a href="#contacto" style="color:#0F3D2C;white-space:nowrap;flex-shrink:0;padding:8px 10px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:17px;letter-spacing:0;border-bottom:2px solid transparent;transition:color .2s, border-color .2s" style-hover="color:#E63E00;border-bottom-color:#E63E00">Contacto</a>
+        <a href="aliados.html" style="color:#E63E00;white-space:nowrap;flex-shrink:0;padding:8px 10px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:17px;letter-spacing:0;border-bottom:2px solid transparent;transition:color .2s, border-color .2s" style-hover="color:#C23400;border-bottom-color:#E63E00">Aliados</a>
+      </nav></sc-if>
+      <sc-if value="{{ desktopNav }}" hint-placeholder-val="{{ true }}"><div style="display:flex;gap:8px;align-items:center;margin-left:auto;order:2"><a href="https://wa.me/50325096800?text=Hola%2C%20quiero%20cotizar%20mi%20moto" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:3px;color:#0F3D2C;padding:2px 0 2px 18px;border-left:1px solid #DDDCD6;white-space:nowrap" style-hover="color:#E63E00"><span style="display:flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:#58585B"><span aria-hidden="true" style="position:relative;width:6px;height:6px;flex-shrink:0"><span style="position:absolute;inset:0;background:#1FA855"></span><span style="position:absolute;inset:0;background:#1FA855;animation:avz-ping 1.4s ease-out infinite"></span></span>ASESORES EN LÍNEA</span><span style="display:flex;align-items:center;gap:10px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:17px">Quiero cotizar mi moto<span aria-hidden="true" style="display:flex;gap:2px;font-size:20px;line-height:1;color:#E63E00;letter-spacing:-.1em"><span style="animation:avz-chev 1.1s linear infinite">›</span><span style="animation:avz-chev 1.1s linear .18s infinite">›</span><span style="animation:avz-chev 1.1s linear .36s infinite">›</span></span></span></a></div></sc-if>
+      <sc-if value="{{ mobNav }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ toggleMenu }}" aria-label="Abrir menú" aria-expanded="{{ menuOpen }}" style="all:unset;cursor:pointer;margin-left:auto;position:relative;width:44px;height:44px;flex-shrink:0;border:1px solid #DDDCD6;box-sizing:border-box"><span style="position:absolute;left:11px;width:22px;height:2px;background:#0F3D2C;top:{{ mb1Top }};transform:{{ mb1T }};opacity:{{ mb1O }};transition:transform .25s, opacity .2s, top .25s"></span><span style="position:absolute;left:11px;width:22px;height:2px;background:#0F3D2C;top:{{ mb2Top }};transform:{{ mb2T }};opacity:{{ mb2O }};transition:transform .25s, opacity .2s, top .25s"></span><span style="position:absolute;left:11px;width:22px;height:2px;background:#0F3D2C;top:{{ mb3Top }};transform:{{ mb3T }};opacity:{{ mb3O }};transition:transform .25s, opacity .2s, top .25s"></span></button></sc-if>
+    </div>
+
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="border-top:1px solid #DDDCD6;background:#FFFFFF;padding:8px 24px 24px;max-height:calc(100vh - 70px);overflow-y:auto;animation:nos-in .25s ease both">
+        <nav style="display:flex;flex-direction:column">
+          <a href="#nosotros" onClick="{{ closeMenu }}" style="display:flex;align-items:center;justify-content:space-between;padding:16px 2px;border-bottom:1px solid #EDECE8;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:22px;color:#0F3D2C">Nosotros<span aria-hidden="true" style="color:#E63E00;font-size:20px">›</span></a>
+          <a href="#proceso" onClick="{{ closeMenu }}" style="display:flex;align-items:center;justify-content:space-between;padding:16px 2px;border-bottom:1px solid #EDECE8;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:22px;color:#0F3D2C">Proceso<span aria-hidden="true" style="color:#E63E00;font-size:20px">›</span></a>
+          <a href="#ventajas" onClick="{{ closeMenu }}" style="display:flex;align-items:center;justify-content:space-between;padding:16px 2px;border-bottom:1px solid #EDECE8;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:22px;color:#0F3D2C">Avanza con ventaja<span aria-hidden="true" style="color:#E63E00;font-size:20px">›</span></a>
+          <a href="#faq" onClick="{{ closeMenu }}" style="display:flex;align-items:center;justify-content:space-between;padding:16px 2px;border-bottom:1px solid #EDECE8;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:22px;color:#0F3D2C">Preguntas<span aria-hidden="true" style="color:#E63E00;font-size:20px">›</span></a>
+          <a href="#contacto" onClick="{{ closeMenu }}" style="display:flex;align-items:center;justify-content:space-between;padding:16px 2px;border-bottom:1px solid #EDECE8;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:22px;color:#0F3D2C">Contacto<span aria-hidden="true" style="color:#E63E00;font-size:20px">›</span></a>
+          <a href="aliados.html" onClick="{{ closeMenu }}" style="display:flex;align-items:center;justify-content:space-between;padding:16px 2px;border-bottom:1px solid #EDECE8;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:22px;color:#E63E00">Aliados<span aria-hidden="true" style="color:#E63E00;font-size:20px">›</span></a>
+        </nav>
+        <a href="https://wa.me/50325096800?text=Hola%2C%20quiero%20cotizar%20mi%20moto" target="_blank" rel="noopener" onClick="{{ closeMenu }}" style="margin:20px 0 0;display:flex;align-items:center;justify-content:center;gap:12px;height:52px;background:#0F3D2C;color:#FFFFFF;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:18px"><span aria-hidden="true" style="position:relative;width:8px;height:8px"><span style="position:absolute;inset:0;background:#1FA855"></span><span style="position:absolute;inset:0;background:#1FA855;animation:avz-ping 1.4s ease-out infinite"></span></span>Quiero cotizar mi moto<span aria-hidden="true" style="color:#E63E00;letter-spacing:-.1em">›››</span></a>
+      </div>
+    </sc-if>
+  </header>
+
+  <section style="background:transparent;color:#14161A;position:relative;overflow:hidden;isolation:isolate">
+    <div aria-hidden="true" style="position:absolute;z-index:-1;left:0;top:-140px;width:min(760px,60vw);height:580px;background:url(assets/tex-tacos-p3-green.png) repeat 0 0 / 520px auto;opacity:.09;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,#000 60%,transparent 100%),linear-gradient(90deg,#000 30%,transparent 85%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,#000 60%,transparent 100%),linear-gradient(90deg,#000 30%,transparent 85%);mask-composite:intersect"></div>
+    <div aria-hidden="true" style="position:absolute;z-index:-1;right:0;bottom:0;width:min(900px,70vw);height:420px;background:url(assets/tex-tacos-p3-green.png) repeat 0 0 / 520px auto;opacity:.09;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 100% 100% at 100% 100%,#000 25%,transparent 75%);mask-image:radial-gradient(ellipse 100% 100% at 100% 100%,#000 25%,transparent 75%)"></div>
+    
+    <div style="position:relative;max-width:1280px;margin:0 auto;padding:clamp(28px,5vh,56px) 24px clamp(40px,7vh,72px)">
+      <div style="display:flex;flex-wrap:wrap;gap:48px;margin:0;align-items:center">
+        <div style="flex:1 1 0;min-width:min(100%,300px)">
+          <h1 style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:clamp(34px,min(4.2vw,6.6vh),58px);line-height:.98;letter-spacing:-.02em;margin:0;color:#0F3D2C;max-width:none;min-height:{{ heroMinH }}" id="avz-h1">Llévate tu moto<br />hoy para {{ heroWipe }}</h1>
+          <div style="display:grid;max-width:220px;margin:clamp(14px,2.4vh,22px) 0 clamp(16px,2.6vh,24px)"><div style="height:6px;background:#0F3D2C"></div><div style="height:2px;background:#E63E00;margin-top:4px"></div></div>
+          <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;max-width:560px"><div style="min-width:0;padding:1px;clip-path:polygon(12px 0,calc(100% - 12px) 0,100% 12px,100% calc(100% - 12px),calc(100% - 12px) 100%,12px 100%,0 calc(100% - 12px),0 12px);color:#A3A3A6;background:#DDDCD6;animation:avz-box6 18s linear 0s infinite"><div style="height:100%;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;gap:8px;min-height:clamp(72px,10vh,88px);padding:12px 14px 10px;background:#FFFFFF;clip-path:polygon(11.6px 0,calc(100% - 11.6px) 0,100% 11.6px,100% calc(100% - 11.6px),calc(100% - 11.6px) 100%,11.6px 100%,0 calc(100% - 11.6px),0 11.6px)"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;line-height:1.35">Respuesta</span><span style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:clamp(19px,1.9vw,26px);line-height:1">Mismo día</span></div></div><div style="min-width:0;padding:1px;clip-path:polygon(12px 0,calc(100% - 12px) 0,100% 12px,100% calc(100% - 12px),calc(100% - 12px) 100%,12px 100%,0 calc(100% - 12px),0 12px);color:#A3A3A6;background:#DDDCD6;animation:avz-box6g 18s linear 3s infinite"><div style="height:100%;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;gap:8px;min-height:clamp(72px,10vh,88px);padding:12px 14px 10px;background:#FFFFFF;clip-path:polygon(11.6px 0,calc(100% - 11.6px) 0,100% 11.6px,100% calc(100% - 11.6px),calc(100% - 11.6px) 100%,11.6px 100%,0 calc(100% - 11.6px),0 11.6px)"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;line-height:1.35">Cuotas cada</span><span style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap"><span style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:clamp(26px,2.6vw,36px);line-height:.9;letter-spacing:-.02em">15</span><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;line-height:1.35">días</span></span></div></div><div style="min-width:0;padding:1px;clip-path:polygon(12px 0,calc(100% - 12px) 0,100% 12px,100% calc(100% - 12px),calc(100% - 12px) 100%,12px 100%,0 calc(100% - 12px),0 12px);color:#A3A3A6;background:#DDDCD6;animation:avz-box6 18s linear 6s infinite"><div style="height:100%;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;gap:8px;min-height:clamp(72px,10vh,88px);padding:12px 14px 10px;background:#FFFFFF;clip-path:polygon(11.6px 0,calc(100% - 11.6px) 0,100% 11.6px,100% calc(100% - 11.6px),calc(100% - 11.6px) 100%,11.6px 100%,0 calc(100% - 11.6px),0 11.6px)"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;line-height:1.35">Cuotas desde</span><span style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:clamp(26px,2.6vw,36px);line-height:.9;letter-spacing:-.02em">$49</span></div></div><div style="min-width:0;padding:1px;clip-path:polygon(12px 0,calc(100% - 12px) 0,100% 12px,100% calc(100% - 12px),calc(100% - 12px) 100%,12px 100%,0 calc(100% - 12px),0 12px);color:#A3A3A6;background:#DDDCD6;animation:avz-box6g 18s linear 9s infinite"><div style="height:100%;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;gap:8px;min-height:clamp(72px,10vh,88px);padding:12px 14px 10px;background:#FFFFFF;clip-path:polygon(11.6px 0,calc(100% - 11.6px) 0,100% 11.6px,100% calc(100% - 11.6px),calc(100% - 11.6px) 100%,11.6px 100%,0 calc(100% - 11.6px),0 11.6px)"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;line-height:1.35">Plazos hasta</span><span style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap"><span style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:clamp(26px,2.6vw,36px);line-height:.9;letter-spacing:-.02em">24</span><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;line-height:1.35">meses</span></span></div></div><div style="min-width:0;padding:1px;clip-path:polygon(12px 0,calc(100% - 12px) 0,100% 12px,100% calc(100% - 12px),calc(100% - 12px) 100%,12px 100%,0 calc(100% - 12px),0 12px);color:#A3A3A6;background:#DDDCD6;animation:avz-box6 18s linear 12s infinite"><div style="height:100%;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;gap:8px;min-height:clamp(72px,10vh,88px);padding:12px 14px 10px;background:#FFFFFF;clip-path:polygon(11.6px 0,calc(100% - 11.6px) 0,100% 11.6px,100% calc(100% - 11.6px),calc(100% - 11.6px) 100%,11.6px 100%,0 calc(100% - 11.6px),0 11.6px)"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;line-height:1.35">Prima desde</span><span style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:clamp(26px,2.6vw,36px);line-height:.9;letter-spacing:-.02em">5%</span></div></div><div style="min-width:0;padding:1px;clip-path:polygon(12px 0,calc(100% - 12px) 0,100% 12px,100% calc(100% - 12px),calc(100% - 12px) 100%,12px 100%,0 calc(100% - 12px),0 12px);color:#A3A3A6;background:#DDDCD6;animation:avz-box6g 18s linear 15s infinite"><div style="height:100%;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;gap:8px;min-height:clamp(72px,10vh,88px);padding:12px 14px 10px;background:#FFFFFF;clip-path:polygon(11.6px 0,calc(100% - 11.6px) 0,100% 11.6px,100% calc(100% - 11.6px),calc(100% - 11.6px) 100%,11.6px 100%,0 calc(100% - 11.6px),0 11.6px)"><span style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap"><span style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:clamp(26px,2.6vw,36px);line-height:.9;letter-spacing:-.02em">3</span><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;line-height:1.35">documentos</span></span><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;line-height:1.35">Sin banco</span></div></div></div>
+          <div style="container-type:inline-size;width:100%;max-width:560px;margin:clamp(14px,2.4vh,22px) 0 0;padding:1px;background:#DDDCD6;clip-path:polygon(14px 0,calc(100% - 14px) 0,100% 14px,100% calc(100% - 14px),calc(100% - 14px) 100%,14px 100%,0 calc(100% - 14px),0 14px)"><div style="background:#F1F3F0;clip-path:polygon(13.6px 0,calc(100% - 13.6px) 0,100% 13.6px,100% calc(100% - 13.6px),calc(100% - 13.6px) 100%,13.6px 100%,0 calc(100% - 13.6px),0 13.6px)"><div style="padding:2px clamp(14px,6cqi,22px);display:flex;align-items:center"><a href="https://wa.me/50325096800?text=Hola%2C%20quiero%20cotizar%20mi%20moto" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:12px;padding:12px 0;color:#0F3D2C;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:clamp(18px,7cqi,24px);white-space:nowrap" style-hover="color:#E63E00"><span aria-hidden="true" style="position:relative;width:9px;height:9px;flex-shrink:0"><span style="position:absolute;inset:0;background:#1FA855"></span><span style="position:absolute;inset:0;background:#1FA855;animation:avz-ping 1.4s ease-out infinite"></span></span>Quiero cotizar mi moto<span aria-hidden="true" style="display:flex;gap:2px;font-size:30px;line-height:1;color:#E63E00;letter-spacing:-.1em"><span style="animation:avz-chev 1.1s linear infinite">›</span><span style="animation:avz-chev 1.1s linear .18s infinite">›</span><span style="animation:avz-chev 1.1s linear .36s infinite">›</span></span></a></div><div style="padding:2px clamp(14px,6cqi,22px);border-top:1px solid #C9D8CF;display:flex;align-items:center"><a href="#proceso" style="white-space:nowrap;display:inline-flex;align-items:center;gap:8px;padding:12px 0;font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:18px;color:#58585B;border-bottom:2px solid transparent;animation:avz-shake 3.2s ease-in-out infinite" style-hover="color:#0F3D2C;border-bottom-color:#0F3D2C">Cómo funciona<span aria-hidden="true" style="font-size:18px;line-height:1">↓</span></a></div></div></div>
+          
+        </div>
+        <div style="flex:1.25 1 0;min-width:min(100%,360px);position:relative"><span aria-hidden="true" style="position:absolute;top:-10px;left:-10px;width:26px;height:26px;z-index:3;pointer-events:none;border-top:2px solid #0F3D2C;border-left:2px solid #0F3D2C"></span><span aria-hidden="true" style="position:absolute;bottom:-10px;right:-10px;width:26px;height:26px;z-index:3;pointer-events:none;border-bottom:2px solid #E63E00;border-right:2px solid #E63E00"></span><span aria-hidden="true" style="position:absolute;bottom:18px;right:22px;z-index:3;display:flex;align-items:center;gap:8px;padding:6px 10px;background:rgba(20,22,26,.55);backdrop-filter:blur(6px);font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:#FFFFFF"><span style="width:7px;height:7px;background:#E63E00;animation:avz-rec 1s steps(1) infinite"></span>RUTA 01 · EL SALVADOR</span>
+          <div style="position:relative;z-index:1;overflow:hidden;clip-path:polygon(28px 0,calc(100% - 28px) 0,100% 28px,100% calc(100% - 28px),calc(100% - 28px) 100%,28px 100%,0 calc(100% - 28px),0 28px)"><div style="aspect-ratio:1/1;max-height:min(520px,calc(100vh - 200px));min-height:320px;width:100%;background:#0A2C20"><video src="assets/hero.mp4" poster="assets/hero-repartidor.png" autoplay="" muted="" loop="" playsinline="" preload="auto" aria-label="Repartidor salvadoreño con su moto nueva frente a la agencia" style="width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block"></video></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ showTicker }}" hint-placeholder-val="{{ true }}">
+  <section style="background:#14161A url(assets/tex-tacos.png) repeat 0 0 / auto 44px;color:#FFFFFF;overflow:hidden">
+    <div style="display:flex">
+      <div style="flex-shrink:0;padding:0 18px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;color:#FFFFFF;font-weight:700;border-right:1px solid rgba(255,255,255,.14);display:flex;align-items:center;gap:8px">
+        <span style="width:6px;height:6px;border-radius:50%;background:#E63E00;animation:avz-pulse 1.6s infinite"></span>EN VIVO
+      </div>
+      <div style="flex:1;min-width:0;overflow:hidden">
+        <div style="display:flex;width:max-content;animation:{{ tickerAnim }}">
+          <sc-for list="{{ tickerLoop }}" as="t" hint-placeholder-count="8">
+            <div style="display:flex;align-items:center;gap:10px;padding:15px 24px;border-right:1px solid rgba(255,255,255,.1);font-size:13.5px;white-space:nowrap;color:#C9D8CF">
+              <span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#E63E00;font-weight:700">▲ {{ t.tag }}</span>
+              <span style="color:#fff;font-weight:600">{{ t.bike }}</span><span>· {{ t.place }}</span>
+              <span style="font-family:'Space Mono',monospace;font-size:11px;color:#8A8A8D">{{ t.when }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+
+  <div aria-hidden="true" style="overflow:hidden;pointer-events:none;margin:48px 0 -72px auto;width:72%;padding:16px 0;"><div style="height:46px;background:url(assets/tread-strip-green.png) repeat-x 0 50% / auto 46px;opacity:.1;transform:rotate(-3deg);transform-origin:right center;-webkit-mask-image:linear-gradient(270deg,#000 50%,transparent);mask-image:linear-gradient(270deg,#000 50%,transparent)"></div></div>
+  <section id="numeros" style="max-width:1280px;margin:0 auto;padding:88px 24px 0;scroll-margin-top:90px;position:relative;isolation:isolate">
+    <div aria-hidden="true" style="position:absolute;z-index:-1;right:calc(50% - 50vw);bottom:-40px;width:min(900px,70vw);height:420px;background:url(assets/tex-tacos-p3-green.png) repeat 0 0 / 520px auto;opacity:.09;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 100% 100% at 100% 100%,#000 25%,transparent 75%);mask-image:radial-gradient(ellipse 100% 100% at 100% 100%,#000 25%,transparent 75%)"></div>
+    <div style="display:flex;align-items:center;gap:14px;font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;color:#58585B">
+      <span><strong style="color:#E63E00;font-weight:700">02 / 10</strong> · CONFIANZA EN NÚMEROS</span><span aria-hidden="true" style="flex:1;display:grid;gap:2px;min-width:24px"><span style="height:3px;background:#0F3D2C"></span><span style="height:1px;background:#E63E00"></span></span>
+    </div>
+    <h2 style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:clamp(32px,4.2vw,52px);line-height:1.04;letter-spacing:-.01em;margin:22px 0 0;color:#0F3D2C;max-width:22ch">Experiencia que ya está en movimiento.</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:16px;margin:34px 0 0">
+      <sc-for list="{{ stats }}" as="s" hint-placeholder-count="5">
+        <div style="flex:1 1 210px;min-width:0;border:1px solid #DDDCD6;background:#FFFFFF;padding:24px 22px 28px" style-hover="background:#C9D8CF">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.13em;color:#58585B">{{ s.idx }}</span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F3D2C" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true" style="flex-shrink:0;display:block"><path d="{{ s.icon }}"></path></svg></div>
+          <div style="display:flex;align-items:baseline;gap:6px;white-space:nowrap;margin:18px 0 8px;color:#0F3D2C;font-family:'Chakra Petch',sans-serif;font-weight:700;line-height:1"><span style="font-size:60px;letter-spacing:-.04em">{{ s.shown }}</span><span style="font-size:22px;letter-spacing:-.01em">{{ s.suf }}</span></div>
+          <div style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:17px;margin-bottom:9px;color:#14161A">{{ s.label }}</div>
+          <p style="font-size:14.5px;line-height:1.55;color:#3A3B3E;margin:0">{{ s.note }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="nosotros" style="background:#0F3D2C;color:#FFFFFF;margin:88px 0 0;scroll-margin-top:70px;position:relative;overflow:hidden">
+    <div aria-hidden="true" style="position:absolute;inset:0;background:url(assets/tex-grava.png) repeat 0 0 / 360px;opacity:.6;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,#000 20%,transparent 80%);mask-image:linear-gradient(180deg,#000 20%,transparent 80%)"></div>
+    <div aria-hidden="true" style="position:absolute;right:-160px;top:-140px;width:620px;height:620px;background:url(assets/tex-salpicado.png) no-repeat center / contain;opacity:.18;pointer-events:none"></div>
+    <div aria-hidden="true" style="position:absolute;left:0;right:0;bottom:0;height:420px;background:url(assets/tex-surcos.png) repeat 0 0 / 320px auto;opacity:.12;pointer-events:none;-webkit-mask-image:linear-gradient(0deg,#000,transparent);mask-image:linear-gradient(0deg,#000,transparent)"></div>
+    
+    <div style="max-width:1280px;margin:0 auto;padding:72px 24px 84px;position:relative">
+    <div style="display:flex;align-items:center;gap:14px;font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;color:#C9D8CF">
+      <span style="white-space:nowrap"><strong style="color:#E63E00;font-weight:700">03 / 10</strong> · NOSOTROS</span><span aria-hidden="true" style="flex:1;display:grid;gap:2px;min-width:24px"><span style="height:3px;background:rgba(255,255,255,.85)"></span><span style="height:1px;background:#E63E00"></span></span>
+    </div>
+    <h2 style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:clamp(38px,6vw,80px);line-height:.98;letter-spacing:-.02em;margin:24px 0 0;color:#FFFFFF;text-wrap:balance">Avanza. <span style="color:#E63E00">Nosotros te llevamos.</span></h2>
+    <div style="margin:40px 0 0;font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:clamp(28px,3.4vw,44px);line-height:1.12;min-height:2.3em;text-wrap:balance">Una moto es mucho más que un vehículo: <sc-for list="{{ nosRotor }}" as="r" hint-placeholder-count="1"><sc-if value="{{ r.on }}" hint-placeholder-val="{{ false }}"><span style="color:#E63E00;display:inline-block;animation:nos-in .45s ease both">{{ r.t }}</span></sc-if></sc-for></div>
+    <div style="display:flex;flex-wrap:wrap;gap:40px 48px;margin:52px 0 0;align-items:center">
+      <div style="flex:1 1 0;min-width:min(100%,300px)">
+        <div style="position:relative;height:66px">
+          <div style="position:absolute;left:8px;right:8px;top:7px;height:2px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.45) 0 12px,transparent 12px 20px)"></div>
+          <div style="position:absolute;left:8px;top:7px;height:2px;background:#E63E00;width:{{ nosFill }};transition:width .6s cubic-bezier(.5,0,.3,1)"></div>
+          <div aria-hidden="true" style="position:absolute;top:8px;left:calc(8px + {{ nosFill }});transform:translate(-30%,-54%);transition:left .6s cubic-bezier(.5,0,.3,1);display:flex;gap:1px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:34px;line-height:1;color:#E63E00;letter-spacing:-.12em;z-index:1"><span style="animation:avz-chev 1.1s linear infinite">›</span><span style="animation:avz-chev 1.1s linear .18s infinite">›</span><span style="animation:avz-chev 1.1s linear .36s infinite">›</span></div>
+          <div style="position:absolute;inset:0;display:flex;justify-content:space-between">
+            <sc-for list="{{ nosStops }}" as="s" hint-placeholder-count="3">
+              <button type="button" onClick="{{ s.pick }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:{{ s.align }};gap:12px;width:120px">
+                <span style="width:16px;height:16px;background:{{ s.dot }};border:2px solid {{ s.dotBorder }};box-sizing:border-box;transition:background .3s"></span>
+                <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.13em;line-height:1.5;white-space:pre;color:{{ s.labelColor }};text-align:{{ s.align }};transition:color .3s">{{ s.n }} · {{ s.label }}</span>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+        <div style="margin:30px 0 0;min-height:340px">
+          <sc-for list="{{ nosStops }}" as="s" hint-placeholder-count="1">
+            <sc-if value="{{ s.on }}" hint-placeholder-val="{{ false }}">
+              <div style="animation:nos-in .5s ease both">
+                <h3 style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:clamp(26px,2.8vw,36px);line-height:1.08;margin:0;color:#FFFFFF;text-wrap:balance">{{ s.a }}<span style="color:#E63E00">{{ s.b }}</span></h3>
+                <div style="display:grid;gap:14px;margin:20px 0 0"><sc-for list="{{ s.p }}" as="t"><p style="margin:0;font-size:17px;line-height:1.7;color:#DCE6E0;text-wrap:pretty">{{ t }}</p></sc-for></div>
+              </div>
+            </sc-if>
+          </sc-for>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;margin:20px 0 0;padding:20px 0 0;border-top:1px solid rgba(255,255,255,.18)">
+          <button type="button" onClick="{{ nosPrev }}" aria-label="Anterior" style="all:unset;cursor:pointer;width:44px;height:44px;border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;font-size:18px" style-hover="background:#FFFFFF;color:#0F3D2C">←</button>
+          <button type="button" onClick="{{ nosNext }}" style="all:unset;cursor:pointer;height:44px;padding:0 20px;background:#E63E00;display:flex;align-items:center;gap:10px;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:16px" style-hover="background:#C23400">Siguiente: {{ nosNextLabel }} →</button>
+        </div>
+      </div>
+      <div style="flex:1.25 1 0;min-width:min(100%,360px);position:relative"><span aria-hidden="true" style="position:absolute;top:-10px;left:-10px;width:26px;height:26px;z-index:3;pointer-events:none;border-top:2px solid #FFFFFF;border-left:2px solid #FFFFFF"></span><span aria-hidden="true" style="position:absolute;bottom:-10px;right:-10px;width:26px;height:26px;z-index:3;pointer-events:none;border-bottom:2px solid #E63E00;border-right:2px solid #E63E00"></span><span aria-hidden="true" style="position:absolute;bottom:18px;right:22px;z-index:3;display:flex;align-items:center;gap:8px;padding:6px 10px;background:rgba(20,22,26,.55);backdrop-filter:blur(6px);font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:#FFFFFF"><span style="width:7px;height:7px;background:#E63E00;animation:avz-rec 1s steps(1) infinite"></span>RUTA 02 · EL SALVADOR</span><div style="position:relative;z-index:1;overflow:hidden;clip-path:polygon(28px 0,calc(100% - 28px) 0,100% 28px,100% calc(100% - 28px),calc(100% - 28px) 100%,28px 100%,0 calc(100% - 28px),0 28px)"><div style="aspect-ratio:4/3;background:#0A2C20"><video src="assets/nosotros.mp4" poster="assets/nosotros-cliente.png" autoplay="" muted="" loop="" playsinline="" preload="auto" aria-label="Cliente de Avanza con su moto nueva" style="width:100%;height:100%;object-fit:cover;display:block"></video></div></div></div>
+    </div>
+    <h3 style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:clamp(24px,2.6vw,32px);line-height:1.1;margin:72px 0 0;color:#FFFFFF;text-wrap:balance">Sencillos, rápidos, transparentes y, sobre todo, <span style="color:#E63E00">flexibles</span></h3>
+    <div style="display:flex;gap:6px;height:340px;margin:26px 0 0">
+      <sc-for list="{{ nosStrips }}" as="v" hint-placeholder-count="4">
+        <div onMouseEnter="{{ v.pick }}" onClick="{{ v.pick }}" style="flex:{{ v.grow }};min-width:52px;overflow:hidden;cursor:pointer;background:{{ v.bg }};color:{{ v.fg }};transition:flex .5s cubic-bezier(.5,0,.3,1), background .3s;position:relative">
+          <sc-if value="{{ v.on }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;inset:0;padding:28px 30px;display:flex;flex-direction:column;animation:nos-in .4s .15s ease both">
+              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.13em;color:#E63E00">{{ v.n }}</span>
+              <span style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:clamp(32px,3.6vw,48px);line-height:1;letter-spacing:-.02em;margin-top:auto">{{ v.t }}</span>
+              <p style="margin:14px 0 0;font-size:16px;line-height:1.6;color:#3A3B3E;max-width:52ch">{{ v.d }}</p>
+            </div>
+          </sc-if>
+          <sc-if value="{{ v.off }}" hint-placeholder-val="{{ true }}">
+            <div style="position:absolute;inset:0;padding:24px 0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;border:1px solid rgba(255,255,255,.22)">
+              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.13em;color:#C9D8CF">{{ v.n }}</span>
+              <span style="writing-mode:vertical-rl;transform:rotate(180deg);font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:26px;letter-spacing:.01em;white-space:nowrap">{{ v.t }}</span>
+              <span style="font-family:'Chakra Petch',sans-serif;font-size:20px;color:#E63E00">+</span>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+    <div style="margin:40px 0 0"><div style="display:flex;flex-wrap:wrap;gap:14px 22px;align-items:baseline;margin:28px 0 0;padding:24px 26px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18)">
+        <span style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:22px;color:#FFFFFF">Te acompañamos en <span style="color:#E63E00">todo el camino.</span></span>
+        <span style="font-size:16px;line-height:1.6;color:#DCE6E0;flex:1;min-width:min(100%,320px)">Estamos contigo desde que eliges tu moto hasta el día en que el título queda a tu nombre, con todo lo que necesites en cada paso.</span>
+      </div></div>
+    </div>
+    </section>
+
+  <section id="proceso" onMouseEnter="{{ prHoverOn }}" onMouseLeave="{{ prHoverOff }}" style="max-width:1280px;margin:0 auto;padding:88px 24px 0;scroll-margin-top:90px;position:relative;isolation:isolate">
+    <div aria-hidden="true" style="position:absolute;z-index:-1;left:calc(50% - 50vw);top:0;width:min(760px,60vw);height:580px;background:url(assets/tex-tacos-p3-green.png) repeat 0 0 / 520px auto;opacity:.09;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,#000 60%,transparent 100%),linear-gradient(90deg,#000 30%,transparent 85%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,#000 60%,transparent 100%),linear-gradient(90deg,#000 30%,transparent 85%);mask-composite:intersect"></div>
+    <div style="display:flex;align-items:center;gap:14px;font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;color:#58585B">
+      <span><strong style="color:#E63E00;font-weight:700">04 / 10</strong> · CÓMO FUNCIONA</span><span aria-hidden="true" style="flex:1;display:grid;gap:2px;min-width:24px"><span style="height:3px;background:#0F3D2C"></span><span style="height:1px;background:#E63E00"></span></span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:16px 40px;align-items:end;justify-content:space-between;margin:22px 0 0">
+      <h2 style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:clamp(32px,4.2vw,52px);line-height:1.04;letter-spacing:-.01em;margin:0;color:#0F3D2C;max-width:24ch">Sal rodando, así de fácil...</h2>
+      <button type="button" onClick="{{ prToggle }}" style="font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.1em;padding:9px 14px;background:transparent;border:1px solid #DDDCD6;color:#3A3B3E;cursor:pointer;display:flex;align-items:center;gap:8px" style-hover="border-color:#0F3D2C">{{ prPlayLabel }}</button>
+    </div>
+
+    <div id="pr-arrows" style="display:flex;flex-direction:{{ prDir }};gap:0;margin:36px 0 0;filter:drop-shadow(0 10px 18px rgba(15,61,44,.08))">
+      <sc-for list="{{ prArrows }}" as="a" hint-placeholder-count="4">
+        <button type="button" onClick="{{ a.go }}" aria-label="{{ a.aria }}" style="flex:1 1 0;min-width:0;margin-left:{{ a.ml }};margin-top:{{ a.mt }};height:{{ a.h }};border:0;cursor:pointer;text-align:left;font:inherit;background:{{ a.bg }};color:{{ a.fg }};clip-path:{{ a.clip }};padding:{{ a.pad }};display:flex;flex-direction:column;justify-content:center;gap:6px;transition:background .35s, color .35s, transform .35s;transform:{{ a.tf }}">
+          <span style="display:flex;align-items:baseline;gap:10px">
+            <span style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:30px;line-height:1;color:{{ a.nc }}">{{ a.n }}</span>
+            <span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:{{ a.mc }}">{{ a.meta }}</span>
+          </span>
+          <span style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:18px;line-height:1.15">{{ a.title }}</span>
+        </button>
+      </sc-for>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:0;margin:20px 0 0;background:#FFFFFF;border:1px solid #DDDCD6">
+      <div style="padding:32px 30px;display:flex;flex-direction:column;gap:14px;min-width:0">
+        <div style="display:flex;align-items:center;gap:12px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;color:#58585B">
+          <span style="color:#E63E00;font-weight:700">▲ PASO {{ pr.n }} DE 04</span><span>·</span><span>{{ pr.meta }}</span>
+        </div>
+        <h3 style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:clamp(28px,3vw,38px);line-height:1.08;margin:0;color:#0F3D2C">{{ pr.title }}</h3>
+        <p style="font-size:17px;line-height:1.65;color:#3A3B3E;margin:0;max-width:48ch">{{ pr.body }}</p>
+        <div style="flex:1"></div>
+        <div style="height:3px;background:#E9ECE8;position:relative;overflow:hidden">{{ prTimer }}</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button type="button" onClick="{{ prPrev }}" style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:18px;padding:10px 18px;background:#FFFFFF;border:2px solid #0F3D2C;color:#0F3D2C;cursor:pointer" style-hover="background:#C9D8CF">←</button>
+          <button type="button" onClick="{{ prNext }}" style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:17px;padding:10px 20px;background:#0F3D2C;border:2px solid #0F3D2C;color:#FFFFFF;cursor:pointer" style-hover="background:#0A2C20">{{ prNextLabel }} →</button>
+          <sc-if value="{{ prIsLast }}" hint-placeholder-val="{{ false }}">
+            <a href="https://wa.me/50325096800" target="_blank" rel="noopener" style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:17px;padding:12px 20px;background:#E63E00;color:#FFFFFF" style-hover="background:#C23400;color:#FFFFFF">Empezar por WhatsApp →</a>
+          </sc-if>
+        </div>
+      </div>
+      <div style="background:#0F3D2C;min-height:280px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center">{{ prArt }}</div>
+    </div>
+  </section>
+
+  <section id="marcas" style="max-width:1280px;margin:0 auto;padding:88px 24px 0;scroll-margin-top:90px">
+    <div style="display:flex;align-items:center;gap:14px;font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;color:#58585B">
+      <span><strong style="color:#E63E00;font-weight:700">05 / 10</strong> · MARCAS QUE FINANCIAMOS</span><span aria-hidden="true" style="flex:1;display:grid;gap:2px;min-width:24px"><span style="height:3px;background:#0F3D2C"></span><span style="height:1px;background:#E63E00"></span></span>
+    </div>
+    <div style="margin:28px 0 0;overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)">
+      <div style="display:flex;gap:14px;width:max-content;animation:avz-marquee 40s linear infinite;padding:6px 0">
+        <sc-for list="{{ brandLoop }}" as="b" hint-placeholder-count="11">
+          <div style="flex-shrink:0;width:190px;height:104px;background:#FFFFFF;border:1px solid #DDDCD6;display:flex;align-items:center;justify-content:center;padding:18px 24px" style-hover="border-color:#0F3D2C">
+            <img src="{{ b.src }}" alt="{{ b.name }}" loading="lazy" style="max-width:100%;max-height:{{ b.mh }};object-fit:contain;display:block" />
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <div aria-hidden="true" style="overflow:hidden;pointer-events:none;margin:56px 0 -40px auto;width:62%"><div style="height:30px;background:url(assets/tread-strip-green.png) repeat-x 100% 50% / auto 30px;opacity:.1;transform:scaleX(-1);-webkit-mask-image:linear-gradient(90deg,#000 60%,transparent);mask-image:linear-gradient(90deg,#000 60%,transparent)"></div></div>
+  <section id="ventajas" tabIndex="0" onKeyDown="{{ onVentajaKey }}" style="background:#0F3D2C;color:#FFFFFF;margin:88px 0 0;scroll-margin-top:70px;outline:none;position:relative;overflow:hidden">
+    <div aria-hidden="true" style="position:absolute;inset:0;background:url(assets/tex-grava.png) repeat 0 0 / 360px;opacity:.5;pointer-events:none"></div>
+    <div style="max-width:1280px;margin:0 auto;padding:72px 24px 84px;position:relative">
+      <div style="display:flex;align-items:center;gap:14px;font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;color:#C9D8CF">
+        <span style="white-space:nowrap"><strong style="color:#E63E00;font-weight:700">06 / 10</strong> · AVANZA CON VENTAJA</span><span style="flex:1;height:1px;background:rgba(255,255,255,.18)"></span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:20px 40px;align-items:end;justify-content:space-between;margin:22px 0 0">
+        <h2 style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:clamp(32px,4.2vw,52px);line-height:1.04;letter-spacing:-.01em;margin:0;color:#FFFFFF;max-width:22ch;text-wrap:balance">Financiamiento pensado para tu vida, <span style="color:#E63E00">no para complicártela.</span></h2>
+        <p style="display:flex;align-items:center;gap:10px;margin:0;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.1em;color:#C9D8CF"><span style="color:#E63E00">▲</span>TOCA CADA PARTE DE LA MOTO · {{ visitedCount }} / 11 DESCUBIERTAS</p>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:24px;margin:40px 0 0;align-items:stretch">
+        <div style="flex:1.75 1 540px;min-width:0;border:1px solid rgba(255,255,255,.14);background:#0C3425;position:relative;display:flex;align-items:center">
+          {{ motoSvg }}
+        </div>
+
+        <div style="flex:1 1 320px;min-width:0;background:#FFFFFF;color:#14161A;padding:32px 30px 28px;display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.12em">
+            <span style="color:#E63E00;font-weight:700">▲ {{ adv.part }}</span>
+            <span style="color:#58585B">{{ adv.n }} / 11</span>
+          </div>
+          <div style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:64px;line-height:.9;color:#C9D8CF;letter-spacing:-.03em">{{ adv.n }}</div>
+          <h3 style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:clamp(24px,2.3vw,30px);line-height:1.1;margin:0;color:#0F3D2C;text-wrap:balance">{{ adv.title }}</h3>
+          <p style="font-size:16.5px;line-height:1.65;color:#3A3B3E;margin:0;text-wrap:pretty">{{ adv.body }}</p>
+          <div style="flex:1"></div>
+          <div style="display:flex;gap:4px">
+            <sc-for list="{{ segs }}" as="sg" hint-placeholder-count="11">
+              <button type="button" onClick="{{ sg.go }}" aria-label="{{ sg.label }}" style="flex:1;height:6px;border:0;padding:0;cursor:pointer;background:{{ sg.bg }}"></button>
+            </sc-for>
+          </div>
+          <div style="display:flex;gap:10px">
+            <button type="button" onClick="{{ prevAdv }}" style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:17px;padding:11px 18px;background:#FFFFFF;border:2px solid #0F3D2C;color:#0F3D2C;cursor:pointer" style-hover="background:#C9D8CF">←</button>
+            <button type="button" onClick="{{ nextAdv }}" style="flex:1;font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:17px;padding:11px 18px;background:#0F3D2C;border:2px solid #0F3D2C;color:#FFFFFF;cursor:pointer;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:12px;line-height:1.25" style-hover="background:#0A2C20"><span>{{ nextName }}</span><span>→</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0">
+        <sc-for list="{{ chips }}" as="c" hint-placeholder-count="11">
+          <button type="button" onClick="{{ c.go }}" style="font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;cursor:pointer;background:{{ c.bg }};color:{{ c.fg }};border:1px solid {{ c.bd }}" style-hover="border-color:#FFFFFF">{{ c.n }} · {{ c.part }}</button>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonios" style="max-width:1280px;margin:0 auto;padding:88px 24px 0;scroll-margin-top:90px;position:relative;isolation:isolate">
+    <div aria-hidden="true" style="position:absolute;z-index:-1;left:calc(50% - 50vw);top:0;width:min(760px,60vw);height:580px;background:url(assets/tex-tacos-p3-green.png) repeat 0 0 / 520px auto;opacity:.09;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,#000 60%,transparent 100%),linear-gradient(90deg,#000 30%,transparent 85%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,#000 60%,transparent 100%),linear-gradient(90deg,#000 30%,transparent 85%);mask-composite:intersect"></div>
+    <div style="display:flex;align-items:center;gap:14px;font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;color:#58585B">
+      <span><strong style="color:#E63E00;font-weight:700">07 / 10</strong> · TESTIMONIOS</span><span aria-hidden="true" style="flex:1;display:grid;gap:2px;min-width:24px"><span style="height:3px;background:#0F3D2C"></span><span style="height:1px;background:#E63E00"></span></span>
+    </div>
+    <h2 style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:clamp(32px,4.2vw,52px);line-height:1.04;letter-spacing:-.01em;margin:22px 0 0;color:#0F3D2C;max-width:22ch">Ellos eligieron avanzar.</h2>
+    <div style="display:grid;grid-template-columns:{{ tmCols }};gap:12px;margin:34px 0 0;overflow-x:{{ tmOverflow }};scroll-snap-type:x mandatory;padding-bottom:6px">
+      <sc-for list="{{ testimonials }}" as="tm" hint-placeholder-count="3">
+        <figure style="margin:0;min-width:0;border:1px solid #DDDCD6;background:#FFFFFF;padding:18px 16px;scroll-snap-align:start;display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;min-height:20px"><span style="font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.2em;color:#E63E00">★★★★★</span><sc-if value="{{ tm.photo }}" hint-placeholder-val="{{ false }}"><span role="img" aria-label="{{ tm.name }}" style="width:48px;height:48px;border-radius:50%;background:{{ tm.photoBg }};display:block;flex-shrink:0;margin:-4px -4px 0 0;box-shadow:0 0 0 3px #FFFFFF, 0 0 0 4px #DDDCD6"></span></sc-if></div>
+          <div style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:17px;line-height:1.15;color:#0F3D2C;margin:-4px 0 -4px;text-wrap:balance">“{{ tm.title }}”</div>
+          <blockquote style="margin:0;font-size:14px;line-height:1.55;color:#14161A;text-wrap:pretty">“{{ tm.quote }}”</blockquote>
+          <div style="flex:1"></div>
+          <figcaption style="display:flex;align-items:center;gap:12px;border-top:1px solid #DDDCD6;padding-top:16px">
+            <span style="width:36px;height:36px;background:#C9D8CF;display:flex;align-items:center;justify-content:center;font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:15px;color:#0F3D2C">{{ tm.initial }}</span>
+            <span>
+              <span style="display:block;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:15px;color:#0F3D2C">{{ tm.name }}</span>
+              <span style="display:block;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.07em;color:#58585B;margin-top:3px">{{ tm.meta }}</span>
+            </span>
+          </figcaption>
+        </figure>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="pagos" style="max-width:1280px;margin:0 auto;padding:88px 24px 0;scroll-margin-top:90px;position:relative;isolation:isolate">
+    <div aria-hidden="true" style="position:absolute;z-index:-1;right:-60px;top:180px;width:520px;height:600px;background:url(assets/tex-tacos-p3-green.png) repeat 0 0 / 520px auto;opacity:.09;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse at 85% 50%,#000 25%,transparent 70%);mask-image:radial-gradient(ellipse at 85% 50%,#000 25%,transparent 70%)"></div>
+    <div style="display:flex;align-items:center;gap:14px;font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;color:#58585B">
+      <span style="white-space:nowrap"><strong style="color:#E63E00;font-weight:700">08 / 10</strong> · PUNTOS DE PAGO</span><span aria-hidden="true" style="flex:1;display:grid;gap:2px;min-width:24px"><span style="height:3px;background:#0F3D2C"></span><span style="height:1px;background:#E63E00"></span></span>
+    </div>
+    <h2 style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:clamp(32px,4.2vw,52px);line-height:1.04;letter-spacing:-.01em;margin:22px 0 0;color:#0F3D2C">¿Adónde pago?</h2>
+    <h3 style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:clamp(17px,1.7vw,21px);letter-spacing:.06em;line-height:1.3;margin:18px 0 0;color:#E63E00">FACILIDAD DE PAGO Y CONTROL EN TODO MOMENTO</h3>
+    <p style="font-size:17px;line-height:1.7;color:#3A3B3E;margin:10px 0 0;max-width:62ch;text-wrap:pretty">Pagos con medios electrónicos y puntos a nivel nacional, mientras nuestra tecnología mantiene toda la información al alcance de tu mano: próximos pagos, pagos realizados y saldo actualizado, siempre.</p>
+    <div style="position:relative;width:100%;max-width:600px;aspect-ratio:1000/892;margin:36px auto 0">
+      <svg viewBox="0 0 1000 892" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;display:block" fill="none" stroke="#DDDCD6" stroke-width="1.5">
+        <polygon points="500,53.519999999999996 840,249.76 840,642.24 500,838.48 160,642.24 160,249.76"></polygon>
+        <g stroke-dasharray="4 6"><line x1="500" y1="446" x2="500" y2="53.5"></line><line x1="500" y1="446" x2="840" y2="249.8"></line><line x1="500" y1="446" x2="840" y2="642.2"></line><line x1="500" y1="446" x2="500" y2="838.5"></line><line x1="500" y1="446" x2="160" y2="642.2"></line><line x1="500" y1="446" x2="160" y2="249.8"></line></g>
+      </svg>
+      <div style="position:absolute;left:50%;top:6%;transform:translate(-50%,-50%);width:clamp(78px,13vw,148px);height:clamp(46px,5.8vw,64px);display:flex;align-items:center;justify-content:center;padding:clamp(8px,1.4vw,16px) clamp(10px,1.8vw,22px);background:#FFFFFF;border:1px solid #DDDCD6;transition:border-color .2s, transform .2s" style-hover="border-color:#0F3D2C;transform:translate(-50%,-50%) scale(1.04)"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/BAC_Credomatic_logo.svg?width=400" alt="BAC" loading="lazy" style="max-width:100%;max-height:100%;object-fit:contain;display:block;min-height:0" /></div>
+      <div style="position:absolute;left:84%;top:28%;transform:translate(-50%,-50%);width:clamp(78px,13vw,148px);height:clamp(46px,5.8vw,64px);display:flex;align-items:center;justify-content:center;padding:clamp(8px,1.4vw,16px) clamp(10px,1.8vw,22px);background:#FFFFFF;border:1px solid #DDDCD6;transition:border-color .2s, transform .2s" style-hover="border-color:#0F3D2C;transform:translate(-50%,-50%) scale(1.04)"><img src="assets/bancoagricola.png" alt="Banco Agrícola" loading="lazy" style="max-width:100%;max-height:100%;object-fit:contain;display:block;min-height:0" /></div>
+      <div style="position:absolute;left:84%;top:72%;transform:translate(-50%,-50%);width:clamp(78px,13vw,148px);height:clamp(46px,5.8vw,64px);display:flex;align-items:center;justify-content:center;padding:clamp(8px,1.4vw,16px) clamp(10px,1.8vw,22px);background:#FFFFFF;border:1px solid #DDDCD6;transition:border-color .2s, transform .2s" style-hover="border-color:#0F3D2C;transform:translate(-50%,-50%) scale(1.04)"><img src="https://cdn.brandfetch.io/id1t1ChMHH/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1774412439128" alt="Banco Cuscatlán" loading="lazy" style="max-width:100%;max-height:100%;object-fit:contain;display:block;min-height:0" /></div>
+      <div style="position:absolute;left:50%;top:94%;transform:translate(-50%,-50%);width:clamp(78px,13vw,148px);height:clamp(46px,5.8vw,64px);display:flex;align-items:center;justify-content:center;padding:clamp(8px,1.4vw,16px) clamp(10px,1.8vw,22px);background:#FFFFFF;border:1px solid #DDDCD6;transition:border-color .2s, transform .2s" style-hover="border-color:#0F3D2C;transform:translate(-50%,-50%) scale(1.04)"><img src="assets/davivienda.png" alt="Davivienda" loading="lazy" style="max-width:100%;max-height:100%;object-fit:contain;display:block;min-height:0" /></div>
+      <div style="position:absolute;left:16%;top:72%;transform:translate(-50%,-50%);width:clamp(78px,13vw,148px);height:clamp(46px,5.8vw,64px);display:flex;align-items:center;justify-content:center;padding:clamp(8px,1.4vw,16px) clamp(10px,1.8vw,22px);background:#0B2559;border:1px solid #DDDCD6;transition:border-color .2s, transform .2s" style-hover="border-color:#0F3D2C;transform:translate(-50%,-50%) scale(1.04)"><img src="assets/hipotecario.png" alt="Banco Hipotecario" loading="lazy" style="max-width:100%;max-height:100%;object-fit:contain;display:block;min-height:0" /></div>
+      <div style="position:absolute;left:16%;top:28%;transform:translate(-50%,-50%);width:clamp(78px,13vw,148px);height:clamp(46px,5.8vw,64px);display:flex;align-items:center;justify-content:center;padding:clamp(8px,1.4vw,16px) clamp(10px,1.8vw,22px);background:#FFFFFF;border:1px solid #DDDCD6;transition:border-color .2s, transform .2s" style-hover="border-color:#0F3D2C;transform:translate(-50%,-50%) scale(1.04)"><img src="assets/puntoxpress.png" alt="Punto Xpress" loading="lazy" style="max-width:100%;max-height:100%;object-fit:contain;display:block;min-height:0" /></div>
+      <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:clamp(78px,13vw,148px);height:clamp(46px,5.8vw,64px);display:flex;align-items:center;justify-content:center;padding:clamp(8px,1.4vw,16px) clamp(10px,1.8vw,22px);background:#FFFFFF;border:1px solid #DDDCD6;transition:border-color .2s, transform .2s;width:clamp(112px,17vw,190px);height:auto;border-color:#0F3D2C" style-hover="border-color:#0F3D2C;transform:translate(-50%,-50%) scale(1.04)"><div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:100%"><img src="assets/avanza-wordmark.png" alt="Avanza" style="width:100%;height:auto;display:block" /><span style="font-family:'Space Mono',monospace;font-size:clamp(7.5px,.8vw,10px);letter-spacing:.12em;color:#58585B;white-space:nowrap">+ SUCURSALES AVANZA</span></div></div>
+    </div>
+  </section>
+
+    <section id="faq" style="max-width:1280px;margin:0 auto;padding:88px 24px 0;scroll-margin-top:90px;position:relative">
+    <div style="display:flex;align-items:center;gap:14px;font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;color:#58585B">
+      <span><strong style="color:#E63E00;font-weight:700">09 / 10</strong> · PREGUNTAS FRECUENTES</span><span aria-hidden="true" style="flex:1;display:grid;gap:2px;min-width:24px"><span style="height:3px;background:#0F3D2C"></span><span style="height:1px;background:#E63E00"></span></span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:40px;margin:22px 0 0;align-items:start">
+      <div style="min-width:0">
+        <h2 style="font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:clamp(32px,4.2vw,52px);line-height:1.04;letter-spacing:-.01em;margin:0;color:#0F3D2C;max-width:16ch">¿Tienes alguna duda?</h2>
+        <p style="font-size:16px;line-height:1.6;color:#3A3B3E;margin:18px 0 0;max-width:38ch">¿No ves tu pregunta? Escríbenos y un asesor real te contesta hoy mismo.</p>
+        <a href="https://wa.me/50325096800" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;margin:20px 0 0;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:18px;padding:12px 24px;border:2px solid #0F3D2C;color:#0F3D2C" style-hover="background:#C9D8CF"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true" style="flex-shrink:0;display:block"><path d="M4 20l1.3-3.8A8.5 8.5 0 1 1 8 19z"></path><path d="M9 8.5l1.5-.5 1 2.2-1 .9c.5 1.1 1.4 2 2.5 2.5l.9-1 2.2 1-.5 1.5c-3.3.2-6.8-3.3-6.6-6.6z" fill="currentColor" stroke="none"></path></svg>Preguntar por WhatsApp →</a>
+      </div>
+      <div style="min-width:0;border-top:1px solid #DDDCD6">
+        <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="6">
+          <div style="border-bottom:1px solid #DDDCD6">
+            <button type="button" onClick="{{ q.toggle }}" style="width:100%;background:none;border:0;padding:19px 2px;display:flex;align-items:center;gap:14px;text-align:left;cursor:pointer;color:#0F3D2C;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:16.5px">
+              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#58585B;flex-shrink:0">{{ q.n }}</span>
+              <span style="flex:1">{{ q.q }}</span>
+              <span style="font-family:'Space Mono',monospace;font-size:18px;flex-shrink:0">{{ q.sign }}</span>
+            </button>
+            <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:0;padding:0 2px 20px 40px;font-size:15.5px;line-height:1.65;color:#3A3B3E;max-width:60ch">{{ q.a }}</p>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div aria-hidden="true" style="overflow:hidden;pointer-events:none;margin:48px 0 0 calc(50% - 50vw);width:60vw;transform:rotate(-2deg);transform-origin:left center"><div style="height:36px;background:url(assets/tread-strip-green.png) repeat-x 0 50% / auto 36px;opacity:.1;-webkit-mask-image:linear-gradient(90deg,#000 55%,transparent);mask-image:linear-gradient(90deg,#000 55%,transparent)"></div></div>
+  </section>
+
+  <section id="contacto" style="margin:88px 0 0;background:#0F3D2C;color:#FFFFFF;scroll-margin-top:90px;position:relative;overflow:hidden">
+    <div aria-hidden="true" style="position:absolute;inset:0;background:url(assets/tex-grava.png) repeat 0 0 / 360px;opacity:.9;pointer-events:none"></div>
+    <img src="assets/tread-ring-white.png" alt="" aria-hidden="true" style="position:absolute;pointer-events:none;height:auto;width:min(900px,120vw);right:-22%;top:-40%;opacity:.07;-webkit-mask-image:conic-gradient(from 180deg,transparent 0deg,#000 60deg,#000 140deg,transparent 200deg);mask-image:conic-gradient(from 180deg,transparent 0deg,#000 60deg,#000 140deg,transparent 200deg)" />
+    <div style="position:relative;max-width:1280px;margin:0 auto;padding:72px 24px">
+      <div style="display:flex;align-items:center;gap:14px;font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;color:#C9D8CF">
+        <span style="white-space:nowrap"><strong style="color:#FFFFFF;font-weight:700">10 / 10</strong> · CONTACTO</span><span style="flex:1;height:1px;background:rgba(255,255,255,.18)"></span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:44px;margin:28px 0 0;align-items:end">
+        <div style="min-width:0">
+          <h2 style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:clamp(36px,5.4vw,72px);line-height:.98;letter-spacing:-.02em;margin:0">Tu moto está a<br /><span style="color:#E63E00">un mensaje.</span></h2>
+          <p style="font-size:17px;line-height:1.55;color:#DCE6E0;max-width:44ch;margin:20px 0 0">Mándanos un mensaje con la moto que quieres y tu ingreso mensual. Te decimos hoy cuánto pagarías por quincena.</p>
+          <a href="https://wa.me/50325096800?text=Hola%2C%20quiero%20cotizar%20mi%20moto" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:12px;margin:20px 0 0;padding:12px 0;color:#FFFFFF;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:20px;white-space:nowrap" style-hover="color:#E63E00"><span aria-hidden="true" style="position:relative;width:9px;height:9px;flex-shrink:0"><span style="position:absolute;inset:0;background:#1FA855"></span><span style="position:absolute;inset:0;background:#1FA855;animation:avz-ping 1.4s ease-out infinite"></span></span>Quiero cotizar mi moto<span aria-hidden="true" style="display:flex;gap:2px;font-size:24px;line-height:1;color:#E63E00;letter-spacing:-.1em"><span style="animation:avz-chev 1.1s linear infinite">›</span><span style="animation:avz-chev 1.1s linear .18s infinite">›</span><span style="animation:avz-chev 1.1s linear .36s infinite">›</span></span></a>
+        </div>
+        <div style="min-width:0;display:grid;gap:1px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.18)">
+          <sc-for list="{{ contacts }}" as="c" hint-placeholder-count="4">
+            <div style="background:#0F3D2C;padding:20px 22px;display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between">
+              <span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:#C9D8CF">{{ c.k }}</span>
+              <span style="font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:18px;color:#FFFFFF">{{ c.v }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+    <div style="position:relative;border-top:1px solid rgba(255,255,255,.18)">
+      <div style="max-width:1280px;margin:0 auto;padding:22px 24px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.09em;color:#C9D8CF">
+        <img src="assets/avanza-logo.png" alt="Avanza — Forjando nuevos caminos" style="width:180px;height:auto;display:block;filter:brightness(0) invert(1)" />
+        <span>© 2026 AVANZA, EL SALVADOR · TODOS LOS DERECHOS RESERVADOS</span>
+      </div>
+    </div>
+  </section>
+  <div aria-hidden="true" style="height:28px;background:#E63E00 url(assets/tread-strip-white35.png) repeat-x 0 50% / auto 20px"></div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showTicker&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Comportamiento&quot;},&quot;tickerSpeed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:44,&quot;min&quot;:18,&quot;max&quot;:90,&quot;step&quot;:2,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Comportamiento&quot;},&quot;showFloatingCta&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Comportamiento&quot;},&quot;faqStartOpen&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Comportamiento&quot;}}">
+class Component extends DCLogic {
+  state = { counted: false, shown: [0, 0, 0, 0, 0], openFaq: null, adv: 0, visited: [0], hover: null,
+    alFlow: 0, alStep: 0, alShown: [0, 0, 0, 0], alCounted: false, hoverB: -1, hoverD: -1, alSent: false,
+    prStep: 0, prNarrow: false, prPaused: false, prHover: false, alOpen: false, alQ: 0, alForm: { agencia: "", tipo: "", web: "", nombre: "", contacto: "", financiera: "", ventas: "", financiadas: "", departamento: "" } };
+  AL_DEPTS = ["San Salvador", "La Libertad", "Santa Ana", "San Miguel", "Sonsonate", "Usulután", "La Paz", "Ahuachapán", "Cuscatlán", "Chalatenango", "La Unión", "San Vicente", "Cabañas", "Morazán"];
+  AL_STAT = [[24, "h", "RESPUESTA A TU CLIENTE"], [10, "%", "PRIMA DESDE"], [24, "meses", "PLAZO MÁXIMO"], [14, "", "DEPARTAMENTOS POR CUBRIR"]];
+  targets = [95, 4, 49, 3, 14];
+  STAT_ICONS = ["M4 5h16v15H4zM4 10h16M8 3v4M16 3v4M8 14h3v3H8z","M4 4h16v16H4zM8 12l3 3 5-6","M3 6h18v12H3zM9.5 12a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0 -5 0M6 9v6M18 9v6","M3 5h18v14H3zM6.5 10.5a2 2 0 1 0 4 0a2 2 0 1 0 -4 0M5.5 16c.5-2 5.5-2 6 0M14 10h4M14 14h4","M12 21s-7-6.5-7-11.5a7 7 0 0 1 14 0C19 14.5 12 21 12 21zM9.5 9.5a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0 -5 0"];
+  suffix = ["%", " de cada 5", "", "", " + 24/7"];
+  prefix = ["", "", "$", "", ""];
+
+  NOS_CH = [
+      { a: "Tú: ", b: "forjando nuevos caminos", p: ["En AVANZA creemos que una moto es mucho más que un vehículo: es tiempo con tu familia, es llegar a tiempo al trabajo, es tu herramienta, es libertad. Por eso existimos: para que estrenar tu moto deje de ser un sueño lejano y se convierta en tu próximo paso."] },
+      { a: "100% salvadoreños, ", b: "100% comprometidos contigo", p: ["Somos una empresa salvadoreña y conocemos de cerca la realidad de nuestra gente: sabemos de donde venimos, el trayecto, las jornadas largas, el esfuerzo diario y las ganas de salir adelante. Trabajamos aquí, con y para los salvadoreños, porque creemos en el potencial de nuestro país y en cada persona que lo mueve."] },
+      { a: "Queremos que tu vida ", b: "avance", p: ["Nuestra meta es sencilla: hacer tu vida mejor. Una buena moto te abre puertas. Te permite llevar a tus hijos a la escuela, llegar a tu trabajo sin depender de nadie, salir a pasear el fin de semana con tu pareja o simplemente disfrutar del camino en tu tiempo libre.", "Por eso queremos democratizar el acceso a una buena moto, para que puedas cumplir con tus responsabilidades, crecer en tu vida profesional y familiar y hacer muchos recuerdos en el camino."] }
+    ];
+  NOS_VAL = [
+      { t: "Sencillos.", d: "Sin trámites ni lenguaje complicado; porque de entrada, no lo es. Te explicamos todo con claridad." },
+      { t: "Rápidos.", d: "Sabemos que tu tiempo vale y que ademas muchas veces, la vida pasa y hay mas urgencia. Te damos respuesta el mismo dia." },
+      { t: "Transparentes.", d: "Desde el primer día sabes cuánto pagas, cuándo y por qué. Sin sorpresas. Te recordamos los dias antes y te confirmamos cada pago para tu tranquilidad." },
+      { t: "Flexibles.", d: "Esto es lo que más nos importa. Entendemos que cada cliente vive una realidad económica distinta, por eso no creemos en planes únicos. Diseñamos contigo cuotas y frecuencias de pago que se adapten a tus ingresos y a tu forma de vivir." }
+    ];
+  NOS_ROT = ["es libertad","es tiempo con tu familia","es independencia","es estar donde quieres estar","es abrir más puertas","es llegar más lejos","es tener más oportunidades","es moverte sin límites","es más tiempo para los tuyos","es poder trabajar donde quieras"];
+  NOS_STOPS = ["MÁS GENTE,\nMÁS OPORTUNIDADES", "NUESTRO\nCOMPROMISO", "TU VIDA"];
+  componentDidMount() {
+    this.zoomFit = () => { const z = Math.max(1, Math.min(1.6, window.innerWidth / 1440)); document.documentElement.style.zoom = z > 1.01 ? String(z.toFixed(3)) : ""; };
+    this.zoomFit(); window.addEventListener("resize", this.zoomFit);
+    this.advAuto();
+    this.onMob = () => { const mob = window.innerWidth < 900; if (mob !== this.state.mob) this.setState({ mob, menuOpen: false }); };
+    this.onMob(); window.addEventListener('resize', this.onMob); requestAnimationFrame(this.onMob); setTimeout(this.onMob, 300); window.addEventListener('load', this.onMob); if (window.ResizeObserver) { this.mobRO = new ResizeObserver(this.onMob); this.mobRO.observe(document.documentElement); }
+    setTimeout(() => document.querySelectorAll('video').forEach(v => { v.muted = true; v.loop = true; v.play().catch(() => {}); }), 400);
+    this.nosIv = setInterval(() => this.setState(s => ({ nosRot: ((s.nosRot || 0) + 1) % this.NOS_ROT.length })), 2600);
+    const hv = () => { const v = document.querySelector('video[src$=".mp4"]'); if (!v) return false; v.muted = true; v.defaultMuted = true; v.loop = true; v.playsInline = true; v.addEventListener('ended', () => { v.currentTime = 0; v.play().catch(() => {}); }); v.setAttribute('muted', ''); v.play().catch(() => {}); return true; };
+    if (!hv()) setTimeout(hv, 300);
+    const W = ["llegar al trabajo", "llevar a tu hijo al colegio", "aprovechar más tu día", "ir al supermercado", "hacer más entregas", "trabajar por tu cuenta", "llevar a tu familia a pasear", "estar donde te necesiten", "conocer lugares nuevos", "ir a donde quieras", "hacer crecer más tu negocio", "visitar a tus papás"];
+    this.heroW = W;
+    this.heroT = setInterval(() => this.setState(st => ({ heroI: ((st.heroI || 0) + 1) % W.length })), 3000);
+    this.heroMeasure = () => {
+      const el = document.getElementById("avz-h1"); if (!el) return;
+      const c = el.cloneNode(false);
+      c.removeAttribute("id");
+      Object.assign(c.style, { position: "absolute", visibility: "hidden", left: "0", top: "0", minHeight: "0", width: el.clientWidth + "px", pointerEvents: "none" });
+      el.parentNode.appendChild(c);
+      let mx = 0;
+      for (const w of W) { c.innerHTML = "Llévate tu moto<br>hoy para " + w; mx = Math.max(mx, c.offsetHeight); }
+      c.remove();
+      if (mx && mx + "px" !== this.state.heroMinH) this.setState({ heroMinH: mx + "px" });
+    };
+    this.heroMeasure();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(this.heroMeasure);
+    window.addEventListener("resize", this.heroMeasure); window.addEventListener("load", this.heroMeasure); setTimeout(this.heroMeasure, 800); setTimeout(this.heroMeasure, 2500);
+    if (window.ResizeObserver) { this.h1RO = new ResizeObserver(() => this.heroMeasure()); const h1 = document.getElementById("avz-h1"); if (h1) this.h1RO.observe(h1.parentNode); }
+    const hdr = document.getElementById("avz-hdr");
+    if (hdr && window.ResizeObserver) {
+      this.hdrRo = new ResizeObserver(([en]) => { const n = en.contentRect.width < 1110; if (n !== this.state.hdrNarrow) this.setState({ hdrNarrow: n }); });
+      this.hdrRo.observe(hdr);
+    }
+    const prEl = document.getElementById("proceso");
+    if (prEl && window.ResizeObserver) {
+      this.prRo = new ResizeObserver(([en]) => { const n = en.contentRect.width < 720; if (n !== this.state.prNarrow) this.setState({ prNarrow: n }); });
+      this.prRo.observe(prEl);
+    }
+    this.prT = setInterval(() => { if (!this.state.prPaused && !this.state.prHover) this.setState((s) => ({ prStep: (s.prStep + 1) % 4 })); }, 4200);
+    this.alT1 = setInterval(() => this.setState((s) => ({ alFlow: (s.alFlow + 1) % 5 })), 1700);
+    this.alT2 = setInterval(() => { if (!this.alPinned) this.setState((s) => ({ alStep: (s.alStep + 1) % 4 })); }, 2800);
+    this.alIo = new IntersectionObserver((es) => es.forEach((en) => {
+      if (!en.isIntersecting) return;
+      if (en.target.id === "al-cifras") { if (!this.state.alCounted) { this.setState({ alCounted: true }); this.alCount(); } }
+      else { en.target.removeAttribute("data-reveal-pending"); en.target.style.opacity = "1"; en.target.style.transform = "none"; }
+      this.alIo.unobserve(en.target);
+    }), { threshold: 0.2 });
+    const alCheck = () => {
+      const vh = window.innerHeight || 800;
+      document.querySelectorAll("#aliados [data-reveal-pending]").forEach((el) => {
+        if (el.getBoundingClientRect().top < vh * 0.92) { el.removeAttribute("data-reveal-pending"); el.style.opacity = "1"; el.style.transform = "none"; }
+      });
+      const c = document.getElementById("al-cifras");
+      if (c && !this.state.alCounted && c.getBoundingClientRect().top < vh * 0.9) { this.setState({ alCounted: true }); this.alCount(); }
+    };
+    this.alCheck = alCheck;
+    window.addEventListener("scroll", alCheck, true);
+    window.addEventListener("resize", alCheck);
+    const prep = () => requestAnimationFrame(() => {
+      const vh = window.innerHeight || 800;
+      document.querySelectorAll("#aliados [data-reveal]").forEach((el, i) => {
+        if (el.getBoundingClientRect().top < vh) return;
+        el.setAttribute("data-reveal-pending", "1");
+        el.style.opacity = "0"; el.style.transform = "translateY(28px)";
+        el.style.transition = `opacity .7s ease ${(i % 3) * 0.08}s, transform .7s ease ${(i % 3) * 0.08}s, background .3s, border-color .3s`;
+        this.alIo.observe(el);
+      });
+      const c = document.getElementById("al-cifras"); if (c) this.alIo.observe(c);
+      alCheck();
+    });
+    (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(() => setTimeout(prep, 150));
+    this.io = new IntersectionObserver((es) => {
+      es.forEach((e) => { if (e.isIntersecting && !this.state.counted) { this.setState({ counted: true }); this.run(); } });
+    }, { threshold: 0.3 });
+    const el = document.getElementById("numeros");
+    if (el) this.io.observe(el);
+  }
+  componentWillUnmount() {
+    clearInterval(this.advT);
+    window.removeEventListener('resize', this.onMob); this.mobRO && this.mobRO.disconnect(); clearInterval(this.heroT); window.removeEventListener("resize", this.heroMeasure); if (this.hdrRo) this.hdrRo.disconnect(); if (this.alCheck) { window.removeEventListener("scroll", this.alCheck, true); window.removeEventListener("resize", this.alCheck); } clearInterval(this.prT); if (this.prRo) this.prRo.disconnect(); clearInterval(this.alT1); clearInterval(this.alT2); if (this.alIo) this.alIo.disconnect(); cancelAnimationFrame(this.alRaf); if (this.io) this.io.disconnect(); if (this.raf) cancelAnimationFrame(this.raf); }
+  run() {
+    const t0 = performance.now(), dur = 1100;
+    const tick = (now) => {
+      const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+      this.setState({ shown: this.targets.map((v) => Math.round(v * e)) });
+      if (p < 1) this.raf = requestAnimationFrame(tick);
+    };
+    this.raf = requestAnimationFrame(tick);
+  }
+
+  ADV = [
+    ["acelerador", "ACELERADOR", "Aprobación en menos de 24 horas", "Sabemos que no puedes esperar semanas por una respuesta. Evaluamos tu solicitud de forma ágil y te damos respuesta en menos de un día."],
+    ["pedal", "PEDAL DE CAMBIOS", "Paga a tu ritmo", "Tus cuotas se ajustan a cómo recibes tus ingresos. Si te pagan cada quince días, tu cuota también puede ser quincenal. Así pagar es más fácil y más natural para ti."],
+    ["tanque", "TANQUE", "Tasas que cuidan tu bolsillo", "Para nosotros, una buena tasa no es solo un número atractivo: es la que te permite pagar tu moto sin comprometer el resto de tus gastos. Diseñamos nuestras tasas pensando en tu bienestar financiero, porque cuando a ti te va bien, a nosotros también."],
+    ["trasera", "LLANTA TRASERA", "Prima desde 10% y plazos de hasta 24 meses", "Estrena con una prima accesible y cuotas cómodas, con plazos de hasta 24 meses. Sujeto a análisis de crédito."],
+    ["escape", "ESCAPE", "Adelanta pagos sin castigo", "¿Te sobró un dinero extra? Abona o cancela tu crédito cuando quieras, sin penalidades por pago anticipado."],
+    ["tablero", "TABLERO", "Premiamos tu puntualidad", "Si pagas a tiempo, te lo reconocemos: accede a mejores condiciones en tu próximo financiamiento, ya sea tu siguiente moto o tu primer carro."],
+    ["asiento", "ASIENTO", "Evaluamos tu realidad, no solo tu historial", "Si eres comerciante, repartidor o trabajas por tu cuenta, también puedes estrenar. Conocemos tu esfuerzo y evaluamos tus ingresos de forma justa, aunque no tengas planilla."],
+    ["motor", "MOTOR", "Construye tu historial crediticio", "Cada cuota que pagas a tiempo suma a tu historial. Con AVANZA no solo estrenas moto: también abres la puerta a futuros créditos."],
+    ["faro", "FARO", "Tecnología que te mantiene informado", "Desde tu celular recibes recordatorios de pago, confirmaciones al instante, ofertas exclusivas, la ubicación de tu moto y el estado de tu seguro. Todo en un solo lugar, sin llamadas ni filas."],
+    ["delantera", "LLANTA DELANTERA", "Paga donde te quede cerca", "Paga desde la app, por transferencia o en puntos de pago cercanos a ti. Tú eliges la opción más cómoda."],
+    ["timon", "TIMÓN", "Asesores AVANZA en cada agencia", "Encuentras a nuestro equipo en cada concesionaria aliada, listo para ayudarte a elegir, resolver tus dudas y acompañarte en cada paso. Con AVANZA siempre hablas con una persona real."],
+  ];
+
+  SHORT = ["Aprobación en 24 h", "Cuotas a tu ritmo", "Tasas justas", "Prima desde 10%", "Adelantos sin penalidad", "Premio a puntualidad", "Sin planilla", "Historial crediticio", "Todo en tu celular", "Pagos cerca de ti", "Asesor en agencia"];
+
+  advAuto() { clearInterval(this.advT); this.advT = setInterval(() => { const n = this.ADV.length; this.setState((s) => { const k = (s.adv + 1) % n; return { adv: k, visited: s.visited.includes(k) ? s.visited : s.visited.concat(k) }; }); }, 5000); }
+  selAdv(i) {
+    const n = this.ADV.length, k = ((i % n) + n) % n;
+    this.advAuto();
+    this.setState((s) => ({ adv: k, visited: s.visited.includes(k) ? s.visited : s.visited.concat(k) }));
+  }
+
+  wheel(cx, cy) {
+    const s = [["circle", { cx, cy, r: 88, fill: "solid" }], ["circle", { cx, cy, r: 72 }], ["circle", { cx, cy, r: 30 }], ["circle", { cx, cy, r: 11 }]];
+    for (let a = 0; a < 6; a++) {
+      const t = (a * Math.PI) / 3 + 0.3;
+      s.push(["path", { d: `M${cx + Math.cos(t) * 11} ${cy + Math.sin(t) * 11} L${cx + Math.cos(t + 0.35) * 72} ${cy + Math.sin(t + 0.35) * 72}` }]);
+    }
+    return s;
+  }
+
+  buildMoto() {
+    const e = React.createElement;
+    const BG = "#0C3425", INK = "rgba(255,255,255,.92)", DIM = "rgba(255,255,255,.42)", LAVA = "#E63E00";
+    const GL = "rgba(255,255,255,.55)", TXT = { fontFamily: "'Space Mono', monospace", fontSize: 10.5, letterSpacing: "0.12em" };
+    const act = this.ADV[this.state.adv][0], hov = this.state.hover, visited = this.state.visited;
+    const P = {
+      trasera: { hot: [128, 268], s: this.wheel(200, 340) },
+      delantera: { hot: [712, 268], s: this.wheel(640, 340) },
+      motor: { hot: [410, 298], s: [["path", { d: "M332 252 L470 246 L490 300 L454 352 L354 352 L322 312 Z", fill: "solid" }], ["path", { d: "M362 266 L458 262" }], ["path", { d: "M364 280 L464 276" }], ["path", { d: "M366 294 L470 290" }], ["circle", { cx: 388, cy: 326, r: 14 }]] },
+      escape: { hot: [256, 352], s: [["path", { d: "M468 318 C452 372 410 372 350 364" }], ["path", { d: "M344 346 L226 314 L218 338 L338 378 Z", fill: "solid" }], ["path", { d: "M226 314 L218 338" }]] },
+      pedal: { hot: [438, 398], s: [["circle", { cx: 386, cy: 372, r: 6 }], ["path", { d: "M386 372 L430 384 L434 374" }], ["path", { d: "M380 372 L360 376" }]] },
+      asiento: { hot: [308, 186], s: [["path", { d: "M236 202 C280 188 344 190 400 206 L398 224 C342 224 290 224 244 220 Z", fill: "solid" }]] },
+      tanque: { hot: [476, 196], s: [["path", { d: "M396 214 C412 176 470 160 540 166 L558 188 C542 214 502 234 470 238 L402 238 Z", fill: "solid" }], ["circle", { cx: 498, cy: 174, r: 6 }]] },
+      timon: { hot: [548, 88], s: [["path", { d: "M566 162 L546 134 L516 124" }], ["path", { d: "M548 134 L534 100" }], ["ellipse", { cx: 530, cy: 92, rx: 15, ry: 8, fill: "solid" }]] },
+      acelerador: { hot: [480, 146], s: [["path", { d: "M488 112 L518 118 L515 133 L485 127 Z", fill: "solid" }], ["path", { d: "M500 130 C498 150 512 168 540 176" }]] },
+      tablero: { hot: [602, 110], s: [["path", { d: "M566 132 L598 124 L606 148 L574 156 Z", fill: "solid" }], ["circle", { cx: 586, cy: 140, r: 6 }]] },
+      faro: { hot: [676, 172], s: [["path", { d: "M606 156 C630 150 648 166 648 186 C648 206 630 212 610 204 Z", fill: "solid" }], ["path", { d: "M622 166 C632 174 634 190 626 200" }]] },
+    };
+    const decor = [
+      "M204 346 L360 304 L366 320 L210 360 Z", "M566 170 L470 238 L362 302", "M560 190 L492 300",
+      "M362 302 L248 216", "M404 240 L244 214", "M160 204 L238 200 L246 220 L178 228 Z",
+      "M562 168 L632 336", "M578 164 L648 332", "M588 300 C606 262 672 258 704 288", "M140 262 C160 236 210 228 246 236",
+    ];
+    const shape = (s, i, st) => {
+      const [tag, a] = s, props = Object.assign({}, a, { key: i });
+      props.fill = a.fill === "solid" ? st.fill : "none";
+      props.stroke = st.stroke; props.strokeWidth = st.w; props.strokeLinejoin = "round"; props.strokeLinecap = "round";
+      return e(tag, props);
+    };
+    const kids = [];
+    let minor = ""; for (let k = 10; k < 50; k += 10) minor += `M${k} 0 V50 M0 ${k} H50 `;
+    kids.push(e("defs", { key: "d" },
+      e("pattern", { id: "avz-bp", width: 50, height: 50, patternUnits: "userSpaceOnUse" },
+        e("path", { d: minor, fill: "none", stroke: "rgba(255,255,255,.045)", strokeWidth: 1 }),
+        e("path", { d: "M50 0 L0 0 0 50", fill: "none", stroke: "rgba(255,255,255,.11)", strokeWidth: 1 })),
+      e("marker", { id: "avz-arr", viewBox: "0 0 10 10", refX: 9, refY: 5, markerWidth: 7, markerHeight: 7, orient: "auto-start-reverse" },
+        e("path", { d: "M0 1 L10 5 L0 9", fill: "none", stroke: GL, strokeWidth: 1.4 }))));
+    kids.push(e("rect", { key: "bg", width: 840, height: 500, fill: BG }));
+    kids.push(e("rect", { key: "g", width: 840, height: 500, fill: "url(#avz-bp)" }));
+    kids.push(e("rect", { key: "fr", x: 10, y: 10, width: 820, height: 480, fill: "none", stroke: "rgba(255,255,255,.3)", strokeWidth: 1 }));
+    let ticks = ""; for (let x = 60; x < 830; x += 50) ticks += `M${x} 10 v6 M${x} 490 v-6 `; for (let y = 60; y < 490; y += 50) ticks += `M10 ${y} h6 M830 ${y} h-6 `;
+    kids.push(e("path", { key: "tk", d: ticks, stroke: "rgba(255,255,255,.3)", strokeWidth: 1 }));
+    kids.push(e("text", { key: "lb", x: 26, y: 36, fill: "rgba(255,255,255,.6)", style: TXT }, "VISTA LATERAL · IZQ."));
+    kids.push(e("g", { key: "tb", pointerEvents: "none" },
+      e("rect", { x: 600, y: 10, width: 230, height: 62, fill: BG, stroke: "rgba(255,255,255,.3)", strokeWidth: 1 }),
+      e("path", { d: "M600 38 H830 M740 38 V72", stroke: "rgba(255,255,255,.3)", strokeWidth: 1 }),
+      e("text", { x: 612, y: 29, fill: "#FFFFFF", style: Object.assign({}, TXT, { fontWeight: 700 }) }, "AVANZA · PLANO 01"),
+      e("text", { x: 612, y: 59, fill: "rgba(255,255,255,.6)", style: TXT }, "ESC 1:10 · MM"),
+      e("text", { x: 752, y: 59, fill: "rgba(255,255,255,.6)", style: TXT }, "REV. 2026")));
+    let hatch = ""; for (let x = 84; x < 780; x += 14) hatch += `M${x} 432 l-8 10 `;
+    kids.push(e("path", { key: "gr", d: "M70 430 L780 430", stroke: GL, strokeWidth: 1.2 }));
+    kids.push(e("path", { key: "gh", d: hatch, stroke: "rgba(255,255,255,.22)", strokeWidth: 1 }));
+    const order = ["trasera", "delantera"];
+    const rest = ["motor", "escape", "pedal", "asiento", "tanque", "timon", "acelerador", "tablero", "faro"];
+    const drawPart = (id) => {
+      const i = this.ADV.findIndex((a) => a[0] === id), on = id === act, hv = id === hov;
+      const st = { stroke: on ? LAVA : hv ? "#FFFFFF" : INK, w: on ? 2.8 : hv ? 2.2 : 1.6, fill: BG };
+      return e("g", {
+        key: id, role: "button", tabIndex: 0, "aria-label": this.ADV[i][1] + ": " + this.ADV[i][2],
+        style: { cursor: "pointer", outline: "none", filter: on ? "drop-shadow(0 0 10px rgba(230,62,0,.55))" : "none", transition: "filter .25s" },
+        onClick: () => this.selAdv(i),
+        onKeyDown: (ev) => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); this.selAdv(i); } },
+        onMouseEnter: () => this.setState({ hover: id }), onMouseLeave: () => this.setState({ hover: null }),
+      },
+        P[id].s.map((s, k) => shape(s, "h" + k, { stroke: "transparent", w: 16, fill: "transparent" })).map((el) => React.cloneElement(el, { pointerEvents: "all" })),
+        P[id].s.map((s, k) => shape(s, k, st)));
+    };
+    order.forEach((id) => kids.push(drawPart(id)));
+    [[200, 340], [640, 340]].forEach(([cx, cy], k) => kids.push(e("path", { key: "cl" + k, d: `M${cx - 104} ${cy} H${cx + 104} M${cx} ${cy - 104} V${cy + 100}`, stroke: "rgba(255,255,255,.5)", strokeWidth: 1, strokeDasharray: "14 4 2 4", fill: "none", pointerEvents: "none" })));
+    decor.forEach((d, k) => kids.push(e("path", { key: "dc" + k, d, fill: k === 0 || k === 5 ? BG : "none", stroke: DIM, strokeWidth: 1.4, strokeLinejoin: "round", strokeLinecap: "round", pointerEvents: "none" })));
+    rest.forEach((id) => kids.push(drawPart(id)));
+    const DL = { stroke: GL, strokeWidth: 1, fill: "none" };
+    kids.push(e("g", { key: "dim", pointerEvents: "none" },
+      e("path", Object.assign({ d: "M200 448 V476 M640 448 V476" }, DL)),
+      e("path", Object.assign({ d: "M202 468 H638", markerStart: "url(#avz-arr)", markerEnd: "url(#avz-arr)" }, DL)),
+      e("rect", { x: 362, y: 459, width: 116, height: 18, fill: BG }),
+      e("text", { x: 420, y: 472, textAnchor: "middle", fill: "#FFFFFF", style: TXT }, "EJES 1 340"),
+      e("path", Object.assign({ d: "M548 84 H808 M736 430 H808", strokeDasharray: "3 4" }, DL)),
+      e("path", Object.assign({ d: "M796 86 V428", markerStart: "url(#avz-arr)", markerEnd: "url(#avz-arr)" }, DL)),
+      e("rect", { x: 787, y: 206, width: 18, height: 102, fill: BG }),
+      e("text", { x: 800, y: 257, textAnchor: "middle", fill: "#FFFFFF", transform: "rotate(-90 800 257)", style: TXT }, "ALTO 1 080"),
+      e("path", Object.assign({ d: "M124 384 L92 404 H36" }, DL)),
+      e("text", { x: 36, y: 398, fill: "#FFFFFF", style: TXT }, "Ø 17 IN")));
+    this.ADV.forEach((a, i) => {
+      const id = a[0], [x, y] = P[id].hot, on = id === act, seen = visited.includes(i);
+      const g = [];
+      if (!seen) g.push(e("circle", { key: "p", cx: x, cy: y, r: 13, fill: "none", stroke: LAVA, strokeWidth: 2 },
+        e("animate", { attributeName: "r", values: "13;24", dur: "1.8s", repeatCount: "indefinite" }),
+        e("animate", { attributeName: "opacity", values: "1;0", dur: "1.8s", repeatCount: "indefinite" })));
+      g.push(e("circle", { key: "c", cx: x, cy: y, r: 13, fill: on ? LAVA : seen ? "#C9D8CF" : "#FFFFFF", stroke: BG, strokeWidth: 2 }));
+      g.push(e("text", { key: "t", x, y: y + 4, textAnchor: "middle", fill: on ? "#FFFFFF" : "#0F3D2C", style: { fontFamily: "'Space Mono', monospace", fontSize: 10.5, fontWeight: 700, pointerEvents: "none" } }, String(i + 1).padStart(2, "0")));
+      if (id === hov && !on) g.push(e("text", { key: "l", x, y: y - 22, textAnchor: "middle", fill: "#FFFFFF", stroke: BG, strokeWidth: 5, paintOrder: "stroke", style: { fontFamily: "'Space Mono', monospace", fontSize: 11.5, letterSpacing: "0.1em", pointerEvents: "none" } }, a[1]));
+      kids.push(e("g", { key: "hs" + i, style: { cursor: "pointer" }, onClick: () => this.selAdv(i), onMouseEnter: () => this.setState({ hover: id }), onMouseLeave: () => this.setState({ hover: null }) }, g));
+    });
+    return e("svg", { viewBox: "0 0 840 500", style: { width: "100%", height: "auto", display: "block" }, role: "group", "aria-label": "Moto interactiva: ventajas de Avanza" }, kids);
+  }
+
+  alCount() {
+    const t0 = performance.now();
+    const tick = (now) => {
+      const p = Math.min(1, (now - t0) / 1200), e = 1 - Math.pow(1 - p, 3);
+      this.setState({ alShown: this.AL_STAT.map((s) => Math.round(s[0] * e)) });
+      if (p < 1) this.alRaf = requestAnimationFrame(tick);
+    };
+    this.alRaf = requestAnimationFrame(tick);
+  }
+  alSetField(k, v) { this.setState((s) => ({ alForm: Object.assign({}, s.alForm, { [k]: v }) })); }
+  alGoForm(dept) {
+    this.alSetField("departamento", dept);
+    this.setState({ alOpen: true });
+    const el = document.getElementById("al-form");
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 60, behavior: "smooth" });
+  }
+  alArt(i) {
+    const e = React.createElement, M = "'Space Mono', monospace", C = "'Chakra Petch', sans-serif";
+    const d = (o) => Object.assign({}, o);
+    if (i === 0) {
+      const pill = (k, anim) => e("div", { key: k, style: { width: 78, height: 34, borderRadius: 17, background: "#E9ECE8", display: "flex", alignItems: "center", justifyContent: "center", animation: anim ? `avz-pill 5s ease ${k * 0.35}s infinite` : "none", boxShadow: "0 8px 18px rgba(15,61,44,.10)" } },
+        anim ? e("span", { style: { color: "#FFFFFF", fontSize: 18, fontWeight: 700, opacity: 0, animation: `avz-pillchk 5s ease ${k * 0.35}s infinite` } }, "✓") : null);
+      return e("div", { style: { display: "grid", gap: 12, justifyItems: "center" } },
+        e("div", { style: { display: "flex", gap: 12 } }, [0, 1, 2].map((k) => pill(k, true))),
+        e("div", { style: { display: "flex", gap: 12 } }, [pill(3, true), pill(4, false)]));
+    }
+    if (i === 1) {
+      return e("div", { style: { width: 200, height: 210, marginTop: 50, borderRadius: "26px 26px 0 0", background: "linear-gradient(160deg,#0F3D2C,#14161A 70%)", border: "5px solid #14161A", borderBottom: 0, position: "relative", display: "flex", justifyContent: "center" } },
+        e("div", { style: { position: "absolute", top: 8, width: 56, height: 14, borderRadius: 8, background: "#14161A" } }),
+        e("div", { style: { position: "absolute", top: 34, fontFamily: C, fontWeight: 600, fontSize: 26, color: "rgba(255,255,255,.9)" } }, "9:41"),
+        e("div", { style: { position: "absolute", top: 74, left: -22, right: -22, background: "rgba(255,255,255,.97)", borderRadius: 12, padding: "10px 12px", display: "flex", gap: 10, alignItems: "flex-start", boxShadow: "0 12px 26px rgba(0,0,0,.22)", opacity: 0, animation: "avz-notif 4.5s ease infinite" } },
+          e("span", { style: { width: 28, height: 28, flexShrink: 0, borderRadius: 7, background: "#0F3D2C", color: "#FFFFFF", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: C, fontWeight: 700, fontSize: 14 } }, "A"),
+          e("span", { style: { display: "grid", gap: 2, minWidth: 0 } },
+            e("span", { style: { display: "flex", justifyContent: "space-between", gap: 8, fontFamily: M, fontSize: 9.5, letterSpacing: ".08em", color: "#58585B" } }, e("span", null, "AVANZA"), e("span", null, "AHORA")),
+            e("span", { style: { fontFamily: C, fontWeight: 600, fontSize: 14, color: "#0F3D2C" } }, "Crédito aprobado ✓"),
+            e("span", { style: { fontSize: 11.5, lineHeight: 1.35, color: "#3A3B3E" } }, "Tu cliente ya puede pasar a firmar."))));
+    }
+    if (i === 2) {
+      const av = [["AL", "#C9D8CF", "#0F3D2C"], ["MR", "#0F3D2C", "#FFFFFF"], ["JP", "#E63E00", "#FFFFFF"], ["SC", "#3A3B3E", "#FFFFFF"]];
+      const chip = (name, pos, delay) => e("div", { key: name, style: Object.assign({ position: "absolute", background: "#0F3D2C", color: "#FFFFFF", padding: "8px 14px", display: "flex", alignItems: "center", gap: 8, fontFamily: C, fontWeight: 600, fontSize: 14, boxShadow: "0 10px 22px rgba(15,61,44,.25)", animation: `avz-float 3.2s ease-in-out ${delay}s infinite`, whiteSpace: "nowrap" }, pos) },
+        e("span", { style: { width: 7, height: 7, borderRadius: "50%", background: "#E63E00", animation: "avz-pulse 1.6s infinite" } }), name);
+      return e("div", { style: { position: "absolute", inset: 0 } },
+        e("div", { style: { position: "absolute", left: 22, top: 22, display: "flex" } }, av.map(([t, bg, fg], k) => e("span", { key: t, style: { width: 54, height: 54, borderRadius: "50%", background: bg, color: fg, border: "3px solid #F6F5F2", marginLeft: k ? -14 : 0, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: C, fontWeight: 600, fontSize: 16 } }, t))),
+        e("div", { style: { position: "absolute", right: 18, top: 96, bottom: 12, display: "flex", flexDirection: "column", alignItems: "flex-end", justifyContent: "space-between", gap: 10 } },
+          chip("Ana · Asesora Avanza", { position: "relative" }, 0),
+          chip("En tu piso de venta", { position: "relative", marginRight: 34 }, 1.1)));
+    }
+    if (i === 3) {
+      const rows = ["Cuota 01", "Cuota 02", "Cuota 03"];
+      return e("div", { style: { width: "82%", display: "grid", gap: 8 } },
+        e("span", { style: { fontFamily: M, fontSize: 10, letterSpacing: ".12em", color: "#58585B" } }, "COBRO GESTIONADO POR AVANZA"),
+        rows.map((r, k) => e("div", { key: r, style: { background: "#FFFFFF", border: "1px solid #DDDCD6", padding: "9px 12px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, opacity: 0, animation: `avz-row 5s ease ${k * 0.5}s infinite` } },
+          e("span", { style: { fontFamily: C, fontWeight: 600, fontSize: 14, color: "#14161A" } }, r),
+          e("span", { style: { fontFamily: M, fontSize: 10, letterSpacing: ".08em", color: "#0F3D2C", background: "#C9D8CF", padding: "3px 7px" } }, "✓ RECIBIDA"))));
+    }
+    if (i === 4) {
+      const bars = [0.45, 0.7, 0.55, 0.85, 1];
+      return e("div", { style: { display: "flex", gap: 12, alignItems: "flex-end" } },
+        e("div", { style: { background: "#FFFFFF", border: "1px solid #DDDCD6", padding: "12px 14px", display: "grid", gap: 8 } },
+          e("span", { style: { fontFamily: M, fontSize: 9.5, letterSpacing: ".1em", color: "#58585B" } }, "VENTAS CON CRÉDITO"),
+          e("div", { style: { display: "flex", gap: 5, alignItems: "flex-end", height: 58 } }, bars.map((b, k) => e("span", { key: k, style: { width: 12, height: b * 58, background: k === 4 ? "#E63E00" : "#0F3D2C", transformOrigin: "bottom", animation: `avz-bar 5s ease ${k * 0.12}s infinite` } }))),
+          e("span", { style: { fontFamily: M, fontSize: 9.5, letterSpacing: ".08em", color: "#E63E00" } }, "▲ EN TIEMPO REAL")),
+        e("div", { style: { background: "#0F3D2C", padding: "14px 16px 10px", display: "grid", justifyItems: "center", gap: 2, boxShadow: "0 14px 28px rgba(15,61,44,.25)" } },
+          e("span", { style: { fontFamily: C, fontWeight: 600, fontSize: 13, color: "#FFFFFF" } }, "Solicitud #0231"),
+          e("svg", { width: 150, height: 84, viewBox: "0 0 180 100" },
+            e("path", { d: "M10 92 A80 80 0 0 1 170 92", fill: "none", stroke: "rgba(255,255,255,.18)", strokeWidth: 14 }),
+            e("path", { d: "M10 92 A80 80 0 0 1 170 92", fill: "none", stroke: "#C9D8CF", strokeWidth: 14, strokeDasharray: 251, strokeDashoffset: 251, style: { animation: "avz-gauge 5s ease infinite" } }),
+            e("text", { x: 90, y: 86, textAnchor: "middle", fill: "#FFFFFF", style: { fontFamily: C, fontWeight: 600, fontSize: 18 } }, "Aprobada"))));
+    }
+    const cells = Array.from({ length: 12 }, (_, k) => k);
+    return e("div", { style: { display: "grid", gap: 12, justifyItems: "center", position: "relative" } },
+      e("span", { style: { fontFamily: M, fontSize: 10, letterSpacing: ".12em", color: "#58585B" } }, "CUOTAS PAGADAS A TIEMPO"),
+      e("div", { style: { display: "grid", gridTemplateColumns: "repeat(6, 26px)", gap: 6 } }, cells.map((k) => e("span", { key: k, style: { width: 26, height: 26, background: "#E9ECE8", animation: `avz-cell 6s ease ${k * 0.22}s infinite` } }))),
+      e("span", { style: { background: "#E63E00", color: "#FFFFFF", padding: "7px 12px", fontFamily: C, fontWeight: 600, fontSize: 14, opacity: 0, animation: "avz-badge 6s ease infinite", boxShadow: "0 10px 20px rgba(230,62,0,.25)" } }, "▲ Mejores condiciones"));
+  }
+
+  prVals(steps) {
+    const e = React.createElement, S = this.state, k = S.prStep, M = "'Space Mono', monospace", C = "'Chakra Petch', sans-serif";
+    const N = 26;
+    const go = (i) => this.setState({ prStep: ((i % 4) + 4) % 4 });
+    const prArrows = steps.map((st, i) => {
+      const on = i === k, done = i < k;
+      const nar = S.prNarrow, D = 18;
+      if (nar) {
+        const clipV = i === 0 ? `polygon(0 0, 100% 0, 100% calc(100% - ${D}px), 50% 100%, 0 calc(100% - ${D}px))`
+          : `polygon(0 0, 50% ${D}px, 100% 0, 100% calc(100% - ${D}px), 50% 100%, 0 calc(100% - ${D}px))`;
+        return { n: st.n, title: st.title, meta: st.meta, aria: "Paso " + st.n + ": " + st.title, go: () => go(i), clip: clipV,
+          ml: "0px", mt: i === 0 ? "0px" : "-10px", h: "auto", pad: (i === 0 ? "18px" : "32px") + " 22px 30px 22px",
+          bg: on ? "#0F3D2C" : done ? "#C9D8CF" : "#FFFFFF", fg: on ? "#FFFFFF" : "#0F3D2C",
+          nc: on ? "#E63E00" : done ? "#0F3D2C" : "#C9D8CF", mc: on ? "#C9D8CF" : "#58585B", tf: "none" };
+      }
+      const clip = i === 0 ? `polygon(0 0, calc(100% - ${N}px) 0, 100% 50%, calc(100% - ${N}px) 100%, 0 100%)`
+        : `polygon(0 0, calc(100% - ${N}px) 0, 100% 50%, calc(100% - ${N}px) 100%, 0 100%, ${N}px 50%)`;
+      return { n: st.n, title: st.title, meta: st.meta, aria: "Paso " + st.n + ": " + st.title, go: () => go(i), clip,
+        ml: i === 0 ? "0px" : "-18px", mt: "0px", h: "112px", pad: "0 44px 0 " + (i === 0 ? "26px" : "48px"),
+        bg: on ? "#0F3D2C" : done ? "#C9D8CF" : "#FFFFFF", fg: on ? "#FFFFFF" : "#0F3D2C",
+        nc: on ? "#E63E00" : done ? "#0F3D2C" : "#C9D8CF", mc: on ? "#C9D8CF" : "#58585B", tf: on ? "translateY(-4px)" : "none" };
+    });
+    const paused = S.prPaused || S.prHover;
+    const prTimer = e("div", { key: "t" + k + (paused ? "p" : ""), style: { position: "absolute", left: 0, top: 0, bottom: 0, background: "#E63E00", width: paused ? "100%" : 0, opacity: paused ? 0.25 : 1, animation: paused ? "none" : "avz-fillx 4.2s linear forwards" } });
+    const card = (w, kids, extra) => e("div", { style: Object.assign({ background: "#FFFFFF", color: "#14161A", padding: "12px 14px", width: w, boxShadow: "0 16px 30px rgba(0,0,0,.25)" }, extra || {}) }, kids);
+    const tag = (t, c) => e("span", { style: { fontFamily: M, fontSize: 10, letterSpacing: ".1em", color: c || "#58585B" } }, t);
+    const moto = (body, w, spin, sporty) => e("svg", { width: w, height: w * 0.6, viewBox: "0 0 120 72", style: { display: "block", overflow: "visible" } },
+      [26, 94].map(cx => e("g", { key: cx, style: { transformOrigin: cx + "px 54px", animation: spin ? "avz-wheel .5s linear infinite" : "none" } },
+        e("circle", { cx, cy: 54, r: 14, fill: "#14161A" }), e("circle", { cx, cy: 54, r: 6.5, fill: "#DDDCD6" }), e("path", { d: `M${cx - 13} 54 H${cx + 13} M${cx} 41 V67`, stroke: "#58585B", strokeWidth: 1.5 }))),
+      e("path", { key: "fr", d: "M26 54 L50 34 L76 36 L94 54", fill: "none", stroke: "#3A3B3E", strokeWidth: 4, strokeLinejoin: "round" }),
+      e("path", { key: "eng", d: "M48 40 H70 L68 56 H52 Z", fill: "#58585B" }),
+      e("path", { key: "ex", d: "M52 56 C44 60 34 60 18 50", fill: "none", stroke: "#8A8B8E", strokeWidth: 3.5, strokeLinecap: "round" }),
+      e("path", { key: "tk", d: sporty ? "M46 34 C52 18 78 16 92 28 L84 38 L50 38 Z" : "M50 32 C54 22 70 20 80 26 L78 36 L52 36 Z", fill: body }),
+      e("path", { key: "st", d: sporty ? "M22 32 L48 30 L50 36 L26 38 Z" : "M24 30 C32 26 44 26 52 30 L50 35 L28 35 Z", fill: "#14161A" }),
+      e("path", { key: "tl", d: "M14 30 L26 30 L30 38 L18 38 Z", fill: body }),
+      e("path", { key: "fk", d: "M94 54 L82 22", stroke: "#3A3B3E", strokeWidth: 3.5 }),
+      e("path", { key: "hb", d: "M80 20 L72 14 M80 20 L88 16", stroke: "#14161A", strokeWidth: 3, strokeLinecap: "round" }),
+      e("path", { key: "hl", d: sporty ? "M88 24 L100 30 L90 36 Z" : "M86 24 C94 24 96 32 88 34 Z", fill: "#F2C94C" }));
+    let art;
+    if (k === 0) {
+      art = e("div", { key: "a0", style: { display: "flex", gap: 10, animation: "avz-q .5s ease" } }, [["HERO HUNK 160R", "assets/moto-hero-hunk160r.png"], ["YAMAHA XTZ 125", "assets/moto-yamaha-xtz125.png"], ["HONDA CB125 HORNET", "assets/moto-honda-cb125-hornet.webp"]].map(([m, src], i) =>
+        card(130, [e("div", { key: "p", style: { height: 66, background: "#FFFFFF", marginBottom: 10, overflow: "hidden" } }, e("img", { src, alt: m, loading: "lazy", style: { width: "100%", height: "100%", objectFit: "contain", display: "block" } })), tag(m), e("div", { key: "c", style: { fontFamily: C, fontWeight: 600, fontSize: 15, color: "#0F3D2C", marginTop: 4 } }, i === 0 ? "✓ Elegida" : "Ver")],
+          { outline: i === 0 ? "3px solid #E63E00" : "none", transform: i === 0 ? "translateY(-8px)" : "none", animation: `avz-float 3s ease-in-out ${i * 0.4}s infinite` })));
+    } else if (k === 1) {
+      art = e("div", { key: "a1", style: { display: "grid", gap: 8, width: 250 } }, ["DUI", "Comprobante de ingresos", "Comprobante de residencia"].map((d, i) =>
+        e("div", { key: d, style: { background: "#FFFFFF", padding: "12px 14px", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10, opacity: 0, animation: `avz-q .5s ease ${0.2 + i * 0.45}s forwards` } },
+          e("span", { style: { fontFamily: C, fontWeight: 600, fontSize: 15, color: "#0F3D2C" } }, d),
+          e("span", { style: { fontFamily: M, fontSize: 10, letterSpacing: ".08em", color: "#FFFFFF", background: "#0F3D2C", padding: "3px 7px" } }, "✓ FOTO"))));
+    } else if (k === 2) {
+      art = e("div", { key: "a2", style: { display: "grid", justifyItems: "center", gap: 14 } },
+        e("svg", { width: 190, height: 106, viewBox: "0 0 180 100" },
+          e("path", { d: "M10 92 A80 80 0 0 1 170 92", fill: "none", stroke: "rgba(255,255,255,.18)", strokeWidth: 14 }),
+          e("path", { d: "M10 92 A80 80 0 0 1 170 92", fill: "none", stroke: "#E63E00", strokeWidth: 14, strokeDasharray: 251, strokeDashoffset: 251, style: { animation: "avz-gauge 4.2s ease forwards" } }),
+          e("text", { x: 90, y: 84, textAnchor: "middle", fill: "#FFFFFF", style: { fontFamily: C, fontWeight: 600, fontSize: 20 } }, "Analizando")),
+        card("auto", [e("span", { key: "a", style: { fontFamily: C, fontWeight: 600, fontSize: 16, color: "#0F3D2C" } }, "Crédito aprobado ✓")], { opacity: 0, animation: "avz-q .5s ease 1.9s forwards" }));
+    } else {
+      art = e("div", { key: "a3", style: { display: "grid", justifyItems: "center", gap: 12 } },
+        e("div", { style: { position: "relative", width: 300, height: 124, overflow: "hidden" } },
+          e("div", { style: { position: "absolute", left: 0, bottom: 10, width: 112, height: 100, background: "#FFFFFF", boxShadow: "0 16px 30px rgba(0,0,0,.25)" } },
+            e("div", { style: { background: "#E63E00", color: "#FFFFFF", fontFamily: M, fontSize: 9.5, letterSpacing: ".14em", textAlign: "center", padding: "6px 0" } }, "AGENCIA"),
+            e("div", { style: { position: "absolute", left: 14, right: 14, bottom: 0, height: 58, background: "repeating-linear-gradient(0deg,#C9D8CF 0 5px,#B7C9BE 5px 7px)" } })),
+          e("div", { style: { position: "absolute", left: 0, right: 0, bottom: 8, height: 2, background: "rgba(255,255,255,.35)" } }),
+          e("div", { style: { position: "absolute", left: 20, bottom: 10, animation: "avz-rideout 2.8s cubic-bezier(.5,0,.4,1) infinite" } }, moto("#E63E00", 84, true, false))),
+        e("span", { style: { fontFamily: C, fontWeight: 600, fontSize: 26, color: "#FFFFFF", animation: "avz-q .5s ease" } }, "¡Sal rodando!"),
+        tag("MOTO A TU NOMBRE · DÍA 1", "#C9D8CF"));
+    }
+    return {
+      prArrows, prDir: S.prNarrow ? "column" : "row", pr: steps[k], prTimer, prArt: art, prIsLast: k === 3,
+      prNextLabel: k === 3 ? "Volver al inicio" : "Siguiente paso",
+      prPrev: () => go(k - 1), prNext: () => go(k + 1),
+      prToggle: () => this.setState((s) => ({ prPaused: !s.prPaused })),
+      prPlayLabel: S.prPaused ? "▶ REPRODUCIR" : "❚❚ PAUSAR",
+      prHoverOn: () => this.setState({ prHover: true }), prHoverOff: () => this.setState({ prHover: false }),
+    };
+  }
+
+  alFormVals() {
+    const S = this.state, f = S.alForm, q = S.alQ;
+    const KEYS = ["agencia", "tipo", "web", "contacto", "financiera", "ventas", "financiadas"];
+    const OPTS = { 1: ["Dealer marca única", "Dealer multimarca", "Grupo automotriz", "Tienda por departamentos"], 4: ["Sí", "No"],
+      5: ["1 a 10 motos", "11 a 30 motos", "31 a 60 motos", "Más de 60 motos"], 6: ["Menos del 25%", "Del 25% al 50%", "Del 51% al 75%", "Más del 75%"] };
+    const ok = [!!f.agencia.trim(), !!f.tipo, true, !!(f.nombre.trim() && f.contacto.trim()), !!f.financiera, !!f.ventas, !!f.financiadas][q];
+    const focus = () => setTimeout(() => { const el = document.querySelector("#al-form form input"); if (el) el.focus({ preventScroll: true }); }, 60);
+    const send = () => {
+      const body = ["Agencia: " + f.agencia, "Tipo de empresa: " + f.tipo, "Página web: " + (f.web || "—"), "Contacto: " + f.nombre + " · " + f.contacto,
+        "Financiera de casa: " + f.financiera, "Ventas mensuales: " + f.ventas, "Ventas financiadas: " + f.financiadas, "Departamento: " + (f.departamento || "—")].join("\n");
+      window.open("mailto:info@avanza.com?subject=" + encodeURIComponent("Solicitud de agencia aliada — " + f.agencia) + "&body=" + encodeURIComponent(body), "_blank");
+      this.setState({ alSent: true });
+    };
+    const next = () => { if (!ok) return; if (q === 6) return send(); this.setState({ alQ: q + 1 }); focus(); };
+    const on = {};
+    ["agencia", "web", "nombre", "contacto"].forEach((k) => { on[k] = (ev) => this.alSetField(k, ev.target.value); });
+    const key = KEYS[q];
+    const alOpts = (OPTS[q] || []).map((label) => {
+      const sel = f[key] === label;
+      return { label, mark: sel ? "✓" : "", bg: sel ? "#0F3D2C" : "#FFFFFF", fg: sel ? "#FFFFFF" : "#0F3D2C", bd: sel ? "#0F3D2C" : "#DDDCD6",
+        pick: () => { this.alSetField(key, label); if (q < 6) setTimeout(() => this.setState((s) => (s.alQ === q ? { alQ: q + 1 } : null)), 260); } };
+    });
+    const out = { alOpts, alOn: on, alQNum: String(q + 1).padStart(2, "0"), alQPct: Math.round(((q + (ok ? 1 : 0)) / 7) * 100) + "%",
+      alBackOp: q === 0 ? 0.3 : 1, alNextOp: ok ? 1 : 0.45, alNextLabel: q === 6 ? "Enviar solicitud" : q === 2 && !f.web ? "Omitir" : "Siguiente",
+      alHasDept: !!f.departamento,
+      alShowIntro: !S.alOpen && !S.alSent, alShowForm: S.alOpen && !S.alSent,
+      alOpenForm: () => this.setState({ alOpen: true }),
+      alNext: (ev) => { ev.preventDefault(); next(); },
+      alBack: () => { if (q > 0) this.setState({ alQ: q - 1 }); },
+      alReset: () => this.setState({ alSent: false, alOpen: false, alQ: 0, alForm: { agencia: "", tipo: "", web: "", nombre: "", contacto: "", financiera: "", ventas: "", financiadas: "", departamento: "" } }) };
+    for (let k = 0; k < 7; k++) out["alQ" + k] = q === k;
+    return out;
+  }
+
+  alVals() {
+    const S = this.state;
+    const flowSteps = [
+      ["Tu cliente elige su moto en tu agencia", "EN PISO"],
+      ["El asesor Avanza envía la solicitud", "5 MIN"],
+      ["Respuesta al cliente", "< 24 H"],
+      ["Firma, prima y entrega de la moto", "LISTO"],
+    ];
+    const flow = flowSteps.map(([label, tag], i) => {
+      const done = i < S.alFlow, cur = i === S.alFlow;
+      return { label, tag, mark: done ? "✓" : String(i + 1).padStart(2, "0"),
+        bg: done ? "#0F3D2C" : cur ? "#E63E00" : "#E9ECE8", fg: done || cur ? "#FFFFFF" : "#58585B",
+        op: done || cur ? 1 : 0.5, fw: cur ? 700 : 500, tc: cur ? "#E63E00" : "#58585B" };
+    });
+    const mins = 9 * 60 + 12 + S.alFlow * 47;
+    const clock = String(Math.floor(mins / 60)).padStart(2, "0") + ":" + String(mins % 60).padStart(2, "0");
+
+    const B = [
+      ["Cierra ventas que hoy se pierden", "Comerciantes, repartidores y trabajadores por cuenta propia también pueden comprar. Evaluamos ingresos reales, aunque el cliente no tenga planilla."],
+      ["Respuesta en menos de 24 horas", "Tu cliente no se va a pensarlo. La solicitud sale desde tu agencia y la respuesta llega en menos de un día."],
+      ["Un asesor Avanza en tu piso", "Nuestro equipo acompaña a tus vendedores: explica el crédito, recibe documentos y resuelve dudas del cliente en tu agencia."],
+      ["Tú te enfocas en vender", "Avanza se encarga del análisis, los documentos del crédito y el cobro. Tu equipo no tiene que perseguir pagos."],
+      ["Tecnología de punta", "Recibimos, analizamos y aprobamos solicitudes 100% digitales, para que tus clientes estrenen su moto antes y sin fricción. Nuestra tecnología trabaja para tu agencia: te ayuda a vender más, a más personas."],
+      ["Clientes que regresan", "Premiamos la puntualidad con mejores condiciones en el siguiente financiamiento. Cuando tu cliente quiera su próxima moto, vuelve a tu agencia."],
+    ];
+    const benefits = B.map(([title, body], i) => {
+      const on = S.hoverB === i;
+      return { n: String(i + 1).padStart(2, "0"), title, body,
+        bg: "#FFFFFF", bd: on ? "#0F3D2C" : "#DDDCD6", tc: "#0F3D2C", pc: "#3A3B3E", nc: on ? "#E63E00" : "#58585B", bar: on ? "56px" : "26px", art: this.alArt(i),
+        enter: () => this.setState({ hoverB: i }), leave: () => this.setState({ hoverB: -1 }) };
+    });
+
+    const ST = [
+      ["Postula", "Llena la solicitud y un ejecutivo de Avanza te contacta para conocer tu agencia."],
+      ["Firmamos la alianza", "Acordamos condiciones, capacitamos a tu equipo de ventas y te entregamos material para tu punto de venta."],
+      ["Vende con crédito", "Cada cliente interesado aplica desde tu agencia, con el apoyo de un asesor Avanza."],
+      ["Entrega y repite", "Aprobado el crédito, el cliente firma, paga su prima y sale rodando en su moto nueva."],
+    ];
+    const steps = ST.map(([title, body], i) => {
+      const on = i === S.alStep, done = i < S.alStep;
+      return { n: String(i + 1).padStart(2, "0"), title, body,
+        bg: on ? "#FFFFFF" : "transparent", bd: on ? "#DDDCD6" : "transparent",
+        nc: on ? "#E63E00" : done ? "#0F3D2C" : "#C9D8CF", tc: on || done ? "#0F3D2C" : "#58585B", pc: on ? "#3A3B3E" : "#58585B",
+        go: () => { this.alPinned = true; this.setState({ alStep: i }); } };
+    });
+
+    const depts = this.AL_DEPTS.map((name, i) => {
+      const on = S.hoverD === i, sel = S.alForm.departamento === name;
+      return { name, tag: sel ? "▲ TU POSTULACIÓN" : on ? "POSTULAR →" : "CUPO ABIERTO",
+        bg: sel ? "#E63E00" : on ? "#FFFFFF" : "rgba(255,255,255,.04)", bd: sel ? "#E63E00" : on ? "#FFFFFF" : "rgba(255,255,255,.2)",
+        fg: on && !sel ? "#0F3D2C" : "#FFFFFF", tc: sel ? "#FFFFFF" : on ? "#E63E00" : "#C9D8CF",
+        pick: () => this.alGoForm(name), enter: () => this.setState({ hoverD: i }), leave: () => this.setState({ hoverD: -1 }) };
+    });
+
+    const F = [["agencia", "Nombre de la agencia", "text", "Ej. Motos del Centro"], ["contacto", "Tu nombre", "text", "Nombre y apellido"],
+      ["telefono", "Teléfono / WhatsApp", "tel", "7000-0000"], ["correo", "Correo", "email", "tu@agencia.com"]];
+    const fields = F.map(([key, label, type, ph]) => ({ key, label, type, ph, value: S.alForm[key], onChange: (ev) => this.alSetField(key, ev.target.value) }));
+
+    const marquee = ["Aprobación en menos de 24 h", "Prima desde 10%", "Plazos de hasta 24 meses", "Asesor Avanza en tu agencia", "Clientes sin planilla", "Cobro a cargo de Avanza", "Cupos fundadores abiertos"];
+
+        return {
+      alClock: clock, alFlow: flow, alFlowPct: Math.min(100, S.alFlow * 25) + "%",
+      alMarquee: marquee.concat(marquee),
+      alStats: this.AL_STAT.map((s, i) => ({ shown: S.alShown[i], unit: s[1], label: s[2] })),
+      alBenefits: benefits, alSteps: steps, alStepPct: ((S.alStep + 1) * 25) + "%", alDepts: depts, alFields: fields,
+      alDeptNames: this.AL_DEPTS, alForm: S.alForm, alSent: S.alSent, alNotSent: !S.alSent,
+      alOnDept: (ev) => this.alSetField("departamento", ev.target.value),
+      alSubmit: (ev) => {
+        ev.preventDefault();
+        const f = S.alForm;
+        const body = `Agencia: ${f.agencia}\nContacto: ${f.contacto}\nTeléfono: ${f.telefono}\nCorreo: ${f.correo}\nDepartamento: ${f.departamento}`;
+        window.open(`mailto:info@avanza.com?subject=${encodeURIComponent("Solicitud de agencia aliada — " + f.agencia)}&body=${encodeURIComponent(body)}`, "_blank");
+        this.setState({ alSent: true });
+      },
+      alReset: () => this.setState({ alSent: false, alForm: { agencia: "", contacto: "", telefono: "", correo: "", departamento: "" } }),
+    };
+  }
+
+  renderVals() {
+    const hw = this.heroW || ["llegar al trabajo"], hi = this.state.heroI || 0;
+    const heroWipe = React.createElement("span", { key: hi, style: { color: "transparent", WebkitTextFillColor: "transparent", backgroundImage: "linear-gradient(90deg, transparent 0, transparent 29%, #E63E00 33.3%, #E63E00 66.7%, transparent 71%, transparent 100%)", backgroundSize: "300% 100%", backgroundRepeat: "no-repeat", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitBoxDecorationBreak: "slice", boxDecorationBreak: "slice", animation: "avz-wipe 3s cubic-bezier(.7,0,.2,1) both" } }, hw[hi]);
+    const STEPS = [
+        { n: "01", title: "Elige tu moto", body: "Ve a cualquiera de nuestras agencias aliadas y elige la moto que quieres.", meta: "~15 MIN" },
+        { n: "02", title: "Envía 3 documentos", body: "DUI, comprobante de ingresos y residencia. Por foto, desde tu celular.", meta: "~5 MIN" },
+        { n: "03", title: "Aprobación", body: "Respuesta el mismo día en el 95% de los casos. Sin trámites eternos.", meta: "HOY MISMO" },
+        { n: "04", title: "Sal rodando", body: "Firmas, das tu prima y te llevas la moto a tu nombre.", meta: "EL MISMO DÍA" },
+      ];
+    const labels = ["Aprobación mismo día", "Créditos aprobados", "Cuota quincenal desde", "Documentos. Nada más.", "Siempre cerca. Siempre disponibles."];
+    const idx = ["01 · VELOCIDAD", "02 · APROBACIÓN", "03 · PRECIO", "04 · SIMPLICIDAD", "05 · COBERTURA"];
+    const notes = [
+      "Si vienes en la mañana, te aprobamos para el mediodía. Si vienes por la tarde, te aprobamos antes de terminar el día.",
+      "Evaluamos cada caso para encontrar una forma de ayudarte a avanzar. Ofrecemos tasas de aprobación +50% por sobre los bancos.",
+      "El 15 y el último del mes, junto a tu quincena.",
+      "DUI, comprobante de ingresos y residencia. Tres.",
+      "Atención física en los 14 departamentos y canales digitales 24/7.",
+    ];
+    const stats = this.targets.map((v, i) => ({
+      idx: idx[i], label: labels[i], note: notes[i],
+      shown: this.prefix[i] + this.state.shown[i] + (this.suffix[i].length <= 2 ? this.suffix[i] : ""), icon: this.STAT_ICONS[i], suf: this.suffix[i].length > 2 ? this.suffix[i].trim() : "",
+    }));
+
+    const ticker = [
+      { tag: "APROBADA", bike: "Honda 150", place: "San Salvador", when: "hace 4 min" },
+      { tag: "APROBADA", bike: "Yamaha 125", place: "Soyapango", when: "hace 12 min" },
+      { tag: "ENTREGADA", bike: "Suzuki 250", place: "Santa Ana", when: "hace 38 min" },
+      { tag: "APROBADA", bike: "CFMOTO 250", place: "Antiguo Cuscatlán", when: "hace 1 h" },
+      { tag: "ENTREGADA", bike: "Bajaj Pulsar", place: "San Miguel", when: "hace 2 h" },
+      { tag: "APROBADA", bike: "Italika 150", place: "La Libertad", when: "hace 3 h" },
+    ];
+
+    const faqData = [
+      ["¿Qué documentos necesito?", "Tres: DUI vigente, comprobante de ingresos de los últimos dos meses y un recibo que compruebe tu residencia. Los puedes mandar por foto desde tu celular."],
+      ["¿Cuánto tarda la aprobación?", "En el 95% de los casos te damos respuesta el mismo día. Si llegas en la mañana, alrededor de las 9, para las 12 ya tienes respuesta. Si llegas a las 12, te respondemos antes de terminar el día."],
+      ["¿Necesito historial de crédito?", "No es obligatorio. Evaluamos tu capacidad de pago actual, no solo tu récord. Muchos de nuestros clientes financian su primera moto con nosotros."],
+      ["¿Cuánto es el abono inicial?", "Desde el 10% del valor de la moto. Entre más abones al inicio, más baja queda tu cuota quincenal."],
+      ["¿La moto queda a mi nombre?", "Sí, desde el primer día. La moto se registra a tu nombre al momento de la entrega, con el gravamen correspondiente hasta terminar de pagar."],
+      ["¿Puedo pagar antes de tiempo?", "Sí, y sin penalidad. Si quieres liquidar antes de tiempo, pagas solo el saldo pendiente."],
+      ["¿Dónde puedo solicitar el crédito?", "Por WhatsApp, donde uno de nuestros asesores te atiende de inmediato, o en persona en cualquiera de nuestras agencias aliadas, con atención personalizada."],
+      ["¿Tienen promociones?", "Sí, con frecuencia lanzamos promociones especiales. Pregunta en la agencia más cercana o escríbenos por WhatsApp para conocer las ofertas y condiciones vigentes."],
+    ];
+    const open0 = this.state.openFaq === null ? ((this.props.faqStartOpen ?? true) ? 0 : -1) : this.state.openFaq;
+    const faqs = faqData.map(([q, a], i) => ({
+      n: String(i + 1).padStart(2, "0"), q, a,
+      open: open0 === i,
+      sign: open0 === i ? "−" : "+",
+      toggle: () => this.setState(() => ({ openFaq: open0 === i ? -1 : i })),
+    }));
+
+    return {
+      nosRotor: this.NOS_ROT.map((t, i) => ({ t, on: i === (this.state.nosRot || 0) })),
+      nosFill: `calc((100% - 16px) * ${(this.state.nosStop || 0) / 2})`,
+      nosStops: this.NOS_STOPS.map((label, i) => { const st = this.state.nosStop || 0, c = this.NOS_CH[i];
+        return { n: "0" + (i + 1), label, align: i === 0 ? "flex-start" : i === 2 ? "flex-end" : "center", on: i === st,
+          dot: i === st ? "transparent" : (i < st ? "#E63E00" : "#0F3D2C"), dotBorder: i === st ? "transparent" : (i < st ? "#E63E00" : "rgba(255,255,255,.6)"), labelColor: i === st ? "#FFFFFF" : "#9DB5A8",
+          a: c.a, b: c.b, p: c.p, pick: () => this.setState({ nosStop: i }) }; }),
+      nosNextLabel: (() => { const l = this.NOS_STOPS[((this.state.nosStop || 0) + 1) % 3].replace("\n", " "); return l.charAt(0) + l.slice(1).toLowerCase(); })(),
+      nosPrev: () => this.setState(s => ({ nosStop: ((s.nosStop || 0) + 2) % 3 })),
+      nosNext: () => this.setState(s => ({ nosStop: ((s.nosStop || 0) + 1) % 3 })),
+      nosStrips: this.NOS_VAL.map((v, i) => { const on = i === (this.state.nosStrip ?? 3);
+        return { n: "0" + (i + 1), t: v.t, d: v.d, on, off: !on, grow: on ? "5 1 0" : "1 1 0", bg: on ? "#FFFFFF" : "#0F3D2C", fg: on ? "#0F3D2C" : "#FFFFFF", pick: () => this.setState({ nosStrip: i }) }; }), heroMinH: this.state.heroMinH || "3.92em", heroWipe,
+      navFlex: this.state.hdrNarrow ? "1 1 100%" : "1 1 0", navOrder: this.state.hdrNarrow ? 3 : 1,
+      tmCols: this.state.mob ? "repeat(5,78%)" : "repeat(5,minmax(0,1fr))", tmOverflow: this.state.mob ? "auto" : "visible",
+      desktopNav: !this.state.mob, mobNav: !!this.state.mob, menuOpen: !!(this.state.mob && this.state.menuOpen),
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })), closeMenu: () => this.setState({ menuOpen: false }),
+      mb1Top: this.state.menuOpen ? "21px" : "14px", mb1T: this.state.menuOpen ? "rotate(45deg)" : "none", mb1O: 1,
+      mb2Top: "21px", mb2T: "none", mb2O: this.state.menuOpen ? 0 : 1,
+      mb3Top: this.state.menuOpen ? "21px" : "28px", mb3T: this.state.menuOpen ? "rotate(-45deg)" : "none", mb3O: 1,
+      ...this.alVals(),
+      ...this.alFormVals(),
+      stats,
+      faqs,
+      showTicker: this.props.showTicker ?? true,
+      showFloatingCta: this.props.showFloatingCta ?? true,
+      tickerAnim: "avz-marquee " + (this.props.tickerSpeed ?? 44) + "s linear infinite",
+      tickerLoop: ticker.concat(ticker),
+      motoSvg: this.buildMoto(),
+      adv: { n: String(this.state.adv + 1).padStart(2, "0"), part: this.ADV[this.state.adv][1], title: this.ADV[this.state.adv][2], body: this.ADV[this.state.adv][3] },
+      nextName: this.ADV[(this.state.adv + 1) % this.ADV.length][2],
+      visitedCount: this.state.visited.length,
+      prevAdv: () => this.selAdv(this.state.adv - 1),
+      nextAdv: () => this.selAdv(this.state.adv + 1),
+      onVentajaKey: (ev) => { if (ev.key === "ArrowRight") { ev.preventDefault(); this.selAdv(this.state.adv + 1); } if (ev.key === "ArrowLeft") { ev.preventDefault(); this.selAdv(this.state.adv - 1); } },
+      segs: this.ADV.map((a, i) => ({ label: a[1], go: () => this.selAdv(i), bg: i === this.state.adv ? "#E63E00" : this.state.visited.includes(i) ? "#0F3D2C" : "#DDDCD6" })),
+      chips: this.ADV.map((a, i) => {
+        const on = i === this.state.adv, seen = this.state.visited.includes(i);
+        return { n: String(i + 1).padStart(2, "0"), part: this.SHORT[i], go: () => this.selAdv(i), bg: on ? "#E63E00" : "transparent", fg: on ? "#FFFFFF" : seen ? "#FFFFFF" : "#C9D8CF", bd: on ? "#E63E00" : seen ? "rgba(255,255,255,.5)" : "rgba(255,255,255,.2)" };
+      }),
+      testimonials: [
+        { photo: "assets/testimonio-karla.png", photoBg: "url(assets/testimonio-karla.png) center / cover no-repeat", initial: "KV", name: "Karla Vásquez", meta: "SANTA ANA · YAMAHA 125", title: "Era mi primer crédito", quote: "Era mi primer crédito y ya había preguntado en otros lados, pero nadie me lo quería dar. Aquí en Avanza me explicaron todo bien y se acomodaron a lo que yo podía pagar. La cuota me queda justo con mi quincena." },
+        { photo: "assets/testimonio-jose.png", photoBg: "url(assets/testimonio-jose.png) center / cover no-repeat", initial: "JM", name: "José Menéndez", meta: "SAN SALVADOR · HONDA 150", title: "En unas horas ya tenía mi moto", quote: "Llegué como a las 9 de la mañana a preguntar y no pensé que iba a ser tan rápido. Hicimos todo, me aprobaron y al mediodía ya iba saliendo con mi moto. Hasta me fui a almorzar con mi familia para estrenarla." },
+        { photo: "assets/testimonio-mario.png", photoBg: "url(assets/testimonio-mario.png) center / cover no-repeat", initial: "RA", name: "Rodrigo Alfaro", meta: "SAN MIGUEL · SUZUKI 250", title: "La moto se paga sola", quote: "Yo trabajo haciendo entregas, así que la moto prácticamente se paga sola. Pude terminar de pagar el crédito antes de tiempo y no me cobraron nada extra por liquidarlo. Eso me gustó bastante." },
+        { photo: "assets/testimonio-daniela.png", photoBg: "url(assets/testimonio-daniela.png) center / cover no-repeat", initial: "DH", name: "Daniela Hernández", meta: "LA LIBERTAD · BAJAJ 150", title: "Todo fue bien fácil", quote: "La verdad pensé que sacar la moto iba a ser más complicado. Pero me aprobaron rápido, podía ver todo desde el teléfono y cuando tenía alguna pregunta siempre había alguien que me ayudaba. Todo fue bien fácil." },
+        { photo: "assets/testimonio-rodrigo.png", photoBg: "url(assets/testimonio-rodrigo.png) center / cover no-repeat", initial: "MP", name: "Mario Portillo", meta: "SONSONATE · HERO 125", title: "Se acomodaron a mí", quote: "Lo que me gustó es que sí me escucharon. Les expliqué cuánto podía pagar y buscamos una cuota que me quedara cómoda. No fue de que ‘esto es lo que hay’, sino que buscaron cómo acomodarlo a mí." },
+      ],
+      contacts: [
+        { k: "WHATSAPP / TEL.", v: "+(503) 2509-6800" },
+        { k: "CORREO", v: "info@avanza.com" },
+        { k: "HORARIO", v: "Lun–Sáb · 8:00–18:00" },
+        { k: "COBERTURA", v: "Todo El Salvador" },
+      ],
+      steps: STEPS,
+      ...this.prVals(STEPS),
+      brandLoop: (() => { const B = [{ name: "Honda", mh: "58px", src: "https://commons.wikimedia.org/wiki/Special:FilePath/Honda_Logo.svg?width=400" }, { name: "Yamaha", mh: "40px", src: "https://commons.wikimedia.org/wiki/Special:FilePath/Yamaha_Motor_Logo_(full).svg?width=400" }, { name: "Suzuki", mh: "56px", src: "https://commons.wikimedia.org/wiki/Special:FilePath/Suzuki_logo_2.svg?width=400" }, { name: "Bajaj", mh: "36px", src: "https://commons.wikimedia.org/wiki/Special:FilePath/Bajaj_Auto_logo.svg?width=400" }, { name: "Hero", mh: "44px", src: "https://commons.wikimedia.org/wiki/Special:FilePath/Hero_MotoCorp_Logo.svg?width=400" }, { name: "Freedom", mh: "46px", src: "https://motosfreedom.com.sv/wp-content/uploads/2025/06/freedom-logo.webp" }, { name: "Italika", mh: "34px", src: "https://commons.wikimedia.org/wiki/Special:FilePath/Logo_de_Italika.svg?width=400" }, { name: "CFMOTO", mh: "30px", src: "https://commons.wikimedia.org/wiki/Special:FilePath/CFMOTO_Logo.svg?width=400" }, { name: "Keeway", mh: "30px", src: "https://commons.wikimedia.org/wiki/Special:FilePath/Keeway_logo.svg?width=400" }, { name: "TVS", mh: "44px", src: "https://commons.wikimedia.org/wiki/Special:FilePath/TVS_logo.svg?width=400" }, { name: "SYM", mh: "44px", src: "https://commons.wikimedia.org/wiki/Special:FilePath/SYM_logo_of_Sanyang_Motor_20180408.svg?width=400" }]; return B.concat(B); })(),
+    };
+  }
+}
+
+</script>
+</body>
+</html>
